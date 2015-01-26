@@ -1,0 +1,746 @@
+####################################
+# Hungary AI events 32200 - 32299 by Lothos
+####################################
+################
+# Minister of Security Section 32200 - 32209
+#############################################
+event = { # Ferenc Keresztes-Fischer takes power
+	id = 32200
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21100 # Ferenc Keresztes-Fischer
+		NOT = { InCabinet = 21100 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 21100 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 32210 - 32219
+#############################################
+event = { # Gustáv Henneyey takes power
+	id = 32210
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21007 # Gustáv Henneyey
+		NOT = { InCabinet = 21007 }
+		OR = {
+			atwar = no
+			NOT = { minister = 21131 } # Karoly Barthá von Dálnokfalva
+			AND = {
+				atwar = yes
+				NOT = { manpower = 50 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 21007 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Karoly Barthá von Dálnokfalva takes power
+	id = 32211
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21131 # Karoly Barthá von Dálnokfalva
+		NOT = { InCabinet = 21131 }
+		atwar = yes
+		manpower = 50
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 21131 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 32220 - 32229
+#############################################
+event = { # Sandor Csia takes power
+	id = 32220
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21170 # Sandor Csia
+		NOT = { InCabinet = 21170 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 21170 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Rezsö Andorka takes power
+	id = 32221
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21117 # Rezsö Andorka
+		NOT = { InCabinet = 21117 }
+		NOT = { minister = 21170 } # Sandor Csia
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 21117 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 32230 - 32231
+#############################################
+event = { # István Shvoy takes power
+	id = 32230
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21008 # István Shvoy
+		NOT = { InCabinet = 21008 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 21008 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Ferenc Szombathelyi takes power
+	id = 32231
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21148 # Ferenc Szombathelyi
+		NOT = { InCabinet = 21148 }
+		NOT = { minister = 21008 } # István Shvoy
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 21148 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32240 - 32249
+#############################################
+event = { # Lajos Reményi-Schneller takes power
+	id = 32240
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21084 # Lajos Reményi-Schneller
+		NOT = { InCabinet = 21084 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 21084 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Tihamér Fabinyi takes power
+	id = 32241
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21004 # Tihamér Fabinyi
+		NOT = { InCabinet = 21004 }
+		NOT = { minister = 21084 } # Lajos Reményi-Schneller
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 21004 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 32250 - 32259
+#############################################
+event = { # László Tomor takes power
+	id = 32250
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21010 # László Tomor
+		NOT = { InCabinet = 21010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 21010 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sandor Maguarosy takes power
+	id = 32251
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 21158 # Sandor Maguarosy
+		NOT = { InCabinet = 21158 }
+		NOT = { minister = 21010 } # László Tomor
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 21158 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+#############################################
+# Regular AI Events 32260 - 32299
+#	HUNAggressive	= Hungary is taking an offensive approach in the game to rebuild their empire
+#	HUNInvadeYUG	= Hungary is planning to invade Yugoslavia
+#	InvYugoslavia	= Prepare to invade Yugoslavia
+#############################################
+################
+# Hungary sends exp forces to Germany
+#############################################
+event = {
+	id = 32260
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		alliance = { country = GER country = HUN }
+		OR = {
+			ai = GER
+			AND = {
+				war = { country = GER country = SOV }
+				war = { country = HUN country = SOV }
+			}
+			AND = {
+				war = { country = GER country = YUG }
+				war = { country = HUN country = YUG }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 32261
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20011
+		alliance = { country = GER country = HUN }
+		NOT = { exists = YUG }
+		#NOT = { local_flag = HUNAggressive }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 381 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 384 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 387 }
+		command = { type = secedeprovince which = GER value = 388 }
+		command = { type = secedeprovince which = GER value = 389 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		#command = { type = secedeprovince which = GER value = 494 }
+		command = { type = secedeprovince which = GER value = 413 }
+		command = { type = secedeprovince which = GER value = 414 }
+	}
+}
+################
+# Hungary takes advantage of Yugoslavias passiveness
+#############################################
+event = {
+	id = 32262
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = HUN }
+		NOT = { local_flag = HUNAggressive }
+		OR = {
+			event = 29019
+			AND = {
+				alliance = { country = GER country = ITA }
+				NOT = { ispuppet = YUG }
+				NOT = { atwar = YUG }
+				control = { province = 56 data = GER } # Paris
+				OR = {
+					NOT = { exists = GRE }
+					AND = {
+						NOT = { control = { province = 401 data = GRE } } # Athens
+						NOT = { control = { province = 393 data = GRE } }
+						NOT = { control = { province = 395 data = GRE } }
+						NOT = { control = { province = 394 data = GRE } }
+						NOT = { control = { province = 402 data = GRE } }
+						NOT = { control = { province = 403 data = GRE } }
+						NOT = { control = { province = 392 data = GRE } }
+						NOT = { control = { province = 412 data = GRE } }
+						NOT = { control = { province = 411 data = GRE } }
+						NOT = { control = { province = 410 data = GRE } }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/HUN_Claims.ai" }
+	}
+}
+################
+# Hungary lowers neutrality to join Axis
+#############################################
+event = {
+	id = 32263
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			event = 2700 # Soviets claimed Bessarabia
+			event = 2701 # Vienna Diktat
+			event = 2202 # Germans gives Slovakia to Hungary
+			war = { country = GER country = YUG }
+			war = { country = GER country = SOV }
+			AND = {
+				war = { country = GER country = ROM }
+				NOT = { alliance = { country = SOV country = ROM } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}
+################
+# Hungary becomes more aggressive
+#############################################
+event = {
+	id = 32264
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		NOT = { year = 1940 }
+		NOT = { atwar = GER }
+		owned = { province = 476 data = HUN }
+		owned = { province = 478 data = HUN }
+		owned = { province = 477 data = HUN }
+		owned = { province = 490 data = HUN }
+		owned = { province = 499 data = HUN }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HUNAggressive }
+		command = { type = ai which = "switch/HUN_Aggressive.ai" }
+	}
+}
+################
+# Hungary invades Yugoslavia
+#############################################
+event = {
+	id = 32265
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = YUG
+		OR = {
+			AND = {
+				ai = yes
+				ai = GER
+				flag = InvYugoslavia
+				NOT = { war = { country = HUN country = GER } }		
+				NOT = { war = { country = GER country = SOV } }
+				NOT = { war = { country = HUN country = SOV } }
+			}
+			AND = {
+				atwar = no
+				NOT = { atwar = YUG }
+				OR = {
+					atwar = FRA
+					NOT = { guarantee = { country = FRA country = YUG } }
+				}
+				OR = {
+					atwar = ENG
+					NOT = { guarantee = { country = ENG country = YUG } }
+				}
+				OR = {
+					atwar = SOV
+					NOT = { guarantee = { country = SOV country = YUG } }
+				}
+				OR = {
+					atwar = TUR
+					NOT = { guarantee = { country = TUR country = YUG } }
+				}
+				OR = {
+					atwar = GER
+					NOT = { guarantee = { country = GER country = YUG } }
+				}
+				NOT = { alliance = { country = ITA country = YUG } }
+				NOT = { alliance = { country = GER country = YUG } }
+				NOT = { alliance = { country = ENG country = YUG } }
+				NOT = { alliance = { country = FRA country = YUG } }
+				NOT = { alliance = { country = SOV country = YUG } }
+				owned = { province = 493 data = YUG }
+				land_percentage = { country = YUG value = 0.9 }
+				local_flag = HUNAggressive
+				NOT = { local_flag = HUNInvadeYUG }
+				day = 2
+				NOT = { day = 3 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HUNInvadeYUG }
+		command = { type = ai which = "switch/HUN_Invade_YUG_Buildup.ai" }
+		command = { type = ai which = "switch/EXP_0.ai" }
+	}
+}
+event = {
+	id = 32266
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				local_flag = HUNInvadeYUG
+				NOT = { flag = InvYugoslavia }
+				NOT = { local_flag = HUNAggressive }
+			}
+			AND = {
+				local_flag = HUNAggressive
+				local_flag = HUNInvadeYUG
+				day = 1
+				NOT = { day = 2 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = war which = YUG }
+		command = { type = local_clrflag which = HUNInvadeYUG }
+		command = { type = ai which = "switch/HUN_Invade_Release.ai" }
+		command = { type = ai which = "switch/EXP_50.ai" }
+		command = { type = sleepevent which = 32265 }
+	}
+}
+################
+# Hungary invades Romania
+#############################################
+event = {
+	id = 32267
+	random = no 
+	country = HUN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = ROM
+		atwar = no
+		NOT = { atwar = ROM }
+		OR = {
+			atwar = FRA
+			NOT = { guarantee = { country = FRA country = ROM } }
+		}
+		OR = {
+			atwar = ENG
+			NOT = { guarantee = { country = ENG country = ROM } }
+		}
+		OR = {
+			atwar = SOV
+			NOT = { guarantee = { country = SOV country = ROM } }
+		}
+		OR = {
+			atwar = TUR
+			NOT = { guarantee = { country = TUR country = ROM } }
+		}
+		OR = {
+			atwar = GER
+			NOT = { guarantee = { country = GER country = ROM } }
+		}
+		OR = {
+			atwar = POL
+			NOT = { guarantee = { country = POL country = ROM } }		
+		}
+		OR = {
+			atwar = ITA
+			NOT = { guarantee = { country = ITA country = ROM } }
+		}
+		NOT = { alliance = { country = ITA country = YUG } }
+		NOT = { alliance = { country = GER country = YUG } }
+		NOT = { alliance = { country = ENG country = YUG } }
+		NOT = { alliance = { country = FRA country = YUG } }
+		NOT = { alliance = { country = SOV country = YUG } }
+		owned = { province = 496 data = ROM }
+		owned = { province = 498 data = ROM }
+		owned = { province = 428 data = ROM }
+		land_percentage = { country = ROM value = 0.9 }
+		local_flag = HUNAggressive
+		NOT = { local_flag = HUNInvadeYUG }
+		NOT = { local_flag = HUNInvadeROM }
+		day = 2
+		NOT = { day = 3 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HUNInvadeROM }
+		command = { type = ai which = "switch/HUN_Invade_ROM_Buildup.ai" }
+	}
+}
+event = {
+	id = 32268
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		local_flag = HUNAggressive
+		local_flag = HUNInvadeROM
+		day = 1
+		NOT = { day = 2 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = war which = ROM }
+		command = { type = local_clrflag which = HUNInvadeROM }
+		command = { type = ai which = "switch/HUN_Invade_Release.ai" }
+		command = { type = sleepevent which = 32267 }
+	}
+}
+################
+# Hungary sends MORE exp forces to Germany
+#############################################
+event = {
+	id = 32269
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 32260
+		alliance = { country = GER country = HUN }
+		war = { country = GER country = SOV }
+		war = { country = HUN country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_95.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}

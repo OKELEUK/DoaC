@@ -1,0 +1,59 @@
+UIC;Ruling Cabinet - Start;Name;Pool;Ideology;Personality;Loyalty;Picturename;Country
+;Replacements;Name;Pool;Ideology;Personality;Loyalty;Picturename;x
+65601;Head of State;Rama VIII;36;NS;Stern Imperialist;High;M62001;x
+65602;Head of Government;Kuang Abhayavongsa;36;NS;Silent Workhorse;High;M62036;x
+65603;Foreign Minister;Phan Sina;36;NS;Biased Intellectual;High;M541025;x
+65604;Foreign Minister;Thaik Tun;36;NS;Ideological Crusader;High;M563019;x
+65605;Foreign Minister;Phraya Chitnasongkhla;36;NS;Apologetic Clerk;Medium;M62026;x
+65606;Foreign Minister;Phomvihanh Kaysone;36;NS;Iron Fisted Brute;High;M540020;x
+65607;Foreign Minister;Direk Phajayanama;36;NS;Great Compromiser;Low;M62014;x
+65608;Foreign Minister;Krisan Cheda;36;NS;General Staffer;High;M541026;x
+65609;Foreign Minister;Thawon Thamrongnawasawat;36;NS;The Cloak N Dagger Schemer;Medium;M62029;x
+65610;Minister of Armament;H.R.H. Souvanna Rath;36;NS;Administrative Genius;Medium;M540009;x
+65611;Minister of Armament;Phya Burinavarasth;36;NS;Resource Industrialist;Medium;M62059;x
+65612;Minister of Armament;Le Van Hoac;36;NS;Theoretical Scientist;Medium;M542027;x
+65613;Minister of Armament;Direk Phajayanama;36;NS;Laissez-Faire Capitalist;Low;M62014;x
+65614;Minister of Armament;Le Duan;36;NS;Military Entrepreneur;Medium;M542030;x
+65615;Minister of Armament;Aung Gyi;36;NS;Battle Fleet Proponent;Medium;M563024;x
+65616;Minister of Armament;Norodom Phanouvong;36;NS;Submarine Proponent;Medium;M541032;x
+65617;Minister of Armament;Pridi Phanomyong;36;NS;Tank Proponent;Low;M62005;x
+65618;Minister of Armament;H.R.H. Boun Oum;36;NS;Infantry Proponent;High;M540010;x
+65619;Minister of Armament;Phraya Thayarnpikart;36;NS;Air Superiority Proponent;Medium;M62063;x
+65620;Minister of Armament;Nuon Chea;36;NS;Corrupt Kleptocrat;Medium;M541033;x
+65621;Minister of Armament;Phra Vechayanrangsarit;36;NS;Air to Ground Proponent;High;M62010;x
+65622;Minister of Armament;Luang Sinthusongkhramchai;36;NS;Air to Sea Proponent;Medium;M62069;x
+65623;Minister of Armament;Phraya Chalermarkiart;36;NS;Strategic Air Proponent;Medium;M62061;x
+65624;Minister of Security;Sein Lwin;36;NS;Silent Lawyer;Medium;M563029;x
+65625;Minister of Security;Sisowath Youtevong;36;NS;Compassionate Gentleman;Medium;M541005;x
+65626;Minister of Security;Phot Bhahalyodin;36;NS;Crime Fighter;Medium;M62002;x
+65627;Minister of Security;Phomvihanh Kaysone;36;NS;Prince of Terror;Medium;M540029;x
+65628;Minister of Security;Ha Samptasiri;36;NS;Back Stabber;Medium;M62003;x
+65629;Minister of Security;A.N. Ghosal;36;NS;Man of the People;Medium;M563027;x
+65630;Minister of Security;Pol Pot;36;NS;Efficient Sociopath;Medium;M541014;x
+65631;Minister of Security;Aphay Khou;36;NS;Crooked Kleptocrat;Medium;M540034;x
+65632;Head of Military Intelligence;Keneko Toyoji;36;NS;Technical Specialist;Medium;M563034;x
+65633;Head of Military Intelligence;Luang Phibunsongkhram;36;NS;Logistics Specialist;Medium;M62007;x
+65634;Head of Military Intelligence;Phan Huy Quat;36;NS;Political Specialist;Medium;M542039;x
+65635;Head of Military Intelligence;Chuang Chawengsangsongkram;36;NS;Dismal Enigma;Medium;M62081;x
+65636;Head of Military Intelligence;Hem Chandra Mazumdar;36;NS;Industrial Specialist;Medium;M563031;x
+65637;Head of Military Intelligence;Phousannani Kone;36;NS;Naval Intelligence Specialist;Medium;M540031;x
+65638;Chief of Staff;Jiri Wichitsongkram;36;NS;School of Manoeuvre;Low;M62094;x
+65639;Chief of Staff;Aphay Khou;36;NS;School of Fire Support;Medium;M540034;x
+65640;Chief of Staff;Mangkon Phromyothi;36;NS;School of Mass Combat;Medium;M62025;x
+65641;Chief of Staff;Sisowath Monireth;36;NS;School of Defence;Medium;M541046;x
+65642;Chief of Staff;Sindhu Kamalanavin;36;NS;School of Psychology;Low;M62017;x
+65643;Chief of Army;Galon Saw Oo;36;NS;Elastic Defence Doctrine;Medium;M563022;x
+65644;Chief of Army;Vang Pao;36;NS;Static Defence Doctrine;Medium;M540038;x
+65645;Chief of Army;Phraya Chitnasongkhla;36;NS;Decisive Battle Doctrine;Low;M62026;x
+65646;Chief of Army;Savang Vong;36;NS;Armoured Spearhead Doctrine;Medium;M540037;x
+65647;Chief of Army;Thawi Bunyaket;36;NS;Guns and Butter Doctrine;Very High;M62098;x
+65648;Chief of Navy;Hsaya Maung Thaw Ka;36;NS;Open Seas Doctrine;Medium;M563048;x
+65649;Chief of Navy;Ho Tan Quyen;36;NS;Decisive Naval Battle Doctrine;Medium;M542051;x
+65650;Chief of Navy;Sawat Phutianands;36;NS;Power Projection Doctrine;Medium;M62086;x
+65651;Chief of Navy;Thakin Soe Buu;36;NS;Indirect Approach Doctrine;Medium;M563015;x
+65652;Chief of Navy;Hy Weng;36;NS;Base Control Doctrine;Medium;M541041;x
+65653;Chief of Air Force;Phraya Thayarnpikart;36;NS;Air Superiority Doctrine;Medium;M62063;x
+65654;Chief of Air Force;Naw Seng;36;NS;Naval Aviation Doctrine;Medium;M563050;x
+65655;Chief of Air Force;Vang Pao;36;NS;Army Aviation Doctrine;Medium;M540038;x
+65656;Chief of Air Force;Phraya Chalermarkiart;36;NS;Carpet Bombing Doctrine;Medium;M62061;x
+65657;Chief of Air Force;Thaik Tun;36;NS;Vertical Envelopment Doctrine;Medium;M563019;x

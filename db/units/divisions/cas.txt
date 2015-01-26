@@ -1,0 +1,120 @@
+# 0 - Basic Close Air Support Aircraft
+model = {
+	cost 					= 8
+	buildtime	 			= 180
+	manpower 				= 2
+	maxspeed 				= 200
+	defaultorganisation 	= 30
+	morale					= 30
+	surfacedefence			= 4
+	airdefence				= 1
+	softattack				= 12
+	hardattack				= 7
+	airattack				= 1
+	navalattack				= 2
+	supplyconsumption 		= 0.8
+	range					= 250
+	fuelconsumption			= 2.0
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 1 - Improved Close Air Support Aircraft
+model = {
+	cost 					= 9
+	buildtime	 			= 180
+	manpower 				= 2
+	maxspeed 				= 200
+	defaultorganisation 	= 30
+	morale					= 30
+	surfacedefence			= 5
+	airdefence				= 1
+	softattack				= 14
+	hardattack				= 10
+	navalattack				= 5
+	airattack				= 2
+	supplyconsumption 		= 1.0
+	range					= 275
+	fuelconsumption			= 2.0
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 2 - Advanced Close Air Support Aircraft
+model = {
+	cost 					= 11
+	buildtime	 			= 180
+	manpower 				= 2
+	maxspeed 				= 200
+	defaultorganisation 	= 30
+	morale					= 30
+	surfacedefence			= 6
+	airdefence				= 2
+	softattack				= 17
+	hardattack				= 12
+	navalattack				= 7
+	airattack				= 3
+	supplyconsumption 		= 1.2
+	range					= 300
+	fuelconsumption			= 2.2
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 3 - Turbojet Close Air Support Aircraft
+model = {
+	cost 					= 13
+	buildtime	 			= 180
+	manpower 				= 2
+	maxspeed 				= 250
+	defaultorganisation 	= 30
+	morale					= 30
+	surfacedefence			= 7
+	airdefence				= 4
+	softattack				= 19
+	hardattack				= 13
+	navalattack				= 9
+	airattack				= 5
+	supplyconsumption 		= 1.4
+	range					= 300
+	fuelconsumption			= 2.5
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 4 - Improved Turbojet Close Air Support Aircraft
+model = {
+	cost 					= 15
+	buildtime	 			= 180
+	manpower 				= 2
+	maxspeed 				= 250
+	defaultorganisation 			= 30
+	morale					= 30
+	surfacedefence				= 8
+	airdefence				= 5
+	softattack				= 21
+	hardattack				= 14
+	navalattack				= 10
+	airattack				= 5
+	supplyconsumption 			= 1.5
+	range					= 300
+	fuelconsumption				= 2.5
+	upgrade_time_factor 			= 0.5
+	upgrade_cost_factor 			= 1.0
+}
+# 5 - Turbojet Close Air Support Aircraft - Naval Version
+model = {
+	cost 					= 15
+	buildtime	 			= 180
+	manpower 				= 2
+	maxspeed 				= 300
+	defaultorganisation 	= 30
+	morale					= 30
+	surfacedefence			= 7
+	airdefence				= 6
+	softattack				= 21
+	hardattack				= 15
+	airattack				= 5
+	navalattack				= 12
+	supplyconsumption 		= 1.6
+	range					= 300
+	fuelconsumption			= 2.5
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}

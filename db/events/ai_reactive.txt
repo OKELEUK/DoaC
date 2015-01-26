@@ -1,0 +1,889 @@
+#########################################################################
+# Reactive AI Events
+#########################################################################
+#########################################################################
+#  UK's Response to a Naval Arms Race  
+#  by Kevin Mc Carthy
+#  Event series to thwart an ahistorical naval build up: such as Germany's Plan Z
+#  --due to the lag in build times it relies havily on Naval Bombers
+#  --the basis for the >= values are the 1939 Grand Campaign
+#########################################################################
+event = {
+	id = 200000 # event disables the no naval bomber events when naval bomber is discovered 
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 4190 #Naval Bomber
+	}
+
+
+	date = { day = 1 month = may year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = sleepevent which = 200001 } 
+		command = { type = sleepevent which = 200003 }
+		command = { type = sleepevent which = 200005 }
+		command = { type = sleepevent which = 200012 }
+	}
+}
+#########################################################################
+event = {
+	id = 200001
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		OR = {
+			carrier = { country = GER value = 2 } # >= 2 CV
+			carrier = { country = JAP value = 7 } # >= 7 CV	
+			AND = {
+				carrier = { country = GER value = 1 } # >= 1 CV
+				carrier = { country = ITA value = 1 } # >= 1 CV	
+				}
+			}
+			not = { event = 200002 } 
+		}
+
+
+	date = { day = 25 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+}
+
+#########################################################################
+event = {
+	id = 200002
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 4190 #Naval Bomber
+		OR = {
+			carrier = { country = GER value = 2 } # >= 2 CV
+			carrier = { country = JAP value = 7 } # >= 7 CV	
+			AND = {
+				carrier = { country = GER value = 1 } # >= 1 CV
+				carrier = { country = ITA value = 1 } # >= 1 CV	
+				}
+			}
+		}
+
+
+	date = { day = 24 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		}
+	action_b = {
+		ai_chance = 30
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_c = {
+		ai_chance = 10
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = naval_bomber }
+		}
+}
+
+#########################################################################
+event = {
+	id = 200003
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		or = {
+			battleship = { country = GER value = 2 } 
+			battlecruiser = { country = GER value = 4 } 
+			battleship = { country = ITA value = 5 } 
+			battlecruiser = { country = ITA value = 1 }
+			battleship = { country = JAP value = 7 }
+			battlecruiser = { country = JAP value = 5 }
+			AND = {
+				battleship = { country = GER value = 1 }
+				battlecruiser = { country = GER value = 3 }
+				}
+			}
+		not = { event = 200004 } 
+	}
+
+
+	date = { day = 25 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60
+		command = { type = build_division which = battleship }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		}
+	action_b = {
+		ai_chance = 30
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		}
+	action_c = {
+		ai_chance = 10
+		command = { type = build_division which = battleship }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = battleship }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		}
+}
+
+#########################################################################
+event = {
+	id = 200004
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 4190 #Naval Bomber
+		or = {
+			battleship = { country = GER value = 2 } 
+			battlecruiser = { country = GER value = 4 } 
+			battleship = { country = ITA value = 5 } 
+			battlecruiser = { country = ITA value = 1 }
+			battleship = { country = JAP value = 7 }
+			battlecruiser = { country = JAP value = 5 }
+			AND = {
+				battleship = { country = GER value = 1 }
+				battlecruiser = { country = GER value = 3 }
+				}
+			}
+	}
+
+
+	date = { day = 24 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Build another CV TF & Naval Bomber
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = battleship }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		}
+	action_b = {
+		ai_chance = 30 # Build another CV TF
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		}
+	action_c = {
+		ai_chance = 10 # Concentrate on Naval Bombers
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = naval_bomber }
+		}
+}
+
+#########################################################################
+event = {
+	id = 200005
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		OR = {
+			carrier = { country = GER value = 3 } 
+			carrier = { country = JAP value = 8 }
+			carrier = { country = ITA value = 2 }  
+			AND = {
+				carrier = { country = GER value = 2 } 
+				carrier = { country = ITA value = 1 } 	
+				}
+			AND = {
+				carrier = { country = GER value = 1 } 
+				carrier = { country = JAP value = 7 }
+				carrier = { country = ITA value = 1 }  	
+				}
+			}
+			not = { event = 200006
+				} 
+	}
+
+
+	date = { day = 23 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = { # Build another CV TF
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+}
+
+#########################################################################
+event = {
+	id = 200006
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 4190 #Naval Bomber
+		OR = {
+			carrier = { country = GER value = 3 } 
+			carrier = { country = JAP value = 8 }
+			carrier = { country = ITA value = 2 }  
+			AND = {
+				carrier = { country = GER value = 2 } 
+				carrier = { country = ITA value = 1 } 	
+				}
+			AND = {
+				carrier = { country = GER value = 1 } 
+				carrier = { country = JAP value = 7 }
+				carrier = { country = ITA value = 1 }  	
+				}
+			}
+	}
+
+
+	date = { day = 22 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Concentrate on Naval Bombers
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = naval_bomber }
+		}
+	action_b = {
+		ai_chance = 30 # Build another CV TF & Naval Bomer
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_c = {
+		ai_chance = 10 # Build another CV TF
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+}
+#########################################################################
+#  UK's Response to a large GER Naval Bomber Production  
+#  by Kevin Mc Carthy
+#########################################################################
+
+event = {
+	id = 200007
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		naval_bomber = { country = GER value = 3 } # >= 3 naval_bomber
+	}
+
+
+	date = { day = 28 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Protect Scappa Flow
+		command = { type = construct which = radar_station where = 5 value = 1 }
+		command = { type = construct which = flak where = 5 value = 1 }
+		command = { type = build_division which = interceptor }
+
+		}
+	action_b = {
+		ai_chance = 30 # Defend the fleet at sea
+		command = { type = build_division which = light_cruiser }
+		}
+	action_c = { 
+		ai_chance = 10 # Rely on the RAF to protect the major Naval Bases
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 5 value = 1 }
+		command = { type = construct which = flak where = 5 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = flak where = 5 value = 21 }
+		command = { type = construct which = radar_station where = 23 value = 1 }
+		command = { type = construct which = flak where = 5 value = 23 }
+		}
+}
+
+#########################################################################
+event = {
+	id = 200008
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		naval_bomber = { country = GER value = 5 } # >= 5 naval_bomber
+	}
+
+
+	date = { day = 27 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Defend the fleet at sea
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = light_cruiser }
+
+		}
+	action_b = {
+		ai_chance = 30 # Rely on the RAF to protect the major Naval Bases
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 5 value = 1 }
+		command = { type = construct which = flak where = 5 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = flak where = 5 value = 21 }
+		command = { type = construct which = radar_station where = 23 value = 1 }
+		command = { type = construct which = flak where = 5 value = 23 }
+		}
+	action_c = { 
+		ai_chance = 10 # Build another CV TF
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+}
+
+#########################################################################
+#  UK's Response to a large GER Submarine Production  
+#  by Kevin Mc Carthy
+#  Event series to thwart an ahistorical GER Submarine Production
+#########################################################################
+
+event = {
+	id = 200009
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		submarine = { country = GER value = 15 } # >= 15 submarine
+		technology = 4190 #Naval Bomber
+	}
+
+
+	date = { day = 26 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Focus on ASW TF
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_b = {
+		ai_chance = 30 # Coordinated Air/Sea ASW
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_c = { 
+		ai_chance = 10 # Focus on Naval Bombers
+		command = { type = build_division which = naval_bomber }
+		}
+}
+
+#########################################################################
+event = {
+	id = 200010
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		submarine = { country = GER value = 20 } # >= 20 submarine
+		technology = 4190 #Naval Bomber
+	}
+
+
+	date = { day = 27 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Coordinated Air/Sea ASW
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_b = {
+		ai_chance = 30 # Focus on Naval Bombers
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = naval_bomber }
+		}
+	action_c = { 
+		ai_chance = 10 # Build another CV TF
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+}
+#########################################################################
+event = {
+	id = 200011
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		submarine = { country = GER value = 25 } # >= 25 submarine
+		technology = 4190 #Improved Naval Bomber
+	}
+
+
+	date = { day = 28 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Focus on Naval Bombers
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = naval_bomber }
+		}
+	action_b = {
+		ai_chance = 40 # Coordinated Air/Sea ASW
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+}
+#########################################################################
+#  UK's Response to a large GER Transport Production  
+#  by Kevin Mc Carthy
+#  --Event series to thwart a Sealowe
+#  --Concentration on quicly built units
+#########################################################################
+event = {
+	id = 200012
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		transport = { country = GER value = 6 } # >= 6 transport
+	}
+
+
+	date = { day = 16 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Coordinated Air/Sea (Heavy on Air)
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_b = {
+		ai_chance = 30 # Coordinated Air/Sea
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_c = { 
+		ai_chance = 10 # Focus on Subs
+		command = { type = build_division which = submarine }
+		command = { type = build_division which = submarine }
+		command = { type = build_division which = submarine }
+		}
+}
+#########################################################################
+event = {
+	id = 200013
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		transport = { country = GER value = 6 } # >= 6 transport
+		not = { 
+			event = 200012
+				} 
+	}
+
+
+	date = { day = 17 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Coordinated Air/Sea (Heavy on Air)
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_b = {
+		ai_chance = 30 # Coordinated Air/Sea
+		command = { type = build_division which = naval_bomber }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = build_division which = destroyer }
+		}
+	action_c = { 
+		ai_chance = 10 # Focus on Subs
+		command = { type = build_division which = submarine }
+		command = { type = build_division which = submarine }
+		command = { type = build_division which = submarine }
+		}
+}
+#########################################################################
+#########################################################################
+#  UK's Response to a GER Strategic Bomber Buildup  
+#  by Kevin Mc Carthy
+#  --Concentration on Interceptors, Flak and RADAR
+#########################################################################
+event = {
+	id = 200014
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		strategic_bomber = { country = GER value = 2 } # >= 2 strategic_bomber
+	}
+
+
+	date = { day = 27 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Interceptors, Flak and RADAR
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 13 value = 1 }
+		command = { type = construct which = radar_station where = 17 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = radar_station where = 20 value = 1 }
+		command = { type = construct which = flak where = 13 value = 1 }
+		command = { type = construct which = flak where = 17 value = 1 }
+		command = { type = construct which = flak where = 21 value = 1 }
+		command = { type = construct which = flak where = 20 value = 1 }
+
+		}
+	action_b = {
+		ai_chance = 30 # Rely on the RAF & RADAR
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 13 value = 1 }
+		command = { type = construct which = radar_station where = 17 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = radar_station where = 20 value = 1 }
+		command = { type = build_division which = interceptor }
+		}
+	action_c = { 
+		ai_chance = 10 # Rely on the RAF
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = interceptor }
+		}
+}
+#########################################################################
+event = {
+	id = 200015
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		strategic_bomber = { country = GER value = 3 } # >= 3 strategic_bomber
+	}
+
+
+	date = { day = 26 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Interceptors, Flak and RADAR
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 13 value = 1 }
+		command = { type = construct which = radar_station where = 17 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = radar_station where = 20 value = 1 }
+		command = { type = construct which = flak where = 13 value = 1 }
+		command = { type = construct which = flak where = 17 value = 1 }
+		command = { type = construct which = flak where = 21 value = 1 }
+		command = { type = construct which = flak where = 20 value = 1 }
+
+		}
+	action_b = {
+		ai_chance = 30 # Rely on the RAF & RADAR
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 13 value = 1 }
+		command = { type = construct which = radar_station where = 17 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = radar_station where = 20 value = 1 }
+		command = { type = build_division which = interceptor }
+		}
+	action_c = { 
+		ai_chance = 10 # Rely on the RAF
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = interceptor }
+		}
+}
+#########################################################################
+event = {
+	id = 200016
+	random = no
+	country = ENG
+	style = 0	
+
+	trigger = {
+		ai = yes
+		strategic_bomber = { country = GER value = 4 } # >= 4 strategic_bomber
+	}
+
+
+	date = { day = 25 month = may year = 1937 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Interceptors, Flak and RADAR
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 13 value = 1 }
+		command = { type = construct which = radar_station where = 17 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = radar_station where = 20 value = 1 }
+		command = { type = construct which = flak where = 13 value = 1 }
+		command = { type = construct which = flak where = 17 value = 1 }
+		command = { type = construct which = flak where = 21 value = 1 }
+		command = { type = construct which = flak where = 20 value = 1 }
+
+		}
+	action_b = {
+		ai_chance = 30 # Rely on the RAF & RADAR
+		command = { type = build_division which = interceptor }
+		command = { type = construct which = radar_station where = 13 value = 1 }
+		command = { type = construct which = radar_station where = 17 value = 1 }
+		command = { type = construct which = radar_station where = 21 value = 1 }
+		command = { type = construct which = radar_station where = 20 value = 1 }
+		command = { type = build_division which = interceptor }
+		}
+	action_c = { 
+		ai_chance = 10 # Rely on the RAF
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = interceptor }
+		command = { type = build_division which = interceptor }
+		}
+}
+
+
+
+#########################################################################
+#  Japan's Response to the Oil Embargo  
+#  by Kevin Mc Carthy
+#  --Event series to prepare for a Pacific War
+#  --
+#########################################################################
+event = {
+	id = 200017
+	random = no
+	country = JAP
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 1150 #Early Marines
+		or = {
+			event = 3800 #  US Oil Embargo
+			war = { country = JAP country = USA }
+			war = { country = JAP country = ENG }
+			war = { country = JAP country = HOL }
+			}
+		not = { 
+			marine = { country = JAP value = 2 } # <= 2 marine DIV
+				} 
+	}
+
+
+	date = { day = 15 month = june year = 1938 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Coordinated Marine/Sea (Heavy on Marines)
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = sleepevent which = 200018 } 
+		}
+	action_b = {
+		ai_chance = 30 # Coordinated Marine/Sea
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = sleepevent which = 200018 } 
+		}
+	action_c = { 
+		ai_chance = 10 # Focus on Marines
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = marine value = artillery}
+		command = { type = sleepevent which = 200018 } 
+		}
+}
+
+#########################################################################
+event = {
+	id = 200018
+	random = no
+	country = JAP
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 1150 #Early Marines
+		or = {
+			event = 3800 #  US Oil Embargo
+			war = { country = JAP country = USA }
+			war = { country = JAP country = ENG }
+			war = { country = JAP country = HOL }
+			}
+		not = { 
+			marine = { country = JAP value = 1 } # <= 1 marine DIV
+			event = 200017
+				} 
+	}
+
+
+	date = { day = 16 month = june year = 1938 }
+	offset = 30
+	deathdate = { day = 30 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		ai_chance = 60 # Coordinated Marine/Sea (Heavy on Marines)
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = sleepevent which = 200017 } 
+		}
+	action_b = {
+		ai_chance = 30 # Coordinated Marine/Sea
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = carrier value = cag }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = light_cruiser }
+		command = { type = build_division which = destroyer }
+		command = { type = sleepevent which = 200017 } 
+		}
+	action_c = { 
+		ai_chance = 10 # Focus on Marines
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = marine value = artillery}
+		command = { type = build_division which = marine value = artillery}
+		command = { type = sleepevent which = 200017 } 
+		}
+}
+#########################################################################
+#  Japan's Prepares against the USSR  
+#  by Kevin Mc Carthy
+#  --Event series to prepare for a possible war with the USSR
+#  --
+#########################################################################
+# Deleted by Lothos	id = 200019
+

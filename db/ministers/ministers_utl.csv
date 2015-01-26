@@ -1,0 +1,59 @@
+UTL;Ruling Cabinet - Start;Name;Pool;Ideology;Personality;Loyalty;Picturename;Country
+;Replacements;Name;Pool;Ideology;Personality;Loyalty;Picturename;x
+63101;Head of State;Juan Domingo Peron;36;ST;Stern Imperialist;High;M35021;x
+63102;Head of Government;Getulio Vargas;36;ST;Silent Workhorse;High;M34001;x
+63103;Foreign Minister;Oswaldo Aranha;36;ST;Biased Intellectual;Medium;M34076;x
+63104;Foreign Minister;Henry Berger;36;ST;Ideological Crusader;Very Low;M34053;x
+63105;Foreign Minister;Fernando Brown Morales;36;ST;Apologetic Clerk;Medium;M44067;x
+63106;Foreign Minister;Juan Isaac Cooke;36;ST;Iron Fisted Brute;Medium;M35082;x
+63107;Foreign Minister;Pedro Leão Veloso;36;ST;Great Compromiser;Medium;M34077;x
+63108;Foreign Minister;Enrique Baldivieso Aparicio;36;ST;General Staffer;Medium;M43067;x
+63109;Foreign Minister;Oscar Weinschenck;36;ST;The Cloak N Dagger Schemer;High;M34079;x
+63110;Minister of Armament;Getulio Vargas;36;ST;Administrative Genius;High;M34001;x
+63111;Minister of Armament;Enrique Baldivieso Aparicio;36;ST;Resource Industrialist;Medium;M43067;x
+63112;Minister of Armament;Alberto Valle;36;ST;Theoretical Scientist;Medium;M35110;x
+63113;Minister of Armament;José de Macedo Soares;36;ST;laissez-faire capitalist;Medium;M34003;x
+63114;Minister of Armament;Café Filho;36;ST;Military Entrepreneur;Low;M34004;x
+63115;Minister of Armament;Eusebio Ayala;36;ST;Battle Fleet Proponent;Medium;M43040;x
+63116;Minister of Armament;Gustavo Barroso;36;ST;Submarine Proponent;Medium;M34044;x
+63117;Minister of Armament;Januario Coelho Neto;36;ST;Tank Proponent;High;M34093;x
+63118;Minister of Armament;Roberto Hinojosa;36;ST;Infantry Proponent;High;M43024;x
+63119;Minister of Armament;Henry Berger;41;ST;Air Superiority Proponent;Very Low;M34053;x
+63120;Minister of Armament;Agustin Juarez Folhã;36;ST;Corrupt Kleptocrat;Medium;M34096;x
+63121;Minister of Armament;Eduardo Gomes;36;ST;Air to Ground Proponent;Medium;M34021;x
+63122;Minister of Armament;Hortensio Quijano;36;ST;Strategic Air Proponent;Very Low;M35015;x
+63123;Minister of Armament;Francisco López Martín;36;ST;Air to Sea Proponent;Medium;M35109;x
+63124;Minister of Security;Oscar Weinschenck;36;ST;Silent Lawyer;High;M34079;x
+63125;Minister of Security;Pedro Leão Veloso;36;ST;Compassionate Gentleman;Medium;M34077;x
+63126;Minister of Security;Marcondes Filho;36;ST;Crime Fighter;High;M34005;x
+63127;Minister of Security;Cristobál Saénz Cerda;36;ST;Prince of Terror;Medium;M44052;x
+63128;Minister of Security;Luis Guachalla Solares;36;ST;Back Stabber;High;M43066;x
+63129;Minister of Security;Manuel A. Venâncio;36;ST;Man of the People;Low;M34035;x
+63130;Minister of Security;Enrique Baldivieso Aparicio;36;ST;Efficient Sociopath;Medium;M43067;x
+63131;Minister of Security;Mario Pimentel Brandão;36;ST;Crooked Kleptocrat;High;M34080;x
+63132;Head of Military Intelligence;Alberto Diez de Medina;36;ST;Technical Specialist;Medium;M43086;x
+63133;Head of Military Intelligence;Raulinho Volta Redondo;36;ST;Logistics Specialist;High;M34134;x
+63134;Head of Military Intelligence;Ahusto de Souza e Silva;36;ST;Political Specialist;High;M34056;x
+63135;Head of Military Intelligence;Jorge di Pascuale;36;ST;Dismal Enigma;High;M35154;x
+63136;Head of Military Intelligence;Gustavo Mendoza Curtín;36;ST;Industrial Specialist;Medium;M35038;x
+63137;Head of Military Intelligence;Ademar de Carvalho Gomes;36;ST;Naval Intelligence Specialist;High;M34119;x
+63138;Chief of Staff;Magalhães Barata de Azevedo;36;ST;School of Manoeuvre;Medium;M34037;x
+63139;Chief of Staff;Manuel T. Aponte;36;ST;School of Fire Support;Medium;M42008;x
+63140;Chief of Staff;Luis Carlos Prestes;36;ST;School of Mass Combat;Undying;M34051;x
+63141;Chief of Staff;Pablo San Martín;36;ST;School of Defence;Medium;M35027;x
+63142;Chief of Staff;Paul Castex Lainford;36;ST;School of Psychology;Medium;M35172;x
+63143;Chief of Army;Silo Meireles;36;ST;Elastic Defence Doctrine;Very Low;M34058;x
+63144;Chief of Army;Gaspar Dutra;36;ST;Static Defence Doctrine;Medium;M34011;x
+63145;Chief of Army;Henrique Teixeira Lott;36;ST;Decisive Battle Doctrine;Medium;M34027;x
+63146;Chief of Army;Tomas Monje Gutierrez;36;ST;Armoured Spearhead Doctrine;Very High;M43039;x
+63147;Chief of Army;Mario da Silva Camargo;36;ST;Guns and Butter Doctrine;High;M34165;x
+63148;Chief of Navy;Alberto Diez de Medina;36;ST;Open Seas Doctrine;Medium;M43086;x
+63149;Chief of Navy;Floriano Peixoto;36;ST;Decisive Naval Battle Doctrine;High;M34182;x
+63150;Chief of Navy;Juan Stefanich;36;ST;Power Projection Doctrine;Medium;M42049;x
+63151;Chief of Navy;Alvaro de Souza;36;ST;Indirect Approach Doctrine;Very Low;M34059;x
+63152;Chief of Navy;Jesus G. Arraza;36;ST;Base Control Doctrine;Medium;M42119;x
+63153;Chief of Air Force;Epaminondas dos Santos;36;ST;Air Superiority Doctrine;Medium;M34040;x
+63154;Chief of Air Force;Agliberto Vieira;36;ST;Naval Aviation Doctrine;Very High;M34060;x
+63155;Chief of Air Force;Gustavo Silva;36;ST;Army Aviation Doctrine;Medium;M44027;x
+63156;Chief of Air Force;José Luis Sánchez Besa;36;ST;Carpet Bombing Doctrine;High;M44076;x
+63157;Chief of Air Force;Leonel Benevides de Rezende;36;ST;Vertical Envelopment Doctrine;Very High;M34187;x

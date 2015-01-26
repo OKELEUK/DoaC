@@ -1,0 +1,125 @@
+#########################################################################
+#
+# Events to guide AI diplomatic behaviour.
+# Redone and new stuff added by Lothos for 1936 campaign
+#########################################################################
+################
+# Low Countries German Invasion
+########################################
+event = {
+	id = 10000
+	random = no
+	country = GER
+
+	trigger = {
+		ai = yes
+		exists = BEL
+		war = { country = FRA country = GER }
+		NOT = {	atwar = BEL }
+		NOT = {	atwar = SOV }
+		NOT = {	atwar = POL }
+		government = fascist
+		NOT = { event = 2027 } #Danzig or War
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 4 # Check for trigger conditions every four days
+	deathdate = { day = 30 month = december year = 1946 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_France.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = ai_prepare_war which = BEL }
+		command = { type = ai_prepare_war which = HOL }
+		command = { type = ai_prepare_war which = LUX }
+	}
+}
+
+################
+# Guangxi Clique vs China war
+########################################
+event = {
+	id = 10001
+	random = no
+	country = CGX
+
+	trigger = {
+		ai = yes
+		random = 15
+		exists = CHI
+		NOT = {	war = { country = CHI country = CGX } }
+		NOT = {	war = { country = JAP country = CGX } }
+		NOT = {	war = { country = JAP country = CHI } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = june year = 1936 }
+	offset = 7
+	deathdate = { day = 30 month = july year = 1936 }
+
+	action_a = {
+		name = "OK"
+		command = { type = war which = CHI }
+	}
+}
+
+
+# Japan attacks the USSR
+event = {
+	id = 10009
+	random = no
+	country = JAP
+
+	trigger = {
+		ai = yes
+		exists = SOV
+		NOT = {
+			war = { country = JAP country = USA }
+		}
+		NOT = {
+			war = { country = JAP country = SOV }
+		}
+		NOT = {
+			lost_national = { country = JAP value = 2 }
+		}
+		NOT = {
+			alliance = { country = JAP country = USA }
+		}
+		control = { province = 1393 data = JAP }
+		OR = {
+			control = { province = 1205 data = JAP } #Beijing
+			control = { province = 1205 data = MAN } #Beijing
+		}
+		OR = {
+			control = { province = 1215 data = JAP } #Qingdao
+			control = { province = 1215 data = MAN } #Qingdao
+		}
+		NOT = {
+			control = { province = 56 data = FRA } 	# Paris
+		}
+		OR = {
+			AND = {
+				NOT = { control = { province = 187 data = SOV } } # Leningrad
+				NOT = { control = { province = 175 data = SOV } } # Moscow
+			}
+			random = 5
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 10 month = january year = 1940 }
+	offset = 30 # Check for trigger conditions every 30 days
+	deathdate = { day = 30 month = december year = 1946 }
+
+	action_a = {
+		name = "OK"
+		command = { type = ai_prepare_war which = SOV }
+	}
+}

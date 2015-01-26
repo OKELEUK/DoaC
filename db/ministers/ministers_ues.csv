@@ -1,0 +1,59 @@
+UES;Ruling Cabinet - Start;Name;Pool;Ideology;Personality;Loyalty;Picturename;Country
+;Replacements;Name;Pool;Ideology;Personality;Loyalty;Picturename;x
+79500;Head of State;Saul de Groot;36;ST;Stern Imperialist;High;M8021;x
+79501;Head of Government;Harry Pollitt;36;ST;Silent Workhorse;High;M1022;x
+79502;Foreign Minister;Rajani Palme Dutt;36;ST;Biased Intellectual;Medium;M1023;x
+79503;Foreign Minister;Ian Mikardo;36;ST;Ideological Crusader;Medium;M1059;x
+79504;Foreign Minister;D.N. Pritt;36;ST;Apologetic Clerk;Medium;M1057;x
+79505;Foreign Minister;Dave Springhall;36;ST;Iron Fisted Brute;Medium;M1058;x
+79506;Foreign Minister;Saul de Groot;36;ST;Great Compromiser;Low;M8021;x
+79507;Foreign Minister;Albert Olsen;36;ST;General Staffer;High;M16023;x
+79508;Foreign Minister;Phil Piratin;36;ST;The Cloak N Dagger Schemer;Medium;M1056;x
+79509;Minister of Armament;Arthur Horner;36;ST;Administrative Genius;Medium;M1076;x
+79510;Minister of Armament;Leslie Solley;36;ST;Resource Industrialist;Medium;M1075;x
+79511;Minister of Armament;Stafford Cripps;36;ST;Theoretical Scientist;Medium;M1024;x
+79512;Minister of Armament;Peiter Bergsma;36;ST;laissez-faire capitalist;Medium;M8102;x
+79513;Minister of Armament;Jacques de Kadt;36;ST;Military Entrepreneur;High;M8081;x
+79514;Minister of Armament;Edgar Lalmand;36;ST;Battle Fleet Proponent;Very High;M15022;x
+79515;Minister of Armament;Jack Gaster;36;ST;Submarine Proponent;Medium;M1077;x
+79516;Minister of Armament;Abe Moffatt;36;ST;Tank Proponent;Medium;M1078;x
+79517;Minister of Armament;William Rust;36;ST;Infantry Proponent;Medium;M1079;x
+79518;Minister of Armament;Konnie Zilliacus;36;ST;Air Superiority Proponent;Medium;M1080;x
+79519;Minister of Armament;Alfred Jensen;36;ST;Corrupt Kleptocrat;High;M16024;x
+79520;Minister of Armament;Niels Bohr;36;ST;Air to Ground Proponent;Very High;M16071;x
+79521;Minister of Armament;Jan Postma;36;ST;Air to Sea Proponent;Low;M8024;x
+79522;Minister of Armament;Jacobus Engels;36;ST;Strategic Air Proponent;High;M8105;x
+79523;Minister of Security;John Platts-Mills;36;ST;Silent Lawyer;Medium;M1097;x
+79524;Minister of Security;Kim Philby;36;ST;Compassionate Gentleman;Very High;M1025;x
+79525;Minister of Security;Daniel Goulooze;36;ST;Crime Fighter;Low;M8025;x
+79526;Minister of Security;Violet Lansbury;36;ST;Prince of Terror;Medium;M1095;x
+79527;Minister of Security;Lester Hutchinson;36;ST;Back Stabber;Medium;M1096;x
+79528;Minister of Security;Sydney Silvermann;36;ST;Man of the People;Medium;M1098;x
+79529;Minister of Security;Børge Houmann;36;ST;Efficient Sociopath;High;M16025;x
+79530;Minister of Security;Edgar Lalmand;36;ST;Crooked Kleptocrat;Very High;M15022;x
+79531;Head of Military Intelligence;Kim Philby;36;ST;Technical Specialist;Very High;M1105;x
+79532;Head of Military Intelligence;Abraham Menist;36;ST;Logistics Specialist;High;M8026;x
+79533;Head of Military Intelligence;Anthony Blunt;36;ST;Political Specialist;Very High;M1026;x
+79534;Head of Military Intelligence;Aneurin Bevan;36;ST;Dismal Enigma;High;M1021;x
+79535;Head of Military Intelligence;William Gallacher;36;ST;Industrial Specialist;High;M1111;x
+79536;Head of Military Intelligence;Christopher Hill;36;ST;Naval Intelligence Specialist;High;M1112;x
+79537;Chief of Staff;Tom Wintringham;36;ST;School of Manoeuvre;High;M1027;x
+79538;Chief of Staff;Svend Wagner;36;ST;School of Fire Support;Low;M16027;x
+79539;Chief of Staff;Thomas Struik;36;ST;School of Mass Combat;High;M8027;x
+79540;Chief of Staff;Geert Sterringa;36;ST;School of Defence;High;M8152;x
+79541;Chief of Staff;Jacobus Engels;36;ST;School of Psychology;High;M8105;x
+79542;Chief of Army;Børge Thing;36;ST;Elastic Defence Doctrine;High;M16028;x
+79543;Chief of Army;Bill Alexander;36;ST;Static Defence Doctrine;High;M1028;x
+79544;Chief of Army;Alexander de Leeuw;36;ST;Decisive Battle Doctrine;Very High;M8162;x
+79545;Chief of Army;Nico van Straaten;36;ST;Armoured Spearhead Doctrine;Low;M8028;x
+79546;Chief of Army;Anthon Koejemans;36;ST;Guns and Butter Doctrine;Very High;M8164;x
+79547;Chief of Navy;Fokke Bosman;36;ST;Open Seas Doctrine;High;M8123;x
+79548;Chief of Navy;Harry Pollitt;36;ST;Decisive Naval Battle Doctrine;High;M1022;x
+79549;Chief of Navy;Knud Jespersen;36;ST;Power Projection Doctrine;High;M16086;x
+79550;Chief of Navy;Fred Copeman;36;ST;Indirect Approach Doctrine;High;M1029;x
+79551;Chief of Navy;Christiaan Beekman;36;ST;Base Control Doctrine;Low;M8170;x
+79552;Chief of Air Force;Aksel Larsen;36;ST;Air Superiority Doctrine;Very High;M16021;x
+79553;Chief of Air Force;Georges Vereecken;36;ST;Naval Aviation Doctrine;Very High;M15121;x
+79554;Chief of Air Force;Julius Zegers;36;ST;Army Aviation Doctrine;Low;M8030;x
+79555;Chief of Air Force;John Strachey;36;ST;Carpet Bombing Doctrine;High;M1030;x
+79556;Chief of Air Force;Jan Dieters;36;ST;Vertical Envelopment Doctrine;High;M8041;x

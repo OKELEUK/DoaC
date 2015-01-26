@@ -1,0 +1,39 @@
+#
+# HoI - Lithuania Events
+#
+#		written by Henrik Fåhraeus
+#
+
+#########################################################################
+#  Germany claims Memel
+#########################################################################
+event = { 
+	id = 2400
+	random = no
+	country = LIT
+	
+	# Triggered by GER 2008
+	
+	name = "EVT_2400_NAME"
+	desc = "EVT_2400_DESC"
+	style = 0
+	picture = "Memel"
+	
+	action_a = {
+		name = "ACTIONNAME2400A" # Cede Memel to Germany
+		ai_chance = 99
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = SOV value = -5 }
+		command = { type = relation which = POL value = -10 }
+		command = { type = secedeprovince which = GER value = 206 } # Memel
+		command = { type = trigger which = 2009 } # GER
+	}
+	action_b = {
+		name = "ACTIONNAME2400B" # Never!
+		ai_chance = 1
+		command = { type = relation which = GER value = -15 }
+		command = { type = relation which = SOV value = 5 }
+		command = { type = relation which = POL value = 10 }
+		command = { type = trigger which = 2010 } # GER
+	}
+}

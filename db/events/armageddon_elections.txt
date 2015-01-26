@@ -1,0 +1,1087 @@
+### ID's 600000 and on
+
+##################################################
+### 600000 600001 - UNITED STATES (1956 & 1960)
+##################################################
+
+event = {
+	id = 600000
+	random = no
+	country = USA
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = USA }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 4 month = november year = 1956 }
+	offset = 2
+	deathdate = { day = 5 month = november year = 1956 }
+
+	action_a = {
+		ai_chance = 85
+		name = "Dwight D. Eisenhower (Rep.)"
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 2 }
+		command = { type = headofstate which = 6208 }
+		command = { type = headofgovernment which = 6211 }
+		command = { type = foreignminister which = 6215 }
+		command = { type = armamentminister which = 6248 }
+		command = { type = ministerofsecurity which = 6005 }
+		command = { type = ministerofintelligence which = 6228 }	
+		}	
+	action_b = {
+		ai_chance = 15
+		name = "Adlai Stevenson (Dem.)"
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 6 }
+		command = { type = headofstate which = 6209 }
+		command = { type = headofgovernment which = 6245 }
+		command = { type = foreignminister which = 6213 }
+		command = { type = armamentminister which = 6249 }
+		command = { type = ministerofsecurity which = 6005 }
+		command = { type = ministerofintelligence which = 6252 }	
+		}
+	}	
+
+
+event = {
+	id = 600001
+	random = no
+	country = USA
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = USA }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 4 month = november year = 1960 }
+	offset = 2
+	deathdate = { day = 5 month = november year = 1960 }
+
+	action_a = {
+		ai_chance = 70
+		name = "John F. Kennedy (Dem.)"
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 6 }
+		command = { type = headofstate which = 6242 }
+		command = { type = headofgovernment which = 6244 }
+		command = { type = foreignminister which = 6247 }
+		command = { type = armamentminister which = 6250 }
+		command = { type = ministerofsecurity which = 6005 }
+		command = { type = ministerofintelligence which = 6253 }	
+		}	
+	action_b = {
+		ai_chance = 30
+		name = "Richard M. Nixon (Rep.)"
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 2 }
+		command = { type = headofstate which = 6241 }
+		command = { type = headofgovernment which = 6243 }
+		command = { type = foreignminister which = 6246 }
+		command = { type = armamentminister which = 6251 }
+		command = { type = ministerofsecurity which = 6005 }
+		command = { type = ministerofintelligence which = 6228 }	
+		}
+	}
+
+
+##################################################
+### 600002 600003 - CANADA (1957 & 1963)
+##################################################
+
+event = {
+	id = 600002
+	random = no
+	country = CAN
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = CAN }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = june year = 1957 }
+	offset = 2
+	deathdate = { day = 1 month = june year = 1957 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 45146 }
+		command = { type = headofgovernment which = 45148 }
+		command = { type = foreignminister which = 45150 }
+		command = { type = armamentminister which = 45152 }
+		command = { type = ministerofsecurity which = 45143 }
+		command = { type = ministerofintelligence which = 45159 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 45147 }
+		command = { type = headofgovernment which = 45135 }
+		command = { type = foreignminister which = 45138 }
+		command = { type = armamentminister which = 45140 }
+		command = { type = ministerofsecurity which = 45142 }
+		command = { type = ministerofintelligence which = 45158 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600003
+	random = no
+	country = CAN
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = CAN }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = april year = 1963 }
+	offset = 2
+	deathdate = { day = 1 month = april year = 1963 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 45171 }
+		command = { type = headofgovernment which = 45149 }
+		command = { type = foreignminister which = 45151 }
+		command = { type = armamentminister which = 45155 }
+		command = { type = ministerofsecurity which = 45157 }
+		command = { type = ministerofintelligence which = 45160 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 45170 }
+		command = { type = headofgovernment which = 45148 }
+		command = { type = foreignminister which = 45150 }
+		command = { type = armamentminister which = 45154 }
+		command = { type = ministerofsecurity which = 45156 }
+		command = { type = ministerofintelligence which = 45159 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+##########################################################
+### 600004 600005 600006 - AUSTRALIA (1953, 1958, 1961)
+##########################################################
+
+
+event = {
+	id = 600004
+	random = no
+	country = AST
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = AST }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = december year = 1953 }
+	offset = 2
+	deathdate = { day = 1 month = december year = 1953 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofgovernment which = 56037 }
+		command = { type = foreignminister which = 56167 }
+		command = { type = armamentminister which = 56171 }
+		command = { type = ministerofsecurity which = 56174 }
+		command = { type = ministerofintelligence which = 56158 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 7 }
+		command = { type = headofgovernment which = 56165 }
+		command = { type = foreignminister which = 56050 }
+		command = { type = armamentminister which = 56151 }
+		command = { type = ministerofsecurity which = 56153 }
+		command = { type = ministerofintelligence which = 56098 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600005
+	random = no
+	country = AST
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = AST }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = december year = 1958 }
+	offset = 2
+	deathdate = { day = 1 month = december year = 1958 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofgovernment which = 56037 }
+		command = { type = foreignminister which = 56167 }
+		command = { type = armamentminister which = 56172 }
+		command = { type = ministerofsecurity which = 56175 }
+		command = { type = ministerofintelligence which = 56178 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 7 }
+		command = { type = headofgovernment which = 56165 }
+		command = { type = foreignminister which = 56169 }
+		command = { type = armamentminister which = 56173 }
+		command = { type = ministerofsecurity which = 56153 }
+		command = { type = ministerofintelligence which = 56098 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600006
+	random = no
+	country = AST
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = AST }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = december year = 1961 }
+	offset = 2
+	deathdate = { day = 1 month = december year = 1961 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofgovernment which = 56037 }
+		command = { type = foreignminister which = 56168 }
+		command = { type = armamentminister which = 56172 }
+		command = { type = ministerofsecurity which = 56175 }
+		command = { type = ministerofintelligence which = 56178 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 7 }
+		command = { type = headofgovernment which = 56166 }
+		command = { type = foreignminister which = 56170 }
+		command = { type = armamentminister which = 56173 }
+		command = { type = ministerofsecurity which = 56176 }
+		command = { type = ministerofintelligence which = 56179 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+##########################################################
+### 600007 600008 600009 - SOUTH AFRICA (1954, 1959, 1961)
+##########################################################
+
+event = {
+	id = 600007
+	random = no
+	country = SAF
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = SAF }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = november year = 1954 }
+	offset = 2
+	deathdate = { day = 2 month = november year = 1954 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 6 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 70089 }
+		command = { type = headofgovernment which = 70095 }
+		command = { type = foreignminister which = 70032 }
+		command = { type = armamentminister which = 70099 }
+		command = { type = ministerofsecurity which = 70059 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 8 }
+		command = { type = set_domestic which = political_left value = 5 }
+		command = { type = headofstate which = 70088 }
+		command = { type = headofgovernment which = 70097 }
+		command = { type = foreignminister which = 70098 }
+		command = { type = armamentminister which = 70048 }
+		command = { type = ministerofsecurity which = 70058 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600008
+	random = no
+	country = SAF
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = SAF }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = november year = 1959 }
+	offset = 2
+	deathdate = { day = 2 month = november year = 1959 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 6 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 70093 }
+		command = { type = headofgovernment which = 70096 }
+		command = { type = foreignminister which = 70032 }
+		command = { type = armamentminister which = 70100 }
+		command = { type = ministerofsecurity which = 70101 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 8 }
+		command = { type = set_domestic which = political_left value = 5 }
+		command = { type = headofstate which = 70094 }
+		command = { type = headofgovernment which = 70097 }
+		command = { type = foreignminister which = 70098 }
+		command = { type = armamentminister which = 70048 }
+		command = { type = ministerofsecurity which = 70058 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600009
+	random = no
+	country = SAF
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = SAF }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = november year = 1961 }
+	offset = 2
+	deathdate = { day = 2 month = november year = 1961 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 6 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 70093 }
+		command = { type = headofgovernment which = 70096 }
+		command = { type = foreignminister which = 70032 }
+		command = { type = armamentminister which = 70100 }
+		command = { type = ministerofsecurity which = 70102 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 8 }
+		command = { type = set_domestic which = political_left value = 5 }
+		command = { type = headofstate which = 70094 }
+		command = { type = headofgovernment which = 70097 }
+		command = { type = foreignminister which = 70098 }
+		command = { type = armamentminister which = 70048 }
+		command = { type = ministerofsecurity which = 70103 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+############################################################################
+### 600010 600011 600012 600013 - UNITED KINGDOM (1955, 1957, 1959, 1963)
+############################################################################
+
+event = {
+	id = 600010
+	random = no
+	country = ENG
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = ENG }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = april year = 1955 }
+	offset = 2
+	deathdate = { day = 2 month = april year = 1955 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_UK_1A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 1182 }
+		command = { type = headofgovernment which = 1191 }
+		command = { type = foreignminister which = 1196 }
+		command = { type = armamentminister which = 1205 }
+		command = { type = ministerofsecurity which = 1212 }
+		command = { type = ministerofintelligence which = 1217 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_UK_1B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 8 }
+		command = { type = headofstate which = 1190 }
+		command = { type = headofgovernment which = 1040 }
+		command = { type = foreignminister which = 1199 }
+		command = { type = armamentminister which = 1185 }
+		command = { type = ministerofsecurity which = 1162 }
+		command = { type = ministerofintelligence which = 1222 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600011
+	random = no
+	country = ENG
+	style = 0
+
+	trigger = {
+		government = democratic
+		headofgovernment = 1191 # Anthony Eden in office
+		random = 85
+		NOT = { ispuppet = ENG }
+		}
+
+	name = "EVT_600011_NAME" # needs text - Eden resigns from office
+	desc = "EVT_600011_DESC"
+
+	date = { day = 9 month = january year = 1957 }
+	offset = 2
+	deathdate = { day = 10 month = january year = 1957 }
+
+
+	action_a = {
+		ai_chance = 100
+		name = "OK"
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 1182 }
+		command = { type = headofgovernment which = 1192 }
+		command = { type = foreignminister which = 1046 }
+		command = { type = armamentminister which = 1207 }
+		command = { type = ministerofsecurity which = 1213 }
+		command = { type = ministerofintelligence which = 1218 }
+		}
+	}
+
+
+event = {
+	id = 600012
+	random = no
+	country = ENG
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = ENG }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 1 month = october year = 1959 }
+	offset = 2
+	deathdate = { day = 2 month = october year = 1959 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_UK_1A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 1182 }
+		command = { type = headofgovernment which = 1192 }
+		command = { type = foreignminister which = 1046 }
+		command = { type = armamentminister which = 1208 }
+		command = { type = ministerofsecurity which = 1213 }
+		command = { type = ministerofintelligence which = 1219 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_UK_1B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 8 }
+		command = { type = headofstate which = 1190 }
+		command = { type = headofgovernment which = 1194 }
+		command = { type = foreignminister which = 1201 }
+		command = { type = armamentminister which = 1210 }
+		command = { type = ministerofsecurity which = 1215 }
+		command = { type = ministerofintelligence which = 1222 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600013
+	random = no
+	country = ENG
+	style = 0
+
+	trigger = {
+		government = democratic
+		headofgovernment = 1192 # Harold MacMillan in office
+		random = 85
+		NOT = { ispuppet = ENG }
+		}
+
+	name = "EVT_600013_NAME" # needs text - Harold MacMillan resigns
+	desc = "EVT_600013_DESC"
+
+	date = { day = 9 month = october year = 1963 }
+	offset = 2
+	deathdate = { day = 10 month = october year = 1963 }
+
+
+	action_a = {
+		ai_chance = 100
+		name = "OK"
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 1182 }
+		command = { type = headofgovernment which = 1193 }
+		command = { type = foreignminister which = 1198 }
+		command = { type = armamentminister which = 1209 }
+		command = { type = ministerofsecurity which = 1214 }
+		command = { type = ministerofintelligence which = 1221 }
+		}
+	}
+
+
+############################################################################
+### 600014 600015 600016 600017 - FEDERAL GERMANY (1953, 1957, 1961, 1963)
+############################################################################
+
+event = {
+	id = 600014
+	random = no
+	country = DFR
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = DFR }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 16 month = june year = 1953 }
+	offset = 1
+	deathdate = { day = 17 month = june year = 1953 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 506001 }
+		command = { type = headofgovernment which = 506002 }
+		command = { type = foreignminister which = 506003 }
+		command = { type = armamentminister which = 506039 }
+		command = { type = ministerofsecurity which = 506040 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 9 }
+		command = { type = headofstate which = 506051 }
+		command = { type = headofgovernment which = 506043 }
+		command = { type = foreignminister which = 506014 }
+		command = { type = armamentminister which = 506018 }
+		command = { type = ministerofsecurity which = 506023 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600015
+	random = no
+	country = DFR
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = DFR }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 16 month = june year = 1957 }
+	offset = 1
+	deathdate = { day = 17 month = june year = 1957 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 506001 }
+		command = { type = headofgovernment which = 506002 }
+		command = { type = foreignminister which = 506013 }
+		command = { type = armamentminister which = 506047 }
+		command = { type = ministerofsecurity which = 506022 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 9 }
+		command = { type = headofstate which = 506051 }
+		command = { type = headofgovernment which = 506043 }
+		command = { type = foreignminister which = 506014 }
+		command = { type = armamentminister which = 506018 }
+		command = { type = ministerofsecurity which = 506023 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+
+event = {
+	id = 600016
+	random = no
+	country = DFR
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = DFR }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 16 month = june year = 1961 }
+	offset = 1
+	deathdate = { day = 17 month = june year = 1961 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 506041 }
+		command = { type = headofgovernment which = 506002 }
+		command = { type = foreignminister which = 506045 }
+		command = { type = armamentminister which = 506047 }
+		command = { type = ministerofsecurity which = 506022 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 9 }
+		command = { type = headofstate which = 506052 }
+		command = { type = headofgovernment which = 506044 }
+		command = { type = foreignminister which = 506046 }
+		command = { type = armamentminister which = 506018 }
+		command = { type = ministerofsecurity which = 506050 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600017
+	random = no
+	country = DFR
+	style = 0
+
+	trigger = {
+		government = democratic
+		headofgovernment = 506002 # Konrad Adenauer
+		random = 85
+		NOT = { ispuppet = DFR }
+		}
+
+	name = "EVT_600017_NAME" # needs text - Konrad Adenauer resigns
+	desc = "EVT_600017_DESC"
+
+	date = { day = 16 month = october year = 1963 }
+	offset = 2
+	deathdate = { day = 17 month = october year = 1963 }
+
+
+	action_a = {
+		ai_chance = 100
+		name = "OK"
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 506041 }
+		command = { type = headofgovernment which = 506042 }
+		command = { type = foreignminister which = 506045 }
+		command = { type = armamentminister which = 506048 }
+		command = { type = ministerofsecurity which = 506049 }
+		}
+	}
+
+
+############################################################################
+### 600018 600019 600020 600021 - JAPAN (1954, 1956, 1957, 1960)
+############################################################################
+
+event = {
+	id = 600018
+	random = no
+	country = JAP
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = JAP }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 18 month = december year = 1954 }
+	offset = 1
+	deathdate = { day = 19 month = december year = 1954 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 5208 }
+		command = { type = headofgovernment which = 5032 }
+		command = { type = foreignminister which = 5067 }
+		command = { type = armamentminister which = 5222 }
+		command = { type = ministerofsecurity which = 5231 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 10 }
+		command = { type = headofstate which = 5207 }
+		command = { type = headofgovernment which = 5027 }
+		command = { type = foreignminister which = 5215 }
+		command = { type = armamentminister which = 5071 }
+		command = { type = ministerofsecurity which = 5098 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600019
+	random = no
+	country = JAP
+	style = 0
+
+	trigger = {
+		government = democratic
+		ai = yes
+		headofgovernment = 5032
+		NOT = { ispuppet = JAP }
+		}
+
+	name = "EVT_120_NAME"
+	desc = "EVT_120_DESC"
+
+	date = { day = 18 month = december year = 1956 }
+	offset = 1
+	deathdate = { day = 19 month = december year = 1956 }
+
+
+	action_a = {
+		ai_chance = 100
+		name = "OK"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 5208 }
+		command = { type = headofgovernment which = 5211 }
+		command = { type = foreignminister which = 5216 }
+		command = { type = armamentminister which = 5220 }
+		command = { type = ministerofsecurity which = 5231 }
+		}
+	}
+
+
+event = {
+	id = 600020
+	random = no
+	country = JAP
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = JAP }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 18 month = february year = 1957 }
+	offset = 1
+	deathdate = { day = 19 month = february year = 1957 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 5208 }
+		command = { type = headofgovernment which = 5212 }
+		command = { type = foreignminister which = 5217 }
+		command = { type = armamentminister which = 5222 }
+		command = { type = ministerofsecurity which = 5232 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 10 }
+		command = { type = headofstate which = 5207 }
+		command = { type = headofgovernment which = 5027 }
+		command = { type = foreignminister which = 5215 }
+		command = { type = armamentminister which = 5226 }
+		command = { type = ministerofsecurity which = 5233 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}
+
+
+event = {
+	id = 600021
+	random = no
+	country = JAP
+	style = 0
+
+	trigger = {
+		government = democratic
+		NOT = { ispuppet = JAP }
+		}
+
+	name = "ELECTION_TITLE"
+	desc = "ELECTION_DESC"
+
+	date = { day = 18 month = july year = 1960 }
+	offset = 1
+	deathdate = { day = 19 month = july year = 1960 }
+
+
+	action_a = {
+		ai_chance = 60
+		name = "ELECT_B"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = headofstate which = 5208 }
+		command = { type = headofgovernment which = 5213 }
+		command = { type = foreignminister which = 5218 }
+		command = { type = armamentminister which = 5224 }
+		command = { type = ministerofsecurity which = 5232 }
+		}
+	action_b = {
+		ai_chance = 30
+		name = "ELECT_A"
+		command = { type = dissent value = -3 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 10 }
+		command = { type = headofstate which = 5207 }
+		command = { type = headofgovernment which = 5214 }
+		command = { type = foreignminister which = 5215 }
+		command = { type = armamentminister which = 5227 }
+		command = { type = ministerofsecurity which = 5234 }
+		}
+	action_c = {
+		ai_chance = 10
+		name = "KEEPCURRENT"
+		command = { type = dissent value = -1 }
+		}
+	}

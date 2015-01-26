@@ -1,0 +1,33 @@
+#
+# HoI - Albania Events
+#
+#		written by Henrik Fåhraeus
+#
+
+#########################################################################
+#  Italian Ultimatum
+#########################################################################
+event = { 
+	id = 3500
+	random = no
+	country = ALB
+	
+	# Triggered by ITA 2902
+	
+	name = "EVT_3500_NAME"
+	desc = "EVT_3500_DESC"
+	style = 0
+	picture = "Albania"
+	
+	action_a = {
+		name = "ACTIONNAME3500A" # Never!
+		ai_chance = 98
+		command = { type = trigger which = 2903 }
+	}
+	action_b = {
+		name = "ACTIONNAME3500B" # Very well. (Game Over)
+		ai_chance = 2
+		command = { type = trigger which = 2904 }
+	}
+}
+

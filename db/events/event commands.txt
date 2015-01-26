@@ -1,0 +1,1304 @@
+
+Event syntax:
+
+event = { id = [number] 	# Unike event ID number from 0 up to several billions
+	random = [yes/no] 	# Is the event a random event or not. Default is set to NO. Number of random events per year is set in misc file in db folder 
+	country = [tag] 	# Event can only trigger for this country. Is not mandatory
+	persistent = [yes/no] 	# Can the event fire more than once. Default is set to NO
+	inventions = [yes/no]  	# Can only trigger once per country. Default is set to NO
+
+	date = { hour = [0-23] day = [0-29] month = [0-11] year = [1936-1964] } 	# The earliest date this event can fire
+	offset = X									# X = number of days. Means the event vil trigger once in the x days period which day is random
+	deathdate = { hour = [0-23] day = [0-29] month = [0-11] year = [1936-1964] }	# The last possible date the event can trigger. Note day = 30 or higher will set deathdate at end of year.
+
+	trigger = { [trigger conditions] } 			# possible triggers listed and explained below
+
+	name = "[nameofevent]" or name = "EVT_4000_NAME"	# Name of event that will be displayed in message logs or boxes. It can either be directly written in the name field or be called from event.txt files with string names like "EVT_4000_NAME" multible events can use same name 							
+	Desc = "[Description]" or Desc = "EVT_4000_DESC"	# Description of event that will be displayed in message box. se above for explanation
+	Picture = "[nameof picture]"				# Name of the event picture. Must be located in event_pics folder in gfx folder 
+	style = 0						# not currently used can be omitted
+
+	action_a = { 	name = "[action name]" or name = "ACTIONNAME4000A" 	# name or description of action a either directly wriiten or placed in event.txt file in config folder like above. 
+			ai_chance = X 						# X between 0 - 100% 
+			command = { [commands] } 				# Valid commands listed and explained below, number of commands in one action is unlimited for any practical purpose as far as i know
+			}
+	action_b = { [se above] }						# 4 action sections is max allowed action selections.
+										# must be named action_a - action_d
+	action_c = { [se above] }
+
+	action_d = { [se above] } 			
+	
+	} # dont forget this at end of event.			
+
+Trigger syntax:
+	
+	and = { [trigger conditions a to z] } 	# All of the conditions need to be true for the event to fire
+	or = { [trigger conditions a to z] }	# Only one of the conditions need to be true for the event to fire
+	not = { [trigger conditions a to z] } 	# None of the conditions, can be true for the event to fire
+
+TRIGGERS:
+	Hour = [0-23]			#true if the hour (of the day) is at least this, In general dont use Hour, can be used without issues, for first day in a campaign. (Example:hour = 1 day = 0 month = january year = 1936)
+	day = [0-29]			#true if the day (of the month) is at least this
+	month = [name] or [0-11]	#true if the month is at least this
+	year = X 			#true if the year is at least this
+	
+	difficulty = X 			# Difficulty at level X or harder. [0-4],0 is Very Easy.
+	event = x  			# event has happened.
+	random = x ( % )		# not to be confused with the above random = yes/no this sets a percentage chance for the event to trigger
+
+	flag = [name]  			#true if the global flag exists and is set to true.
+	local_flag = [name]		#true if the local flag exists and is set to true.
+	
+	headofstate = [minister id]			# True if minister id is HOS
+	headofgovernment = [minister id]		# True if minister id is HOG
+	incabinet = [id] 				# True if minister id is in the ruling cabinet
+	minister = [minister id] 			# True if minister are alive?
+	leader = [leader id] 				# True if leader id are alive
+	government = [communist/fascist/democratic]	# Checks for government type
+	ideology = [name of ideology type]		# Checks for ideology of nation valid types below
+	
+	exists = country 				# True if country exists.
+	country = [tag] 				# True if this is country
+	major = [yes/no]				# True if the country is ENG, FRA, GER, JAP, USA, ITA or SOV
+	ai = [yes/no/country tag] 			# Is the country AI controlled?
+	atwar = [yes/no/country tag] 			# Is this country atwar yes/no or country tag added to see if other countries are at war
+	war = { country =a  country = b }		# Checks if a and b is at war
+	under_attack = [tag]				# Country is under attack
+	attack = [tag]					# Country [tag] has attacked this country.
+	ispuppet = [Country Tag]			# True if TAG is a puppet
+	puppet = { country = [tag 1] country = [tag 2] }# True if tag 1 is puppet of tag 2
+	owned = { province = a data = tag }		# checks if province is owned by country x (if data == -1 then its for country receievin event)
+	control = { province = a data = tag }		# checks if province is controlled by country x (if data == -1 then its for country receievin event)
+	
+	alliance = { country = a country = b }			# checks if a and b is in the same military alliance
+	access = { country = [tag1] country = [tag2] } 		# checks if tag1 is granting military access to tag2
+	non_aggression = { country = [tag1] country = [tag2] } 	# checks if tag & tag have a non_agg_pact active
+	trade = { country = [tag1] country = [tag2] } 		# checks if tag1 and tag2 have an active trade agreement
+	guarantee = { country = [tag1] country = [tag2] } 	# checks if tag1 is guaranteeing the independence of tag2
+	domestic = { type = field value = x }			# checks if domestic slider is a specific value se valid type fields below
+	belligerence = { country = [tag] value = X }		# No country field means "this country". True if Belligerence >= X.
+	can_change_policy = { type = [policy] value = [delta] } # true if the policy can be changed by delta
+	relation = { which = [tag] value = [value] } 		# true if relations to country which is at least value
+
+	lost_VP = { country = [tag] value = X }		# X% or more of _owned_ VPs in enemy hands
+	lost_national = { country = [tag] value = X }	# X% or more of national provs in enemy hands
+	lost_IC = { country = [tag] value = X }		# X% or more of national IC in enemy hands
+	axis = X 					# axis holds at least X vp
+	allies = X 					# allies holds at least X vp
+	comintern = X 					# comintern holds at least X vp
+	vp = X						# Currently held Key Points + extra VP >= X
+	range = { min = x max = x }			# true if vp is within (>= && <= the range)	
+
+	technology = x 			 		# True if a certain tech is known.
+	technology = { country = TAG value = x }	# True if a certain tech is known by the given country.
+	is_tech_active = [tech id]			# True if the tech is researchable.
+
+	energy = x		(>=x)	#true if a nation have at least that amount of energy.
+	metal = x		(>=x)	#true if a nation have at least that amount of metal.
+	rare_materials = x	(>=x)	#true if a nation have at least that amount of rare materials.
+	oil = x			(>=x)	#true if a nation have at least that amount of oil.
+	supplies = x		(>=x)	#true if a nation have at least that amount of supplies.
+	manpower = x 		(>=x)	#true if a nation have at least that amount of manpower.
+	dissent = x  		(>=x)	#true if a nation have at least that amount of dissent.	
+	money = x		(>=x)	#true if a nation have at least that amount of Money
+	escortpool = x		(>=x)	#true if a nation have at least that amount of escorts
+	convoypool = x		(>=x)	#true if a nation have at least that amount of convoys
+
+	division_exists = { type = [id type] id = [id id] }				# checks for Specific division exists land/sea or air 
+	division_in_province = { id = { type = [id type] id = [id id] } province = X } 	# checks for Specific division in specific province land/sea or air 
+	[div type] = X									# X or more of that type of division.
+	[div type] = { country = TAG value = X }					# country TAG has X or more of that type of division
+	army = [divisions] 					#true if we have at least this many land divisions
+	nuke = [number] 					#true if we have at least this many nukes ready
+	land_percentage = { country = [tag] value = [value] }  	#true if we have at least value times the land forces of country TAG
+	naval_percentage = { country = [tag] value = [value] } 	#true if we have at least value times the naval forces of country TAG
+	air_percentage = { country = [tag] value = [value] }   	#true if we have at least value times the air forces of country TAG
+
+	garrison = { [country = TAG/0/-1/-2/-3] province = [province] type = [air/land/naval] size = [number of divisions] area = [yes/no] } 
+	# [country = TAG/0/-1/-2/-3] : 0 – all countries, current country (country = -1 or no country), enemy countries (country = -2) or allied/friendly countries (country = -3)
+	# No type field means "all division types". "area = yes" means "count divisions in all provinces in this controlled Area". Do not use "area = yes" for sea provinces!	
+	
+	intel_diff = x 								#[>=X, X = our intell - enemy intell]
+	province_revoltrisk = { province = [id] value = [value] } 		# true if revolt risk in province is at least value
+
+COMMANDS:
+	type = endgame value = [type]   	# Sets conditions for when the scenario ends valid types listed below
+
+Misc:	type = setflag which = [keyname]	# Sets Global flag, visible for all countries
+	type = clrflag which = [keyname]	# Clears Global flag, visible for all countries
+	type = local_setflag which = [keyname]	# Sets Local flag, visible only for this country
+	type = local_clrflag which = [keyname]	# Clears Local flag, visible only for this country	
+
+Policy:	type =  regime_falls						# 
+	type =	inherit which = [tag] value = 1/0(default)		# This country inherits country Tag, [-1] for random. Value = 1 : country will receive all units and production queue too
+	type =	country which = [tag] 					# Change the tag of the country the event fires for.
+	type =	addcore   which = [prov id]				# Add new national province to country
+	type =	removecore which = [prov id]				# Remove national provinces
+	type =	secedeprovince which = [tag] value = [prov id]		# Secede province value =[prov id] to country which=[TAG]
+	type =	control which = [tag]  value = [prov id]		# Checks for if a specific country [TAG] controls province [prov id] 
+	type =	capital which = [prov id]		 		# Change capital for the country to [prov id]
+	type = 	civil_war 				 		# Civil war with any possible revolter that has shared national provinces
+	type = 	civil_war which = [rebel country tag]	 		# Civil war with specific revolter that has shared national provinces. NOTE: This MUST be a tag which has regular_id set to this country, or vice versa.
+	type = 	belligerence which = [country] value = X 		# adds value = [x] Belligerence to country = [tag], No which field means "this country".
+	type = 	dissent value = [value to add]				# adds value = [x] Dissent to country = [tag], No which field means "this country".
+	type = 	province_revoltrisk which = [Province ID] value = X 	# Adds value = [x%] revoltrisk to province = [prov id]
+	type = 	domestic which = [domestic policy type] value = X 	# Change a domestic policy slider by value = [X] between 1-10
+	type = 	set_domestic which = [domestic policy type] value = X	# Set a domestic policy slider to value = [X] between 1-10
+	type = 	change_policy which = [domestic policy type] value = X	# Change a domestic policy by value = [X] if it could normally be changed and also sets the cooldown period (found in misc file in the DB folder) for changing policy
+	type = 	independence which = [country tag] value = [0/1] when = [0/1] # Country [tag] gains independence. value: [0]-units in the area change allegiance, [1]-they don't. When 0=normal, 1=force them to be democratic
+
+Diplo :	type =	alliance which = [tag] 				# This country enters in an alliance with country = [tag], [-1] for random country.
+	type = 	leave_alliance					# This country leaves alliance
+	type = 	relation which = [country] value = X		# Add value = [X] to the relation with country = [tag]
+	type = 	set_relation which = [country] value = X	# Sets relation to [X] with this country
+	type = 	peace which = [country tag] value = [0/1] 	# Makes peace with [tag] Value = [1] means separate peace-i.e. pull out of alliance. [0] is full peace, for the whole alliance.
+	type = 	war which = [country tag]			# This country Dows country = [tag], note you will get normal Belligerence for dow whit this event
+	type = 	end_puppet					# End puppet status
+	type = 	end_mastery which = [country tag]		# End puppet mastery over another nation
+	type = 	make_puppet which = [country tag]		# Make country [TAG] a puppet to country this country
+	type = 	coup_nation which = [country tag]		# This country Coups nation [TAG]
+	type = 	access which = [country tag] 				# Grant military access _to_ a country
+	type = 	end_access which = [country tag]			# Revoke military access for nation
+	type = 	end_non_aggression which = [country] where = [country] 	# end a non aggression pact between these countries
+	type = 	non_aggression which = [country] where = [country]	# create a non aggression pact between these countries
+	type = 	end_trades which = [country] where = [country] 		# end all trade agreements between these countries
+	type = 	end_guarantee which = [country] where = [country] 	# country 1 no longer guarantees independence of country 2
+	type = 	guarantee which = [country] where = [country] 		# country 1 now guarantees independence of country 2
+
+Teams:	type = sleepteam which = [tech team id]				# Makes this team unavailable (sets "start year" to 2001. Will complete current project though.)
+	type = waketeam which = [tech team id]				# Makes this team available (sets "start year" to previous year.)
+	type = sleepminister which = [minister id/-1]			# Kills this minister, permanently unavailable
+	type = sleepleader which = [leader id/-1]			# Kills this leader, permanently unavailable
+	type = wakeleader which = [leader id]				# wakes this dormant leader
+	type = set_leader_skill which = [leader id/-1] value = [X] 	# Sets a leaders skill to [X], which = [-1] random leader. 
+
+Units:	type = allow_dig_in						# Troops may now dig in
+	type = build_division which = [division type] value = [brigade type] when = XXX        # when for serials
+	type = add_corps which = [name] value = [land/air/naval] when = [leader ID] where = [province_ID]
+	type = activate_division which = [div id type] value = [div id id]  [where = province] when = [0/1] # Activates a dormant division. If "when = 0" the division will deploy to the force pool if the target province is enemy controlled. If a preceding add_corps command has been used, the division will go to that unit, ignoring the 'when' and 'where' directives.
+	type = add_division which = [name] value = [div type] when = model where = [brigade type] # Brigade model is always the latest. If a preceding add_corps command has been used, the division will go to that unit, otherwise to the force pool.
+	type = remove_division which = [div id type/-1] value = [div id id]			# Remove a division from the scenario. -1 is a random division (the value field will be ignored).
+	type = remove_division which = "Exact Name" value = [country tag]			# Remove a named division from the scenario (for a certain country.)
+	type = damage_division which = [div id type/-1] value = [div id id] where = X		# where = Percent of Max Strength. Negative value is strength gain.
+	type = disorg_division which = [div id type/-1] value = [div id id] where = X		# where = Percent of Max Strength. Negative value is org gain.
+	type = delete_unit which = [unit id type/-1/-2/-3] value = [unit id id] 		# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+	type = switch_allegiance which = [unit id type/-1] value = [unit id id]	where = [country tag]	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+	type = scrap_model which = [div type] value = [model]					# Make a model obsolete (no longer possible to build).
+	type = lock_division which = [id type] value = [id id] 					# Lock this division (it may no longer move.)
+	type = unlock_division which = [id type] value = [id id] 				# Unlock this division (it may now move.)
+	type = new_model which = [division or brigade type] value = [The model number] } 	# New models updates the current template for a division or brigade type.
+	type = activate_unit_type which = [division or brigade type] } 				# Make a division or brigade type available for construction.
+	type = deactivate_unit_type which = [division or brigade type] } 			# Make a division or brigade type unavailable for construction.
+	
+Techs:	type = research_sabotaged			# Research is set back with X%.
+	type = deactivate which = [tech id] 		# Make this technology permanently unavailable for the country.
+	type = activate which = [tech id] 		# Activate specific techs
+	type = info_may_cause which = [tech id]		# No effect, but informs player that this tech/event can open up new avenues of research.
+	type = steal_tech which = [country tag/-1] 	# Steals a random tech. from country = [tag] or  [-1] for random non-ally, Results in a blueprint.
+	type = gain_tech which = [tech id/-1/-2]	# Gains a blueprint, [-1] for random tech, [-2] for a random tech currently being researched not a technology.
+
+R.Pool: type = resource which =[resource type] value = X 	# % of theoretical maximum daily production added to national resource pool.
+	type = supplies value = [value to add] where = [prov] 	# If no "where" field is used, it goes to the national pool.
+	type = oilpool value = [value to add] where = [prov] 	
+	type = metalpool value = [value to add] where = [prov]
+	type = energypool value = [value to add] where = [prov]
+	type = rarematerialspool value = [value to add] where = [prov]
+	type = money value = [value to add] where = [prov]
+	type = manpowerpool value = [value to add]
+	type = relative_manpower value = [%] 			# Add a percentage of [yearly national manpower income * 50] to the pool
+	type = province_manpower which = [prov] value = [value to add] # Add manpower to province	
+	type = free_ic/free_oil/free_supplies/free_money/free_metal/free_energy/free_rare_material/free_transport/free_convoy/free_manpower	#change offmap daily prod
+	type = add_prov_resource which = [prov id/-1/-4] value = X where = [energy/metal/oil/rare_materials]  # -1 is random province, -4 is province with nuclear reactor.
+
+Constr:	type = allow_building which = [building type]	# Allow the construction of a certain building type.
+	type = construct which = [building type] where = [prov id/-1/-4] value = [additional size] # -1 is random valid province. -4 is random national province that already has a building of the same type of at least size 1.
+	type = allow_convoy_escorts			# Allowed to build convoy escorts
+	type = transport_pool which = [country] value = X (adds/removes transports from pool)
+	type = escort_pool which = [country] value = X (adds/removes escorts from pool)
+	type = convoy which = [startprov] value = [endprov] when = [resource_bits] 1=oil, 2=metal, 4=energy, 8=rare_materials, 16=supplies
+	
+Mod:	type = peacetime_ic_mod value = X(%) 	# Additive, and ONLY applied when a country is at peace. Default base value is 100%.
+	type = tc_mod value = X(%)		# Modify National Transport Capacity. Positive value = good.
+	type = tc_occupied_mod value = X(%)	# Modify Occupied Province Transport Capacity Drain. Positive value = good.
+	type = attrition_mod value = X(%)	# Modify the Attrition Penalty. Positive value = good.
+	type = supply_dist_mod value = X(%)	# Modify the Supply Distance Penalty. Positive value = good.
+	type = repair_mod value = X(%)		# Modify Reinforcement Efficiency Positive value = good.
+	type = research_mod value = X(%)	# Modify research efficiency. Positive value = good.
+	type = building_prod_mod which = [building type] value = X%	# Bonus to production time. Additive. NOTE: Positive value = reduced time.
+	type = convoy_prod_mod which = [escorts/transports] value = X%	# Bonus to production time. Additive. NOTE: Positive value = reduced time.
+	type = radar_eff value = X(%) 		# Modify the efficiency of radar stations (bonus to friendly aircraft in the province.) Positive value = good.
+
+Eff: 	type = enable_task which = [task type]			# Enable a certain type of mission
+	type = task_efficiency which = [task type] value = X 	#Additive: 0.05 - 1.0
+	type = max_positioning which = [div type] value = X 	#Additive: 0.05 - 1.0
+	type = min_positioning which = [div type] value = X 	#Additive: 0.05 - 1.0
+
+Misc:	type = province_keypoints which = [province id/-1] value = [keypoints to add]
+	type = ai which = [file name]	# Switches the ai file of a country.
+	type = extra_tc value = X
+	type = vp value = X 		# Offmap Victory Points
+	type = songs
+	type = trigger which = [event id]	# Immediately trigger another event
+	type = sleepevent which = [event id]
+
+Nuclear:type = max_reactor_size value = X # Set the max size of nuclear reactor buildings.
+	type = abomb_production 	  # Allow A-Bombs
+	type = double_nuke_prod		  # Double A-Bomb production rate.
+
+	type = gas_attack            	# Enable gas attacks 
+	type = gas_protection        	# Enable gas protection
+
+Untested commands
+	command = { type = revolt which = X }
+
+
+# AI event commands (no effect for human controlled nations)
+	type = ai_prepare_war	which = [tag]		# Tells the AI to move troops to the border with a country.
+
+# Weather event commands
+	type = start_pattern which = [id type] value = [id id] where = [prov id] when = [raining/snowing/storm/blizzard]	# Start a new weather pattern centered on a given province
+	type = add_to_pattern which = [id type] value = [id id] where = [prov id] when = [raining/snowing/storm/blizzard]	# Add a province to an existing weather pattern.	
+	type = end_pattern which = [id type] value = [id id] # This weather pattern will begin to dissipate
+	type = set_ground which = [prov id] value = [clear/muddy/winter]
+
+# Commands to affect the chance of "combat events" occurring. Additive (%).
+	type = counterattack value = x
+	type = assault value = x
+	type = encirclement value = x
+	type = ambush value = x
+	type = delay value = x
+	type = tactical_withdrawal value = x
+	type = breakthrough value = x
+
+# HQ effects
+	type = hq_supply_eff value = X(%)	# Additive
+	type = sce_frequency value = X	 	# Combat event chance multiplier. Default: 1.0	
+
+# ACTIVATE NUCLEAR CAPABILITY OF MISSILES
+ 	type = nuclear_carrier which = [flying_bomb/flying_rocket] }
+
+# ACTIVATE MISSILE CAPABILITY OF SUBMARINES
+ 	type = missile_carrier which = [submarine] }
+
+# UNIT VALUES
+# [unit value] = soft_attack/hard_attack/ground_defense/air_attack/air_defense/build_cost/build_time/manpower/speed/max_organization/transport_weight/supply_consumption/fuel_consumption/speed_cap_art/speed_cap_eng/speed_cap_at/speed_cap_aa
+#
+# Land unit bonuses
+	type = [unit value] which = [land/division type/brigade type] value = [additive value modifier] }
+
+# Air unit bonuses
+	type = [air_attack/strategic_attack/tactical_attack/naval_attack/air_defense/build_cost/build_time/manpower/speed/surface_detection/air detection/transport_capacity/supply_consumption/fuel_consumption/range] which = [air/division type/brigade type] value = [additive value modifier] }
+
+# Naval unit bonuses
+	type = [naval_attack/air_attack/shore_attack/naval_defense/air_defense/build_cost/build_time/manpower/speed/surface_detection/air detection/visibility/transport_capacity/supply_consumption/fuel_consumption/range] which = [naval/division type/brigade type] value = [additive value modifier]
+}
+# NOTE: For "build_time" and "build_cost", it is possible to add the field "where = relative".
+# This means that the value is parsed as a relative modifier (%) instead of an absolute addition.
+# When doing this, THE BASE VALUE OF MODEL 0 IS USED FOR _ALL_ MODELS. So "value = -10" means
+# "-10% of the value of model 0".
+
+#
+# UNIT COMBAT MODIFIERS
+#
+# Terrain combat modifiers
+	type = [desert_attack/desert_defense/mountain_attack/mountain_defense/hill_attack/hill_defense/forest_attack/forest_defense/swamp_attack/swamp_defense/urban_attack/urban_defense/river_attack/shore_attack/paradrop_attack] which = [division type/brigade type] value = [X] } # Modifier in percent (+10 = 10%)
+
+# Terrain movement modifiers
+ 	type = [desert_move/mountain_move/hill_move/forest_move/swamp_move/urban_move/river_crossing] which = [division type/brigade type] value = [X] } # Modifier in percent (+10 = 10%)
+
+# Weather land-combat modifiers
+	type = [frozen_attack/frozen_defense/snow_attack/snow_defense/blizzard_attack/blizzard_defense/rain_attack/rain_defense/storm_attack/storm_defense/muddy_attack/muddy_defense] which = [division type/brigade type] value = [X] } # Modifier in percent (+10 = 10%)
+
+# Weather land-movement modifiers
+ 	type = [frozen_move/snow_move/blizzard_move/rain_move/storm_move/muddy_move] which = [division type/brigade type] value = [X] } # Modifier in percent (+10 = 10%)
+
+# Weather air-combat modifiers
+	type = [snow_attack/rain_attack] which = [interceptor/escort/multi_role/strategic_bomber/tactical_bomber/torpedo_plane] value = [X] }# Modifier in percent (+10 = 10%)
+
+# Weather air-movement modifiers
+	type = [snow_move/blizzard_move/rain_move/storm_move] which = [interceptor/escort/multi_role/strategic_bomber/tactical_bomber/torpedo_plane/transport_plane] value = [X] } # Modifier in percent (+10 = 10%)
+
+# Weather naval-combat modifiers
+	type = [snow_attack/rain_attack] which = [battleship/cruiser/destroyer/carrier/submarine/transports] value = [X] } # Modifier in percent (+10 = 10%) 
+
+# Weather naval-movement modifiers
+	type = [snow_move/blizzard_move/rain_move/storm_move] which = [battleship/cruiser/destroyer/carrier/submarine/transports] value = [X] # Modifier in percent (+10 = 10%) } # Night modifiers
+	type = night_move/night_attack/night_defense which = [division type/brigade type] value = [X] } # Modifier in percent (+10 = 10%)
+#
+# SPECIAL UNIT BONUSES
+#
+# Minisubs (BBs and CVs attack ships in harbors with this bonus added to their sea attack value)
+	type = minisub_bonus value = [X] }# NOT INCREMENTAL. This is the new value.
+#
+# GLOBAL MODIFIERS
+#
+# Surprise modifiers
+	type = surprise which = [naval/land/air] value = [X] } # Modifier in percents
+
+# Intelligence Operation modifiers
+	type = intelligence which = [us/them] value = [X] } # Modifier in percents
+
+# Army Detection modifiers
+	type = army_detection which = [us/them] value = [X] } # Modifier in percents
+
+# Provincial AA batteries
+	type = AA_batteries value = [X] } # Modifier in percents
+#
+# INDUSTRIAL MODIFIERS
+#
+# Industrial multipliers
+# E.g. energy_to_oil 4 means four energy are needed to produce one oil. 0.5 means 1 energy produces 2 oil.
+	type = industrial_multiplier which = [energy_to_oil/oil_to_rare_materials] value = [X] }
+
+# Industrial modifiers (additive)
+# 'total' is the conversion factor from every built industry point into Industrial Capacity.
+# 'supplies' is a modifier for the amount of supplies produced by every reserved IC unit.
+	type = industrial_modifer which = [total/supplies] value = [X] } # Percents
+#Government types:
+#[Democratic/Fascist/communist]
+
+#Ideology types:
+#[nazi/fascist/paternal_autocrat/social_conservative/market_liberal/social_liberal/social_democrat/left_wing_radical/leninist/stalinist]
+
+#Domestic policy types:
+#[democratic/political_left/free_market/freedom/professional_army/defense_lobby/interventionism]
+
+#Building Types:
+#[ic, coastal_fort, land_fort, flak, infrastructure, air_base, naval_base, radar_station, nuclear_reactor, rocket_test]
+
+#Task Types:
+#[attack, rebase, strat_redeploy, support_attack, support_defense, reserves, anti_partisan_duty, air_superiority, ground_attack, runway_cratering, installation_strike, interdiction, naval_strike, port_strike, logistical_strike, strategic_bombardment, air_supply, airborne_assault, convoy_raiding, asw, naval_interdiction, shore_bombardment, amphibous_assault, sea_transport, naval_combat_patrol]
+
+#Resource Types: 
+#[oil, metal, energy, rare_materials, supplies, money, manpower]
+
+#Division types
+#[infantry/,.......]
+
+#Endgame types
+#[0=quit, 1=eliminated, 2=draw, 3=axis victory, 4=axis total vic, 5=allies-victory, 6=alliestotal, 7=commie, 8=commietotal]
+
+
+##########################
+# New with The Project :
+##########################
+
+# Triggers :
+
+non_aggression = { country = TAG }      # check if the country in question has NA pact with TAG
+
+alliance = { country = TAG }         # check if the country in question is allied to TAG
+
+war = { country = TAG }         # check if the country in question is at war with TAG
+
+access = { country = TAG }         # check if the country in question has access to TAG
+
+guarantee = { country = TAG }      # check if the country in question has GoI by TAG
+
+trade = { country = TAG }         # check if the country in question has a trade deal with TAG
+
+puppet = { country = TAG }         # check if the country in question has country TAG as puppet
+
+escortpool = X               # changed to check for total escorts instead just for unassigned
+
+convoypool = X               # changed to check for total convoy transports instead just for unassigned
+
+lost_VP = { value = X }            # X% or more of _owned_ VPs of the country in question are in enemy hands
+
+lost_national = { value = X }         # X% or more of national provs of the country in question are in enemy hands
+
+lost_IC = { value = X }            # X% or more of national IC of the country in question is in enemy hands
+
+participant = { [county = TAG] value = 1/2/3/4 }    # check if TAG (or country in question if not specified) is part of Allies (1), Axis (2), Comintern (3) or any alliance (4)
+
+capital = { province = a [data = tag] }      # check if that province is the capital of TAG (or country in question if not specified)
+
+core = { province = a [data = tag ] }      # check if that province is core for TAG (or country in question if not specified)
+
+policy = { [country = TAG] type = [policy] value = X }    # true if the policy of TAG (or country in question if not specified) is equal or greater then X. Value is 1 to 10
+
+[div type] = { [country = TAG] value = X [when = now] }   # check if TAG (or country in question if not specified) has X or more of that type of division. when = now counts only already built divisions.
+
+building = { province = ID type = building_type value = X [when = now] }   # check if in the specified province that building_type is at least at level X; when = now for current size, else - max size
+
+id = X / ic = { [country = TAG] value = X [when = now] }   # check if TAG (or country in question if not specified) has X or more Total IC ([when = now] ) or Base IC; ic = X checks if current country has at least X total IC
+
+nuclear_reactor =  X / nuclear_reactor = { [country = TAG] value = X [when = now] }   # check if TAG (or country in question if not specified) has nuclear reactor at X or more current size ([when = now] ) or max size; nuclear_reactor = X checks if current country has at least nuclear reactor with X current size
+
+rocket_test =  X / rocket_test = { [country = TAG] value = X [when = now] }   # check if TAG (or country in question if not specified) has rocket test sites at X or more current size ([when = now] ) or max size; rocket_test = X checks if current country has at least rocket test site with X current size
+
+embargo = { country = [tag1] country = [tag2] [value = 0/1/2]}    # checks if tag1 has trade (value = 1), tech (value = 2) or any (value = 0 or no value) embargo to tag2. If no tag 2 check for current country against tag1
+
+owned = { province = a [data = tag] }   # checks if province is owned by country x. If data = -1 or no data then it’s for country receiving event; -2 is Enemy; -3 is allied (war or diplomatic alliance) or event receiver
+
+control = { province = a [data = tag] }   # checks if province is controlled by country x. If data = -1 or no data then it’s for country receiving event; -2 is Enemy; -3 is allied (war or diplomatic alliance) or event receiver
+
+tech_team = ID / tech_team = { id = X [country = TAG] }   # checks if team with id X is active (current year is in between team’s start/end year) in the current country (no country entry), in a specified country (TAG) or in any country (country = -1, or just team = ID)
+
+area = { area = name [country = TAG/-1/-2/-3] [data = 1/2] [value = X] } # check if all provinces (value = 100 or no value) or percentage (value = X, 0..100%, cannot be less then 1 province) in the area are controlled (data = 1 or no data) or owned (data = 2) by the current country (country = -1 or no country), enemy countries (country = -2) or allied/friendly countries (country = -3)
+
+region = { region = name [country = TAG/-1/-2/-3] [data = 1/2] [value = X] } # check if all provinces (value = 100 or no value) or percentage (value = X, 0..100%, cannot be less then 1 province) in the region are controlled (data = 1 or no data) or owned (data = 2) by the current country (country = -1 or no country), enemy countries (country = -2) or allied/friendly
+
+military_control = { country = TAG1 [country = TAG2] }   # True if TAG1 has military control over TAG2, or country in question has military control over TAG1 (when no TAG2)
+
+nuked = X / nuked = { country = TAG1 [country = TAG2] data = X [where = Y] }
+       - nuked = -1    # True if against that country have been used more the 1 nukes
+       - nuked = 1   # True if that country has used at least one nuke against any country
+       - nuked = { country = FRA  country = GER data = 1 where = 300 }   # True if France(FRA) has used at least 1 nuke to Germany (GER) in Berlin (ID #300)
+       - nuked = { country = FRA  data = -1 }   # True if against France(FRA) has been used at least 1 nuke by any country
+       - nuked = { country = GER data = -2 where = 300 }   # True is against Germany have been used at least 2 nukes (by any country) at Berlin
+
+intelligence = X / intelligence = { [country = TAG] value = X [data = 1/2/3] }   # True if intel level is at least X in the current country (intelligence = X, or no TAG) or country in question (TAG); data: 1 (default) intell level, 2 – foreign intelligence, 3 – counter espionage
+
+intel_diff = { country = TAG1 [country = TAG2] value = X [data = 1/2/3] }   # True if TAG1 intel efficiency in TAG2 – TAG2 intel efficiency in TAG1 is at least X (data = 1 or no data), TAG1 intel level – TAG 2 intel level is at least X (data = 2), or TAG1 intell efficiency in TAG 2 is at least X. If no TAG2 check for current country in TAG1. value could be negative.
+
+stockpile = oil/energy/metal /rare_materials/supplies/money   # Returns true if Stockpile is set for the given resource.
+
+import = oil/energy/metal /rare_materials/supplies/money   # Returns true if Import is enabled for the given resource.
+
+export = oil/energy/metal /rare_materials/supplies/money   # Returns true if Export is enabled for the given resource.
+
+resource_shortage = oil/energy/metal /rare_materials/supplies/money/all   # Returns true if there is resource shortage for that resource or for any resource when used with “all”. NOTE: This trigger is not very reliable because it is set correctly on the second game day on every game session.
+
+event = { id = EVENT_ID days = X  }   # Check if event with EVENT_ID has fired at least X days ago
+
+
+# Commands
+
+type = build_division which = [division type] value = [brigade type] when = XXX        # when for serials
+
+type = stockpile which = (industry / supplies (used for oil too) / all) when = ( war / peace / all ) value = XX
+
+type = auto_trade which = (oil/energy/metal /rare_materials/supplies/money) when = (import/export/stockpile) value = 1/0 # toggle auto-trade options
+
+type = auto_trade_reset # reset auto-trade options to defaults (Stockpile disabled, Import and Export enabled for all resources)
+
+type = military_control which = TAG where = TAG value = 1/0 # which – controlling country; where – controlled country; value – 1(assume MC), 0 (relinquish MC)
+
+type = flag_ext where = TAG [which = "string"] # where – change flag of TAG; which  - add that string to flag/shield/counter name and skin folder; use empty string ("") or no skip to clear.
+
+type = country which = TAG # changes current country to TAG
+
+type = embargo which = TAG where = TAG [value = -2/-1/0/1/2/3] # which – enforcer; where – subject; value: -2 – clear tech embargo; -1 – clear trade embargo; 0 or no value – clear all embargoes; 1 – enforce trade embargo; 2 – enforce tech embargo; 3 – enforce both trade and tech embargoes; If which = where then value =  0 (clear all embargoes the country has), -1 (clears all trade embargoes the country has), -2 (clears all tech embargoes the country has) 
+
+type = name where = TAG [which = “string”] # where – change name of TAG; which  - new country name; use empty string (“”) or no which to reset name to default
+
+type = secedearea which = TAG value = AREA_NAME
+
+type = secederegion which = TAG value = REGION_NAME	
+
+type =	inherit which = [tag] value = 1/0(default)		# This country inherits country Tag, [-1] for random. Value = 1 : country will receive all units and production queue too
+
+type =  trade which = TAG where = TAG  [energy = x]  [metal = x]  [rare_materials = x]  [oil = x]  [supplies = x]  [money = x] [when = Days duration / default is 100 years] [value = 1/0 – default, can be broken, 1 = not]
+	
+type = wartime_ic_mod value = X(%) 	# Additive, and ONLY applied when a country is at war. Default base value is 100%.
+	
+
+# Settings
+
+save_date = yes / no (default); If set saves date when this event has fired and that date can be used as a trigger by other events (delay event B to fire at least X days after event A). NOTE!!! Valid event IDs range is 0 to 2,147,483,647!!!
+
+one_action = yes / no (default); If set show just one (random) action to the player. The action is chosen based on AI chances (if present), else it is random using the same rules as for the AI (set in misc.txt).
+
+style = 1 - allow bigger pictures to be used
+
+# Notes
+
+# Event actions are now only limited by screen size.
+
+# About event AI chances calculation
+   - Sum of AI chances of all valid actions could be any positive number (removed fixed sum = 100 prerequisite)
+   - Invalid actions are skipped in AI chances calculations
+   - Actions without specified AI chances are ignored by the AI if there is at least one valid action with AI chance set
+   - If no AI chance is set for valid action, random action is chosen from all valid actions (removed increased chance to pick 1st action)
+
+# About individual command or event actions triggers
+
+Example :
+
+       action = {
+          name = "Test"
+          trigger = { money = 100 }
+          command = { trigger = { ai = yes } type = money value = 500 }
+          command = { trigger = { ai = no } type = money value = -90 }
+       }
+
+# Here are some performance hints that should be taken into account when events are created
+
+1. Triggers (no matter if these are for events, actions or commands) should be as simple as possible and these that are most likely to fail should be first.
+2. If there is at least one action that has no own triggers it should be on top of the actions - that's because action triggers are now considered as continuation of the event trigger and there should be at least one valid action in order for the event to fire. Actions without triggers are considered as always valid (no matter what commands they have in opposite to 1.2/1.3).
+3. If all actions has triggers, actions with triggers that are most likely to be true should be on top. This will allow for faster event validation (if main trigger is true and there is at least one valid action the event is good to go).
+
+The following two rules have smaller impact, but as a good practice should be followed too.
+4. Commands in actions should be arranged so most likely to be valid commands to be on top of the list.
+
+    command = { type = addcore which = 300 } #Invalid for Germany. Province #300 is Berlin
+    command = { type = money value = 10 } # Always valid command - good to have it on top!
+
+
+5. Command without own triggers should be prioritized in commands list over these using triggers.
+
+
+
+
+***********************************
+
+
+Area Names
+{
+	"Adelaide",
+	"Afghanistan",
+	"Agats",
+	"Alabama",
+	"Alaska",
+	"Alaskan Archipelago",
+	"Albania",
+	"Alberta",
+	"Alice Springs",
+	"Alpes_Provence",
+	"Amur",
+	"Anatolian North Coast",
+	"Anatolian South Coast",
+	"Angolan Coast",
+	"Angolan Plains",
+	"Anhui",
+	"Antilles",
+	"Appennine Ridge",
+	"Aquitaine",
+	"Arabian Desert",
+	"Arizona",
+	"Arkansas",
+	"Arkhangelsk",
+	"Armenia_Azerbaijan",
+	"Astrakhan",
+	"Asuncion",
+	"Attica",
+	"Austria",
+	"Babo",
+	"Baden_Wurttemberg",
+	"Bahamas Islands",
+	"Baleares",
+	"Bavaria",
+	"Bechuanaland",
+	"Bengal",
+	"Bengazi",
+	"Bermuda",
+	"Bessarabia",
+	"Bohemia",
+	"Bombay",
+	"Bonin",
+	"Bosnia",
+	"Bosporus",
+	"Bougainville",
+	"Bourgogne_Champagne",
+	"Brandenburg",
+	"Brasilia",
+	"Brest Litovsk",
+	"Brisbane",
+	"British Columbia",
+	"Brittany",
+	"Bulgaria",
+	"Burma",
+	"Cairns",
+	"California",
+	"Cameroonian Jungle",
+	"Canarias",
+	"Cantabric Chain",
+	"Cap Verde Islands",
+	"Cape",
+	"Caracas",
+	"Carolinese",
+	"Catalonia",
+	"Celebes",
+	"Central Africa Desert",
+	"Central Africa Plains",
+	"Central Finland",
+	"Central Italy",
+	"Central Norway",
+	"Central Rainforests",
+	"Central Serbia",
+	"Central Spain",
+	"Central Turkey",
+	"Chahar",
+	"Chihuahua",
+	"Chile",
+	"Chilean Archipelago",
+	"Colorado",
+	"Connecticut_Rhode Island",
+	"Continental Spain",
+	"Croatia",
+	"Cuba",
+	"Danakil Plateau",
+	"Darwin",
+	"Deccar",
+	"Delhi",
+	"Delta",
+	"Denmark",
+	"Diego Garcia Island",
+	"Dnepropretovsk",
+	"East Andalucia",
+	"East Atlas",
+	"East England",
+	"East Java",
+	"East Persia",
+	"East Prussia",
+	"East Serbia",
+	"Eastern Anatolia",
+	"Eastern Ghat",
+	"Eastern Hungary",
+	"Eire",
+	"El Alamein",
+	"El Rif",
+	"Espirtu Santo",
+	"Estonia",
+	"Ethiopian Highland",
+	"Fiji",
+	"Flanders",
+	"Flores_Timor",
+	"Florida",
+	"Fujian",
+	"Gabes",
+	"Gansu",
+	"Georgia",
+	"Georgien",
+	"Goetaland",
+	"Gold Coast",
+	"Greek Island",
+	"Grodno",
+	"Guadalcanal",
+	"Guangdong",
+	"Guangxi",
+	"Guayana",
+	"Guinean Coast",
+	"Guizhou",
+	"Hannover_Magdeburg",
+	"Hawaii",
+	"Hebei",
+	"Hedjaz",
+	"Heilongjiang",
+	"Henan",
+	"Hessen",
+	"Himalayas",
+	"Hispaniola",
+	"Holstein_Mecklemburg",
+	"Honshu",
+	"Hubei",
+	"Hunan",
+	"Iceland",
+	"Idaho",
+	"Illinois",
+	"Indiana",
+	"Indochine",
+	"Interior Algeria",
+	"Interior Libya",
+	"Iowa",
+	"Iquitos",
+	"Iraq",
+	"Irkutsk",
+	"Ivory Coast",
+	"Jiangsu",
+	"Jiangxi",
+	"Jilin",
+	"Johnson Island",
+	"Kamchatka",
+	"Kansas",
+	"Karelia",
+	"Kassarine",
+	"Kazakstan",
+	"Kazan",
+	"Kentucky",
+	"Kenya",
+	"Khabarovsk",
+	"Kharkov",
+	"Kiev",
+	"Kirgiz Steppe",
+	"Kirgizistan",
+	"Kirov",
+	"Kongolese Jungle",
+	"Kostroma",
+	"Krakow",
+	"Krasnodar",
+	"Krim",
+	"Kurdufan",
+	"Kursk",
+	"Kuybyshev",
+	"Kyushu_Shikoku",
+	"La Paz",
+	"La Plata",
+	"Lae",
+	"Lakes",
+	"Lapland",
+	"Latvia",
+	"Lebanon_Syria",
+	"Leningrad",
+	"Levant",
+	"Leyte Island Group",
+	"Liaoning",
+	"Ligurian Islands",
+	"Lima",
+	"Limousin_Auvergne",
+	"Lithuania",
+	"Loire",
+	"Lorraine_Alsace",
+	"Louisiana",
+	"Lower Argentine",
+	"Lower California",
+	"Luzon",
+	"Lvov",
+	"Madagascar",
+	"Magadan",
+	"Magdalena",
+	"Maghreb Coast",
+	"Maine",
+	"Malacka",
+	"Malian Desert",
+	"Malian Valleys",
+	"Manaus",
+	"Manitoba",
+	"Maracaibo",
+	"Marcus_Wake",
+	"Marshalls",
+	"Maryland_Delaware",
+	"Massachussets",
+	"Mato Grosso",
+	"Mauretania",
+	"Melbourne",
+	"Melkosopotjnik",
+	"Memel",
+	"Mexico City",
+	"Michigan",
+	"Midway",
+	"Mindanao",
+	"Minnesota",
+	"Minsk",
+	"Mississippi",
+	"Missouri",
+	"Mocambique",
+	"Molucks",
+	"Mongolia",
+	"Montana",
+	"Morocco",
+	"Moscow",
+	"Nagpur",
+	"Nambia",
+	"Nauru",
+	"Nebraska",
+	"Nedre Norrland",
+	"Netherlands",
+	"New Brunswick",
+	"New Foundland",
+	"New Hampshire",
+	"New Jersey",
+	"New Mexico",
+	"New York",
+	"New Zealand",
+	"Nevada",
+	"Niassa",
+	"Nicaragua",
+	"Niger",
+	"Nile Valley",
+	"Nizhnij Novgorod",
+	"Normandy",
+	"North Borneo",
+	"North Carolina",
+	"North Dakota",
+	"North England",
+	"North Ethiopia",
+	"North Gilberts",
+	"North Ireland",
+	"North Italy",
+	"North Krasnoyarsk",
+	"North Marianes",
+	"North Nigeria",
+	"North Persia",
+	"North Rhodesia",
+	"North Romania",
+	"North Scotland",
+	"Northern Norway",
+	"Northwest Territories",
+	"Nova Scotia",
+	"Novgorod",
+	"Novosibirsk",
+	"Nubian Desert",
+	"Odessa",
+	"Oesterbotten",
+	"Oestra Svealand",
+	"Oevre Norrland",
+	"Ohio",
+	"Oklahoma",
+	"Omsk",
+	"Ontario",
+	"Oran",
+	"Oregon",
+	"Orissa",
+	"Pakistan",
+	"Palawan_Mindoro",
+	"Palestine",
+	"Panaman Ridge",
+	"Paris",
+	"Pas de Calais",
+	"Pennsylvania",
+	"Penza",
+	"Perm",
+	"Persian Gulf Coast",
+	"Perth",
+	"Phoenix",
+	"Polotsk",
+	"Polynesia",
+	"Port Moresby",
+	"Portugal",
+	"Poznan",
+	"Primorski",
+	"Pskov",
+	"Pyongyang",
+	"Pyrenees_Languedoc",
+	"Qattara",
+	"Qinghai",
+	"Quebec",
+	"Quito",
+	"Rabaul",
+	"Rajastan",
+	"Red Sea Coast",
+	"Rehe",
+	"Reservoire Rybinsk",
+	"Rhineland",		// NEW!!!
+	"Rio de Janeiro",
+	"Rio de Oro",
+	"Rogachev",
+	"Rostov",
+	"Ryazan",
+	"Sachsen",
+	"Sakhalin_Kuriles",
+	"Samoa",
+	"Sao Paulo",
+	"Saransk",
+	"Sarmi",
+	"Saskatchewan",
+	"Senegambia",
+	"Senjavin",
+	"Seoul",
+	"Shaanxi",
+	"Shaba",
+	"Shandong",
+	"Shanxi",
+	"Siam",
+	"Sichuan",
+	"Sicilian Gap",
+	"Sidi Barrani",
+	"Silesia",		// NEW!!!
+	"Sirte",
+	"Slave Coast",
+	"Slovakia",
+	"Smolensk",
+	"Somalia",
+	"Somaliland",
+	"South Borneo",
+	"South Carolina",
+	"South Dakota",
+	"South Ethiopia",
+	"South Finland",
+	"South Gilberts",
+	"South Italy",
+	"South Krasnoyarsk",
+	"South Nigeria",
+	"South Persia",
+	"South Rhodesia",
+	"South Romania",
+	"South Scotland",
+	"Southcentral Norway",
+	"Southern Norway",
+	"St.Helena",
+	"Stalingrad",
+	"Suez Channel Area",
+	"Suiyuan_Ningxia",
+	"Sumatra",
+	"Sunda Islands",
+	"Sverdlovsk",
+	"Switzerland",
+	"Sydney",
+	"Syzran",
+	"Tadzjikistan",
+	"Taiwan",
+	"Tajmyr_Evenk",
+	"Tambov",
+	"Tanganyika",
+	"Tennessee",
+	"Texas",
+	"The Azores",
+	"The Falklands",
+	"Thrace",
+	"Tibet",
+	"Tierra del Fuego",
+	"Tobruk",
+	"Tohoku",
+	"Tomsk",
+	"Transjordan",
+	"Transnistria",
+	"Transvaal_Natal",
+	"Transylvania",
+	"Tunis",
+	"Turkestan",
+	"Turkmenistan",
+	"Tyumen",
+	"Ufa",
+	"Uganda",
+	"Upper Argentine",
+	"Upper Nile Valley",
+	"Utah",
+	"Uzbekistan",
+	"Vaestra Svealand",
+	"Wallonia",
+	"Warsaw",
+	"Washington",
+	"Velikiye Luki",
+	"Vera Cruz",
+	"Vermont",
+	"West Andalucia",
+	"West Atlas",
+	"West England",
+	"West Java",
+	"West Virginia",
+	"Western Desert",
+	"Western Ghat",
+	"Western Hungary",
+	"Westphalen",
+	"Virginia",
+	"Wisconsin",
+	"Vladimir",
+	"Volta",
+	"Wyoming",
+	"Xikang",
+	"Xinjiang",
+	"Yakutsk",
+	"Yemenite Mountains",
+	"Yukon",
+	"Yunnan",
+	"Zabaikalye",
+	"Zhejiang",
+	"Ryukyusland",
+	"North Bismarck Archipelago",
+	"North New Hebrides",
+	"South New Hebrides",
+	"Central Solomons",
+	"West Aleutians",
+	"Ceylon",
+	"Hokkaido",
+	"North Burma",
+	"East Bengal",
+	"Kra Peninsula",
+	"Tripoli",
+	"Greenland",
+
+
+
+	"Lake",
+	"Adriatic Sea",
+	"Aegean Sea",
+	"Black Sea",
+	"Red Sea",
+	"Tyrrhenian Sea",
+	"Bothnian Bay",
+	"Northern Baltic",
+	"Southern Baltic",
+	"Kattegat",
+	"Barents Sea",
+	"Luzon Strait",
+	"Philipine Trench",
+	"Sulu Sea",
+	"Celebes Sea",
+	"Coast of Brunei",
+	"Flores Sea",
+	"Molucca Sea",
+	"Banda Sea",
+	"West Coral Sea",
+	"Arafura Sea",
+	"Java Ridge",
+	"Malacca Strait",
+	"Gulf of Siam",
+	"Spratly Sea",
+	"Coast of Indochina",
+	"Taiwan Strait",
+	"Irish Sea",
+	"English Channel",
+	"Denmark Strait",
+	"Southeast Northsea",
+	"West Northsea",
+	"Central Northsea",
+	"Norwegian Sea",
+	"Costa del Sol",
+	"Algerian Coast",
+	"Egyptian Coast",
+	"Gulf of Lyon",
+	"Sea of Japan",
+	"North Bismarck Sea",
+	"South Bismarck Sea",
+	"Marianas",
+	"Marshalls Sea",
+	"Western Solomons",
+	"Eastern Solomons",
+	"East Coral Sea",
+	"Coast of Japan",
+	"Western Approaches",
+	"Greenland Coast",
+	"Faroes Gap",
+	"North Atlantic",
+	"Bay of Biscay",
+	"Azores",
+	"Portugese Coast",
+	"Cap St Vincent",
+	"Coast of Brazil",
+	"Cap Verde",
+	"Gulf of Guinea",
+	"Central Atlantic",
+	"Coast of Africa",
+	"Coast of Bissao",
+	"Solomon Sea",
+	"North Tasman Sea",
+	"South Tasman Sea",
+	"East Great Australian Bight",
+	"West Great Australian Bight",
+	"Hudson Bay",
+	"Persian Gulf",
+	"Yucatan Strait",
+	"Central Carribean",
+	"Windward Islands",
+	"West Gulf of Mexico",
+	"East Gulf of Mexico",
+	"Florida Strait",
+	"Bermuda Triangle",
+	"Northern Sea of Labrador",
+	"Southern Sea of Labrador",
+	"Grand Banks",
+	"The Seamounts",
+	"Canadian Maritimes",
+	"US Maritimes",
+	"Guiana Basin",
+	"South-Central Mid-Atlantic Ridge",
+	"Central Mid-Atlantic Ridge",
+	"Aleutians",
+	"Carolines",
+	"Central Philippine Sea",
+	"Coast of Ceylon",
+	"Coast of Kamchatka",
+	"East Bay of Bengal",
+	"East Bering Sea",
+	"East Mariana Basin",
+	"East Sea of Okhotsk",
+	"Gulf of Alaska",
+	"Hawaiian Rise",
+	"Java Trench",
+	"Mariana Trench",
+	"Mid-Pacific Mountains",
+	"Ninetyeast Ridge",
+	"North Northeast Pacific Basin",
+	"Northwest Pacific Basin",
+	"Ryukyus",
+	"South Sea of Okhotsk",
+	"Timor Sea",
+	"West Bay of Bengal",
+	"West Bering Sea",
+	"West Coast of Australia",
+	"West Coast of Mexico",
+	"West Coast of the United States",
+	"West Sea of Okhotsk",
+	"Yellow Sea",
+	"Atlantic-Indian Ridge",
+	"Coast of South Africa",
+	"Fiji Basin",
+	"Gilberts",
+	"Line Islands",
+	"Mascarene Plateau",
+	"Mid-Indian Ridge",
+	"North Arabian Sea",
+	"North East Pacific Ocean",
+	"North Mozambique Channel",
+	"Northeast Coast of Madagascar",
+	"South Arabian Sea",
+	"South East Pacific Ocean",
+	"South Mozambique Channel",
+	"Southeast Coast of Madagascar",
+	"Southeast Indian Ocean",
+	"Southwest Indian Ocean",
+	"East Cost of New Zealand",
+	"North Southeast Pacific Ocean",
+	"South Southeast Pacific Ocean",
+	"Southeast Pacific Basin",
+	"Southwest Pacific Basin",
+	"West Coast of Central America",
+	"West Coast of Chile",
+	"West Coast of Peru",
+	"Horn of Africa",
+	"Coast of Angola-Namibia",
+	"Angola Plain",
+	"Argentine Plain",
+	"Coast of Argentina",
+	"Coast of Uruguay",
+
+	"Coast of New Guinea",
+	"Coast of Guyana",
+	"Coast of Recife",
+	"Cape Finisterre",
+	"Arctic Ocean",
+	"The Hebreides",
+	"Irish West Coast",
+	"Pernambuco Plain",
+	"Ascension Fracture Zone",
+	"East North Sea",
+	"Caspian Sea",		// NEW!!!
+};
+
+
+
+Region Names
+{
+	"-",
+	"Afghanistan",
+	"Alaska",
+	"Algeria",
+	"Amazonas",
+	"American Pacific",
+	"Anatolia",
+	"Andes",
+	"Asian Pacific",
+	"Australia",
+	"Austria",
+	"Balkan",
+	"Baltic States",
+	"Benelux",
+	"Belarus",
+	"Bismarck Archipelago",
+	"Brazil",
+	"Brazilian Highlands",
+	"Canada",
+	"Caribbean",
+	"Central Africa",
+	"Central America",
+	"Central Asia",
+	"China",
+	"Czechoslovakia",
+	"Denmark",
+	"Diego Garcia Island",
+	"East Africa",
+	"Egypt",
+	"England",
+	"Ethiopia",
+	"Far East Siberia",
+	"Finland",
+	"France",
+	"Germany",
+	"Gran Chaco",
+	"Grand Colombia",
+	"Greenland",
+	"Horn of Africa",
+	"Hungary",
+	"Iceland",
+	"India",
+	"Indochine",
+	"Indonesia",
+	"Ireland",
+	"Irkutsk",
+	"Italy",
+	"Japan",
+	"Kaukasus",
+	"Kazakstan",
+	"Korea",
+	"Krasnoyarsk",
+	"Libya",
+	"Madagascar",
+	"Mexico",
+	"Middle East",
+	"Midwest US",
+	"Morocco",
+	"New Guinea",
+	"North Solomon Islands",
+	"Northeast US",
+	"Northern Permafrost",
+	"Northwest US",
+	"Norway",
+	"Novosibirsk",
+	"Patagonia",
+	"Persia",
+	"Philippines",
+	"Poland",
+	"Portugal",
+	"Rio de la Plata",
+	"Romania",
+	"Russia",
+	"Sahara",
+	"Scotland",
+	"South Africa",
+	"South Solomon Islands",
+	"Southcentral US",
+	"Southeast US",
+	"Southwest Africa",
+	"Southwest US",
+	"Spain",
+	"Sudan",
+	"Sweden",
+	"Switzerland",
+	"Tomsk",
+	"Tunisia",
+	"Ukraine",
+	"Urals",
+	"West Africa",
+	"White Sea Tundra",
+	"Eastern Canada",
+	"Western Canada",
+	"Northern Canada",
+
+	"Lake",
+	"Black Sea",
+	"Baltic Sea",
+	"Western Mediterranean",
+	"Central Mediterranean",
+	"Eastern Mediterranean",
+	"South China Sea",
+	"Philippine Sea",
+	"Moluccas",
+	"Java Sea",
+	"Coral Sea",
+	"East China Sea",
+	"North Sea",
+	"Northeast Atlantic",
+	"North Atlatic",
+	"Northwest Atlantic",
+	"Ice Sea",
+	"Tasman Sea",
+	"Carribean",
+	"Great Australian Bight",
+	"Sargassos",
+	"Mexican Gulf",
+	"Canadian Arctic",
+	"Grand Banks Shelf",
+	"Eastern Seaboard",
+	"Central Mid-Atlantic Ridge",
+	"Bismarck Sea",
+	"Bay of Bengal",
+	"Bering Sea",
+	"Central Pacific Ocean",
+	"East Indian Ocean",
+	"Home Islands",
+	"North Pacific Ocean",
+	"Sea of Okhotsk",
+	"West Coast of North America",
+	"Arabian Sea",
+	"Cape of Good Hope",
+	"Coast of Madagascar",
+	"East Pacific Ocean",
+	"Mozambique Channel",
+	"South Pacific Ocean",
+	"South Indian Ocean",
+	"West Indian Ocean",
+	"Pacific-Antarctic Ridge",
+	"Southeast Pacific Ocean",
+	"West Coast of South America",
+	"Southeast Atlantic Ocean",
+	"Southwest Atlantic Ocean",
+
+	"Western Ice Sea",
+	"Brazilian Coast",
+	"Southcentral Atlantic",
+	"Eastern Atlantic",
+	"Celtic Sea",
+	"Iberian West Coast",
+};
