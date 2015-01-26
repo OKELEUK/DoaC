@@ -1,0 +1,192 @@
+event = {
+	id = 7005
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CHC
+		OR = {
+			AND = {
+				lost_national = { country = CHC value = 40 }
+				NOT = { vp = 2 }
+			}
+			AND = {
+				owned = { province = 1271 data = CHC } # Yan'an
+				NOT = { control = { province = 1271 data = CHC } } # Yan'an
+				lost_IC = { country = CHC value = 50 }
+			}
+			AND = {
+				owned = { province = 1271 data = CHC } # Yan'an
+				control = { province = 1271 data = CHC } # Yan'an
+				lost_IC = { country = CHC value = 50 }
+			}
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CHC country = CHI }
+		}
+	}
+
+	name = ai_event
+	desc = ai_event
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "ok"
+		command = { type = inherit which = CHC value = 1 }
+	}
+}
+event = {
+	id = 7006
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CSX
+		AND = {
+			NOT = { control = { province = 1275 data = CSX } } # Bejing
+			lost_national = { country = CSX value = 50 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CSX country = CHI }
+		}
+	}
+
+	name = ai_event
+	desc = ai_event
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "ok"
+		command = { type = inherit which = CSX value = 1 }
+	}
+}
+event = {
+	id = 7007
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CYN
+		OR = {
+			lost_national = { country = CYN value = 50 }
+			lost_VP = { country = CYN value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CYN country = CHI }
+		}
+	}
+
+	name = ai_event
+	desc = ai_event
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "ok"
+		command = { type = inherit which = CYN value = 1 }
+	}
+}
+event = {
+	id = 7008
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CXB
+		OR = {
+			lost_national = { country = CXB value = 50 }
+			lost_VP = { country = CXB value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CXB country = CHI }
+		}
+	}
+
+	name = ai_event
+	desc = ai_event
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "ok"
+		command = { type = inherit which = CXB value = 1 }
+	}
+}
+event = {
+	id = 7009
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CGX
+		OR = {
+			lost_national = { country = CGX value = 50 }
+			lost_VP = { country = CGX value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CGX country = CHI }
+		}
+	}
+
+	name = ai_event
+	desc = ai_event
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "ok"
+		command = { type = inherit which = CGX value = 1 }
+	}
+}
+event = {
+	id = 7010
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = SIK
+		OR = {
+			lost_national = { country = SIK value = 50 }
+			lost_VP = { country = SIK value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = SIK country = CHI }
+		}
+	}
+
+	name = ai_event
+	desc = ai_event
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "ok"
+		command = { type = inherit which = SIK value = 1 }
+	}
+}

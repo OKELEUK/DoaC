@@ -1,0 +1,348 @@
+####################################
+# Spanish Nationalists AI events 32400 - 32499 by Lothos
+####################################
+################
+# Minister of Security Section 32400 - 32409
+#############################################
+event = { # José Martínez de Velasco takes power
+	id = 32400
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 10150 # José Martínez de Velasco
+		NOT = { InCabinet = 10150 }
+		OR = {
+			manpower = 200
+			NOT = { minister = 10127 } # Pedro Sáinz Rodríguez
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 10150 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Pedro Sáinz Rodríguez takes power
+	id = 32401
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 10127 # Pedro Sáinz Rodríguez
+		NOT = { InCabinet = 10127 }
+		OR = {
+			NOT = { manpower = 200 }
+			NOT = { minister = 10150 } # José Martínez de Velasco
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 10127 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 32410 - 32419
+#############################################
+event = { # Luís Orgaz Yoldi takes power
+	id = 32410
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 10017 # Luís Orgaz Yoldi
+		NOT = { InCabinet = 10017 }
+		atwar = yes
+		OR = {
+			AND = {
+				manpower = 200
+			}
+			AND = {
+				NOT = { manpower = 200 }
+				NOT = { minister = 10200 } # Gonzalo Queipo de Llano
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 10017 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Gonzalo Queipo de Llano power
+	id = 32411
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 10200 # Gonzalo Queipo de Llano
+		NOT = { InCabinet = 10200 }
+		OR = {
+			atwar = no
+			NOT = { manpower = 200 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 10200 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 32420 - 32429
+#############################################
+event = { # José Ungría Jiménez takes power
+	id = 32420
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 10162 # José Ungría Jiménez
+		NOT = { InCabinet = 10162 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 10162 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 32430 - 32439
+#############################################
+event = { # Agustín Aznar Guerner takes power
+	id = 32430
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 10216 # Agustín Aznar Guerner
+		NOT = { InCabinet = 10216 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 10216 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Francisco Franco Bahamonde takes power
+	id = 32431
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 10276 # Francisco Franco Bahamonde Guerner
+		NOT = { InCabinet = 10276 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 10276 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32440 - 32449
+#############################################
+event = { # Juan March Ordinas takes power
+	id = 32440
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 10113 # Juan March Ordinas
+		NOT = { InCabinet = 10113 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 10113 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Joaquín Bau Nolla takes power
+	id = 32441
+	random = no 
+	country = SPA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { minister = 10113 } # Juan March Ordinas
+		minister = 10097 # Joaquín Bau Nolla
+		NOT = { InCabinet = 10097 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 10097 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+#############################################
+# Regular AI Events 32460 - 34199
+#############################################
+################
+# Spanish Civil War AI
+#############################################
+event = {
+	id = 32460
+	random = no 
+	country = SPA
+
+	trigger = {
+		ai = yes
+		war = { country = SPR country = SPA }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		command = { type = ai which = "switch/SPR_CivilWar.ai" }
+	}
+}
+################
+# End of Spanish Civil War AI
+#############################################
+event = {
+	id = 32461
+	random = no 
+	country = SPA
+
+	trigger = {
+		ai = yes
+		event = 32460
+		OR = {
+			NOT = { exists = SPR }
+			NOT = { war = { country = SPR country = SPA } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SP_EndCivilWar.ai" }
+		command = { type = sleepevent which = 32561 }
+	}
+}
+################
+# Clear out militia from Spanish Civil War
+#############################################
+#event = {
+#	id = 32461
+#	random = no 
+#	country = SPA
+
+#	trigger = {
+#		ai = yes
+#		event = 32460
+#		atwar = no
+#		militia = { country = SPA value = 1 }
+#	}
+
+#	name = "AI_EVENT"
+#	style = 0	
+	
+#	date = { day = 1 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+
+#	action_a = {
+#		command = { type = delete_unit which = militia value = -1 }
+#	}
+#}
+
+

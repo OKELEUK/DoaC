@@ -1,0 +1,175 @@
+##### ID's 700000 and on
+
+##########################################################################
+##### 700000 - USSR RETURNS PERSIAN PROVINCES TO PERSIA IF BAKU IS LOST
+##########################################################################
+
+event = {
+  id = 700000
+  random = no
+  country = SOV
+  style = 0
+
+  trigger = {
+	owned = { province = 1859 data = SOV } # USSR owns Tabriz
+	owned = { province = 1787 data = SOV } # USSR owns Rasht
+	owned = { province = 1788 data = SOV } # USSR owns Hamadan
+	owned = { province = 1503 data = SOV } # USSR owns Babol
+	owned = { province = 1501 data = SOV } # USSR owns Dasht-i-Kavir
+	owned = { province = 1500 data = SOV } # USSR owns Mashhad
+	event = 936 # Persia ceded provinces to USSR and became an English puppet
+	puppet = { country = PER country = ENG } # Persia became an English puppet in 936
+	war = { country = GER country = SOV }
+	NOT = {
+		control = { province = 1907 data = SOV } # USSR lost Baku
+		war = { country = SOV country = PER }
+		war = { country = SOV country = ENG }
+	      }
+	}
+ 
+  name = "EVT_700000_NAME" # needs text
+  desc = "EVT_700000_DESC" 
+  picture = "reinforcements"
+
+  date = { day = 1 month = january year = 1936 }
+  offset = 2
+  deathdate = { day = 30 month = december year = 1963 }
+
+  action_a = {
+	name = "OK"
+	command = { type = secedeprovince which = PER value = 1859 } # Tabriz
+	command = { type = secedeprovince which = PER value = 1787 } # Rasht
+	command = { type = secedeprovince which = PER value = 1788 } # Hamaden
+	command = { type = secedeprovince which = PER value = 1503 } # Babol
+	command = { type = secedeprovince which = PER value = 1501 } # Dasht-i-Kavir
+	command = { type = secedeprovince which = PER value = 1500 } # Mashhad
+	}
+  }
+
+
+##################################################################################
+# 700001 - FRANCE RETURNS ITS CAPITAL TO PARIS AFTER GERMANY HAS BEEN DEFEATED
+##################################################################################
+event = {
+	id = 700001
+	random = no
+	country = FRA
+
+	name = "EVT_700001_NAME" # needs text
+	desc = "EVT_700001_DESC"
+	style = 0
+	picture = "ger_surrender"
+
+	trigger = {
+		NOT = { exists = GER }
+		owned = { province = 56 data = FRA }
+		event = 2800 # The Vichy Regime
+	}
+
+	date = { day = 2 month = january year = 1936 }
+	offset = 7 # Check for trigger conditions day
+	deathdate = { day = 30 month = december year = 1963
+	 }
+
+	action_a = {
+		name = "OK" #
+		ai_chance = 100
+		command = { type = capital which = 56 }
+	}
+}
+
+
+###################################################################################################
+#  700002 - THE NETHERLANDS MOVE THEIR CAPITAL BACK TO AMSTERDAM AFTER GERMANY HAS BEEN DEFEATED
+###################################################################################################
+
+event = {
+	id = 700002
+	random = no
+	country = HOL
+
+	name = "EVT_700002_NAME" # needs text
+	desc = "EVT_700002_DESC"
+	style = 0
+	picture = "ger_surrender"
+
+	trigger = {
+		NOT = { exists = GER }
+		owned = { province = 47 data = HOL }
+		OR = {
+			event = 37069 # HOL moves their capital
+			event = 25066 # Netherlands move capital to the Dutch East Indies when nearly conquered
+		}
+	}
+
+	date = { day = 2 month = january year = 1936 }
+	offset = 7 # Check for trigger conditions day
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "OK" #
+		ai_chance = 100
+		command = { type = capital which = 47 }
+		command = { type = addcore which = 46 }
+		command = { type = addcore which = 47 }
+		command = { type = addcore which = 48 }
+		command = { type = addcore which = 49 }
+		command = { type = addcore which = 77 }
+		command = { type = addcore which = 78 }
+		command = { type = addcore which = 79 }
+	}
+}
+
+
+####################################################################################################################
+#  700003 - BELGIUM MOVES ITS CAPITAL BACK TO BRUSSELS AFTER GERMANY HAS BEEN DEFEATED & LOSES CORES ON THE CONGO
+####################################################################################################################
+
+event = {
+	id = 700003
+	random = no
+	country = BEL
+
+	name = "EVT_700003_NAME" # needs text
+	desc = "EVT_700003_DESC"
+	style = 0
+	picture = "ger_surrender"
+
+	trigger = {
+		NOT = { exists = GER }
+		owned = { province = 51 data = BEL }
+		OR = {
+			event = 37162 # BEL moves their capital
+			event = 25060 # Belgium moves its capital to the Kongo when nearly conquered
+		}
+	}
+
+	date = { day = 2 month = january year = 1936 }
+	offset = 7 # Check for trigger conditions day
+	deathdate = { day = 30 month = december year = 1963 }
+
+	action_a = {
+		name = "OK" #
+		ai_chance = 100
+		command = { type = capital which = 51 }
+		command = { type = addcore which = 45 }
+		command = { type = addcore which = 50 }
+		command = { type = addcore which = 51 }
+		command = { type = addcore which = 52 }
+		command = { type = addcore which = 65 }
+		command = { type = addcore which = 68 }
+		command = { type = addcore which = 69 }
+		command = { type = addcore which = 70 }
+		command = { type = removecore which = 1095 }
+		command = { type = removecore which = 1142 }
+		command = { type = removecore which = 1098 }
+		command = { type = removecore which = 1127 }
+		command = { type = removecore which = 1144 }
+		command = { type = removecore which = 1143 }
+		command = { type = removecore which = 1074 }
+		command = { type = removecore which = 1071 }
+		command = { type = removecore which = 1072 }
+		command = { type = removecore which = 1073 }
+		command = { type = removecore which = 1063 }
+	}
+}

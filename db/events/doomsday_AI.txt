@@ -1,0 +1,344 @@
+event = { # Rokossovsky takes power
+	id = 20000
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		minister = 4027 # Rokossovsky 
+		NOT = { InCabinet = 4027 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 3 month = october year = 1945 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 4027 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+#puppet Iran
+event = { 
+	id = 20001
+	random = no
+	country = SOV
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = PER
+		lost_VP = { country = PER value = 75 }	
+		war = { country = SOV  country = PER }
+		control = { province = 1502 data = SOV } #Tehran controlled by the USSR
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = PER } 
+	}
+}
+
+event = { 
+	id = 20002
+	random = no
+	country = ENG
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = PER
+		lost_VP = { country = PER value = 75 }	
+		war = { country = ENG country = PER }
+		control = { province = 1502 data = ENG } #Tehran controlled by the UK
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = PER } 
+	}
+}
+
+event = { 
+	id = 20003
+	random = no
+	country = USA
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = PER
+		lost_VP = { country = PER value = 75 }	
+		war = { country = USA country = PER }
+		control = { province = 1502 data = USA } #Tehran controlled by the USA
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = PER } 
+	}
+}
+
+#puppet Irak
+
+event = { 
+	id = 20004
+	random = no
+	country = SOV
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = IRQ
+		lost_VP = { country = IRQ value = 49 }	
+		war = { country = SOV  country = IRQ }
+		control = { province = 1866 data = SOV } #Bagdad controlled by the USSR
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = IRQ } 
+	}
+}
+
+event = { 
+	id = 20005
+	random = no
+	country = ENG 
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = IRQ
+		lost_VP = { country = IRQ value = 49 }	
+		war = { country = ENG  country = IRQ }
+		control = { province = 1866 data = ENG } #Bagdad controlled by the UK
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = IRQ } 
+	}
+}
+
+event = { 
+	id = 20006
+	random = no
+	country = USA 
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = IRQ
+		lost_VP = { country = IRQ value = 49 }	
+		war = { country = USA country = IRQ }
+		control = { province = 1866 data = USA } #Bagdad controlled by the USA
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = IRQ } 
+	}
+}
+
+
+#puppet Turkey
+
+event = { 
+	id = 20007
+	random = no
+	country = SOV
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = TUR
+		lost_VP = { country = TUR value = 75 }	
+		war = { country = SOV  country = TUR }
+		control = { province = 448 data = SOV } #Ankara controlled by the USSR
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = TUR } 
+	}
+}
+
+event = { 
+	id = 20008
+	random = no
+	country = ENG
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = TUR
+		lost_VP = { country = TUR value = 75 }	
+		war = { country = ENG country = TUR }
+		control = { province = 448 data = ENG } #Ankara controlled by the UK
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = TUR } 
+	}
+}
+
+event = { 
+	id = 20009
+	random = no
+	country = USA
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = TUR
+		lost_VP = { country = TUR value = 75 }	
+		war = { country = USA country = TUR }
+		control = { province = 448 data = USA } #Ankara controlled by the USA
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = TUR } 
+	}
+}
+
+
+#puppet Syria
+
+event = { 
+	id = 20010
+	random = no
+	country = SOV
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = SYR 
+		lost_VP = { country = SYR value = 59 }	
+		war = { country = SOV  country = SYR }
+		control = { province = 1792 data = SOV } #Damas controlled by the USSR
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = SYR } 
+	}
+}
+
+event = { 
+	id = 20011
+	random = no
+	country = ENG
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = SYR 
+		lost_VP = { country = SYR value = 59 }	
+		war = { country = ENG country = SYR }
+		control = { province = 1792 data = ENG } #Damas controlled by the UK
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = SYR } 
+	}
+}
+
+
+event = { 
+	id = 20012
+	random = no
+	country = USA
+	
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = SYR 
+		lost_VP = { country = SYR value = 59 }	
+		war = { country = USA country = SYR }
+		control = { province = 1792 data = USA } #Damas controlled by the UK
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	date = { day = 1 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = make_puppet which = SYR } 
+	}
+}
+

@@ -1,0 +1,145 @@
+#
+# HoI - Slovakian Events
+#
+#		written by Henrik Fåhraeus
+#		modified my Kevin McCarthy
+
+#########################################################################
+#  The End of Czechoslovakia
+#########################################################################
+event = { 
+	id = 2300
+	random = no
+	country = SLO
+
+	name = "EVT_2300_NAME"
+	desc = "EVT_2300_DESC"
+        picture = "ocupation"
+	style = 0
+
+	# triggered by GER2051  
+
+	action_a = {
+		name = "OK" # Bohemia and Moravia to Germany
+		command = { type = trigger which = 2500 }#HUN
+		command = { type = headofstate which = 31031 }
+		command = { type = headofgovernment which = 31034 }
+		command = { type = foreignminister which = 31037 }
+		command = { type = armamentminister which = 31042 }
+		command = { type = ministerofsecurity which = 31048 }
+		command = { type = ministerofintelligence which = 31055 }
+		command = { type = chiefofstaff which = 31060 }
+		command = { type = chiefofarmy which = 31063 }
+		command = { type = chiefofnavy which = 31066 }
+		command = { type = chiefofair which = 31069 }
+	# New for 1.3
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = add_corps which = "Slovak Combat Group" value = land where = 476 }
+		command = { type = add_division which = "1. Pesi divize" value = infantry when = 1 where = armored_car }
+		command = { type = add_division which = "2. Pesi divize" value = infantry when = 1 where = police }
+		command = { type = manpowerpool value = 10 } # manpower
+
+
+	}
+}
+
+# M-R Pact effects copy to ensure SLO doesn't keep any conquests were promised to SOV
+
+event = {
+	id = 2301
+	random = no
+	country = SLO
+
+	# Triggered by German event 2018
+
+	name = "EVT_2018_NAME"
+	desc = "EVT_2018_DESC"
+	style = 0
+	picture = "E_Poland_Sov"
+
+	action_a = {
+		name = "ACTIONNAME2018A" # Honor the Pact
+		command = { type = relation which = SOV value = 10 }
+		command = { type = secedeprovince which = SOV value = 500 }
+		command = { type = secedeprovince which = SOV value = 501 }
+		command = { type = secedeprovince which = SOV value = 502 }
+		command = { type = secedeprovince which = SOV value = 503 }
+		command = { type = secedeprovince which = SOV value = 504 }
+		command = { type = secedeprovince which = SOV value = 505 }
+		command = { type = secedeprovince which = SOV value = 506 }
+		command = { type = secedeprovince which = SOV value = 507 }
+		command = { type = secedeprovince which = SOV value = 508 }
+		command = { type = secedeprovince which = SOV value = 562 }
+		command = { type = secedeprovince which = SOV value = 229 }
+		command = { type = secedeprovince which = SOV value = 222 }
+		command = { type = secedeprovince which = SOV value = 210 }
+		command = { type = secedeprovince which = SOV value = 209 }
+		command = { type = secedeprovince which = SOV value = 211 }
+		command = { type = secedeprovince which = SOV value = 213 }
+		command = { type = secedeprovince which = SOV value = 214 }
+		command = { type = secedeprovince which = SOV value = 208 }
+	        }
+}

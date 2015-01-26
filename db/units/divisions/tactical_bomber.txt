@@ -1,0 +1,163 @@
+allowed_brigades =  escort
+# 0 - Interwar Bomber
+model = {
+	cost 					= 11
+	buildtime				= 160
+	defaultorganisation 		= 30
+	morale					= 30
+	manpower				= 2
+	maxspeed				= 180
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 0
+	surfacedefence				= 4
+	airdefence				= 1
+	airattack				= 1
+	strategicattack				= 5
+	softattack				= 5
+	hardattack				= 1
+	navalattack				= 1
+	range					= 400
+	supplyconsumption 			= 1.5
+	fuelconsumption				= 3
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 1.0
+}
+# 1 - Early Bomber
+model = {
+	cost 					= 13
+	buildtime				= 180
+	defaultorganisation 		= 30
+	morale					= 30
+	manpower				= 2
+	maxspeed				= 200
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 0
+	surfacedefence				= 5
+	airdefence				= 2
+	airattack				= 1
+	strategicattack				= 5
+	softattack				= 7
+	hardattack				= 2
+	navalattack				= 2
+	range					= 500
+	supplyconsumption 			= 1.7
+	fuelconsumption				= 3
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 2 - Basic Tactical Bomber
+model = {
+	cost 					= 15
+	buildtime				= 180
+	defaultorganisation 		= 30
+	morale					= 30
+	manpower				= 2
+	maxspeed				= 300
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence				= 7
+	airdefence				= 4
+	airattack				= 2
+	strategicattack				= 7
+	softattack				= 9
+	hardattack				= 3
+	navalattack				= 3
+	range					= 600
+	supplyconsumption 			= 1.5
+	fuelconsumption				= 2.5
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+
+# 3 - Improved Tactical Bomber
+model = {
+	cost 					= 18
+	buildtime				= 180
+	defaultorganisation 		= 30
+	morale					= 30
+	manpower				= 2
+	maxspeed				= 350
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence				= 10
+	airdefence				= 5
+	airattack				= 3
+	strategicattack				= 10
+	softattack				= 11
+	hardattack				= 4
+	navalattack				= 4
+	range					= 700
+	supplyconsumption 			= 1.6
+	fuelconsumption				= 2.6
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 4 - Advanced Tactical Bomber
+model = {
+	cost 					= 21
+	buildtime				= 180
+	defaultorganisation 		= 30
+	morale					= 30
+	manpower				= 2
+	maxspeed				= 400
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence				= 14
+	airdefence				= 6
+	airattack				= 3
+	strategicattack				= 14
+	softattack				= 12
+	hardattack				= 6
+	navalattack				= 5
+	range					= 800
+	supplyconsumption 			= 1.7
+	fuelconsumption				= 2.7
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 5 - Turbojet Tactical Bomber
+model = {
+	cost 					= 25
+	buildtime				= 180
+	defaultorganisation 		= 30
+	morale					= 30
+	manpower				= 2
+	maxspeed				= 650
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence				= 18
+	airdefence				= 9
+	airattack				= 6
+	strategicattack				= 16
+	softattack				= 14
+	hardattack				= 8
+	navalattack				= 6
+	range					= 1100
+	supplyconsumption 			= 2.0
+	fuelconsumption				= 3.0
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 6 - Improved Turbojet Tactical Bomber
+model = {
+	cost 					= 28
+	buildtime				= 180
+	defaultorganisation 		= 30
+	morale					= 30
+	manpower				= 2
+	maxspeed				= 750
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence				= 20
+	airdefence				= 10
+	airattack				= 7
+	strategicattack				= 18
+	softattack				= 18
+	hardattack				= 10
+	navalattack				= 7
+	range					= 1100
+	supplyconsumption 			= 2.2
+	fuelconsumption				= 3.0
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}

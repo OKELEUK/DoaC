@@ -1,0 +1,42 @@
+#########################################################################
+#  Independent Croatia
+#########################################################################
+event = { 
+	id = 2032
+	random = no
+	country = CRO
+	
+	#Triggered by GER2031
+	
+	name = "EVT_2032_NAME"
+	desc = "EVT_2032_DESC"
+        picture = "independent_croatia"
+	style = 0
+	
+
+	action_a = {
+		name = "ACTIONNAME2032A" # We got Independence!
+		command = { type = manpowerpool value = 20 }
+		command = { type = supplies value = 200 }
+		command = { type = headofstate which = 30001 }
+		command = { type = headofgovernment which = 30002 }
+		command = { type = foreignminister which = 30003 }
+		command = { type = armamentminister which = 30004 }
+		command = { type = ministerofsecurity which = 30005 }
+		command = { type = ministerofintelligence which = 30006 }
+		command = { type = chiefofstaff which = 30007 }
+		command = { type = chiefofarmy which = 30008 }
+		command = { type = chiefofnavy which = 30009 }
+		command = { type = chiefofair which = 30010 } 
+		command = { type = trigger which = 2033 } # GER
+
+		command = { type = free_ic value = 3 }
+		command = { type = free_energy value = 20 }
+		command = { type = free_metal value = 10 }
+		# command = { type = free_oil value = 10 }
+		command = { type = free_rare_materials value = 5 }
+
+		command = { type = sleepevent which = 15072 } #AI_Event for free_stuff
+		
+	}
+}

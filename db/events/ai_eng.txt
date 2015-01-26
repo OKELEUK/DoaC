@@ -1,0 +1,2756 @@
+####################################
+# United Kingdom and Minors 24000 - 24999 by Lothos
+####################################
+# Unit building AI
+#	ENGBuildStandard	= Standard Building of units 
+#	ENGBuildLand		= Priority Building land units
+
+# Air AI Flags
+#	ENGAirAINaval		= Air vs Naval priority
+#	ENGAirAIStrategic	= Strategic Bombing has priority
+#	ENGAirAIGround		= Ground Support has priority
+
+# Behavior Flags
+#	ENGInvadeItaly		= England is trying to invade Norway since low garrison
+#	ENGInvadeNorway		= England is trying to invade Norway since low garrison
+#	ENGDDay				= England is trying to help an AI USA with D-Day
+
+# Naval AI Flags
+#	ENGNavalChannel		= Ignore the English Channel cause France fell
+#	ENGNavalChannelP	= Protect the English Channel
+#	ENGNavalNorway		= English Navy support Norway Invasion
+#	ENGNavalMedShut		= English avoid sending ships through the med
+#	ENGNavalChannelMed	= Same as Channel but shuts down Med
+#	ENGNavalChannelPMed	= Same as ChannelP but shuts down Med
+#	ENGNavalNorwayMed	= Same as Norway but shuts down Med
+
+#	ENGNavalPacificShut			= English avoid sending ships through the Pacific
+#	ENGNavalChannelPacific		= Same as Channel but shuts down Pacific
+#	ENGNavalChannelPPacific		= Same as ChannelP but shuts down Pacific
+#	ENGNavalNorwayPacific		= Same as Norway but shuts down Pacific
+#	ENGNavalChannelPacificMed	= Same as Channel but shuts down Pacific and Med
+#	ENGNavalChannelPPacificMed	= Same as ChannelP but shuts down Pacific and Med
+#	ENGNavalNorwayPacificMed	= Same as Norway but shuts down Pacific and Med
+
+################
+# Battle of Britain
+#############################################
+event = {
+	id = 24000
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = ENG }
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+			control = { province = 56 data = GER } # Paris
+			AND = {
+				# Belgium
+				control = { province = 45 data = GER }
+				control = { province = 50 data = GER }
+				control = { province = 51 data = GER }
+				control = { province = 52 data = GER }
+				control = { province = 65 data = GER }
+				control = { province = 68 data = GER }
+				control = { province = 69 data = GER }
+				control = { province = 70 data = GER }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Britain.ai" }
+	}
+}
+################
+# England sends help to Greece
+#############################################
+event = {
+	id = 24001
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		random = 30
+		war = { country = ITA country = GRE }
+		alliance = { country = ENG country = GRE }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Baklans.ai" }
+	}
+}
+################
+# Poland is being attacked DELETED
+#############################################
+#event = {
+#	id = 24003
+#	random = no 
+#	country = ENG
+
+################
+# England release troops from England to attack with
+#############################################
+event = {
+	id = 24004
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		OR = {
+			random = 30
+			alliance = { country = ENG country = USA }
+		}
+		war = { country = GER country = ENG }
+		OR = {
+			war = { country = GER country = USA }
+			war = { country = GER country = SOV }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Attack.ai" }
+	}
+}
+################
+# England sends more troops to France since they are allive still
+#############################################
+event = {
+	id = 24005
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		exists = FRA
+		control = { province = 56 data = FRA } # Paris
+		NOT = { exists = VIC }
+		war = { country = FRA country = GER }
+		alliance = { country = ENG country = FRA }
+		NOT = {	lost_national = { country = FRA value = 35 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1941 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_EXP_France.ai" }
+	}
+}
+################
+# England changes production prios
+#############################################
+event = {
+	id = 24006
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Atwar.ai" }
+	}
+}
+################
+# Australia changes production
+#############################################
+# Event 24007 deleted by Lothos
+
+################
+# England updates Protection list
+#############################################
+event = {
+	id = 24008
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+		war = { country = GER country = ENG }
+		NOT = { war = { country = SOV country = ENG } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_SOV_Protect.ai" }
+	}
+}
+################
+# England loads EXP Force Ratio for war with SOV
+#############################################
+event = {
+	id = 24009
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		war = { country = USA country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_ALIvsSOV2.ai" }
+	}
+}
+################
+# England Load D-Day AI
+#############################################
+event = {
+	id = 24010
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = ENGDDay }
+		alliance = { country = ENG country = USA }
+		OR = {
+			AND = {
+				ai = USA
+				flag = DDay
+			}
+			control = { province = 292 data = USA } # Arburg
+			control = { province = 92  data = USA } # Arhus
+			control = { province = 91  data = USA } # Kolding			
+			control = { province = 78  data = USA } # Leeweden
+			control = { province = 47  data = USA } # Amsterdam
+			control = { province = 46  data = USA } # Rotterdam
+			control = { province = 45  data = USA } # Ghent
+			control = { province = 18  data = USA } # Calais
+			control = { province = 42  data = USA } # Dieppe
+			control = { province = 41  data = USA } # Le Havre
+			control = { province = 39  data = USA } # Caen
+			control = { province = 33  data = USA } # Rennes
+			control = { province = 32  data = USA } # Brest
+			control = { province = 34  data = USA } # Lorient
+			control = { province = 35  data = USA } # Nantes
+			control = { province = 59  data = USA } # Cholet
+			control = { province = 325 data = USA } # Bordeaux
+			control = { province = 326 data = USA } # Dax
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Dday.ai" }
+		command = { type = local_setflag which = ENGDDay }
+	}
+}
+event = {
+	id = 24011
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGDDay
+		alliance = { country = ENG country = USA }
+		NOT = {
+			AND = {
+				ai = USA
+				flag = DDay
+			}
+			control = { province = 292 data = USA } # Arburg
+			control = { province = 92  data = USA } # Arhus
+			control = { province = 91  data = USA } # Kolding			
+			control = { province = 78  data = USA } # Leeweden
+			control = { province = 47  data = USA } # Amsterdam
+			control = { province = 46  data = USA } # Rotterdam
+			control = { province = 45  data = USA } # Ghent
+			control = { province = 18  data = USA } # Calais
+			control = { province = 42  data = USA } # Dieppe
+			control = { province = 41  data = USA } # Le Havre
+			control = { province = 39  data = USA } # Caen
+			control = { province = 33  data = USA } # Rennes
+			control = { province = 32  data = USA } # Brest
+			control = { province = 34  data = USA } # Lorient
+			control = { province = 35  data = USA } # Nantes
+			control = { province = 59  data = USA } # Cholet
+			control = { province = 325 data = USA } # Bordeaux
+			control = { province = 326 data = USA } # Dax
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Attack.ai" }
+		command = { type = local_clrflag which = ENGDDay }
+	}
+}
+################
+# Canada Load D-Day AI
+#############################################
+# Event 24012 deleted by Lothos
+
+################
+# England Air AI Naval portion
+#############################################
+event = {
+	id = 24013
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+			NOT = { local_flag = ENGAirAINaval }
+			AND = {
+				day = 1
+				NOT = { day = 2 }
+			}
+		}
+		# These statements must be false if not the land air AI has priority
+		NOT = {	lost_national = { country = ENG value = 2 }	}
+		
+		# These statements have to be true for it to load naval AI
+		OR = {
+			AND = {
+				war = { country = GER country = ENG }
+				OR = {
+					# North Sea
+					garrison = { country = GER province = 2400  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2399  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = GER province = 2402  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2471  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2398  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2397  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2396  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2395  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = GER province = 2413  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2414  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2411  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2409  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2410  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2406  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2405  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2404  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = ITA country = ENG }
+				OR = {
+					# North Sea
+					garrison = { country = ITA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = ITA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = ITA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = SPA country = ENG }
+				OR = {
+					# North Sea
+					garrison = { country = SPA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = SPA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = SPA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = USA country = ENG }
+				OR = {
+					# North Sea
+					garrison = { country = USA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = USA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = USA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = SOV country = ENG }
+				OR = {
+					# North Sea
+					garrison = { country = SOV province = 2400  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2399  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = SOV province = 2402  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2471  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2398  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2397  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2396  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2395  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = SOV province = 2413  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2414  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2411  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2409  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2410  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2406  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2405  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2404  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2403  type = naval size = 2 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = ENGAirAINaval }
+		command = { type = local_clrflag which = ENGAirAIStrategic }
+		command = { type = local_clrflag which = ENGAirAIGround }
+		command = { type = ai which = "switch/ENG_Air_Naval.ai" }
+	}
+}
+################
+# England Air AI Land portion
+#############################################
+event = {
+	id = 24014
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+			NOT = { local_flag = ENGAirAIGround }
+			AND = {
+				day = 1
+				NOT = { day = 2 }
+			}
+		}
+		# These statements must be false if not the land air AI has priority
+		OR = {
+			lost_national = { country = ENG value = 2 }
+			OR = {
+				#Southern Boot of Italy
+				control = { province = 526 data = ENG }
+				control = { province = 525 data = ENG }
+				control = { province = 523 data = ENG }
+				control = { province = 521 data = ENG }
+				control = { province = 520 data = ENG }
+				#Greece (Area)
+				control = { province = 394 data = ENG }
+				control = { province = 401 data = ENG }
+				control = { province = 411 data = ENG }
+				control = { province = 390 data = ENG }
+				control = { province = 410 data = ENG }
+			}
+		}
+		# These statements have to be true for it to load naval AI
+		NOT = {
+			AND = {
+				war = { country = GER country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = GER province = 2400  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2399  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = GER province = 2402  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2471  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2398  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2397  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2396  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2395  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = GER province = 2413  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2414  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2411  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2409  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2410  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2406  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2405  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2404  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = ITA country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = ITA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = ITA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = ITA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = SPA country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = SPA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = SPA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = SPA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = USA country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = USA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = USA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = USA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = SOV country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = SOV province = 2400  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2399  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = SOV province = 2402  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2471  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2398  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2397  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2396  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2395  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = SOV province = 2413  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2414  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2411  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2409  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2410  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2406  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2405  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2404  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2403  type = naval size = 2 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ENGAirAINaval }
+		command = { type = local_clrflag which = ENGAirAIStrategic }
+		command = { type = local_setflag which = ENGAirAIGround }
+		command = { type = ai which = "switch/ENG_Air_Ground.ai" }
+	}
+}
+################
+# England Air AI Strategic portion
+#############################################
+event = {
+	id = 24015
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+			NOT = { local_flag = ENGAirAIStrategic }
+			AND = {
+				day = 1
+				NOT = { day = 2 }
+			}
+		}
+		# These statements must be false to load the Strategic AI
+		NOT = {
+			lost_national = { country = ENG value = 2 }
+			OR = {
+				#Southern Boot of Italy
+				control = { province = 526 data = ENG }
+				control = { province = 525 data = ENG }
+				control = { province = 523 data = ENG }
+				control = { province = 521 data = ENG }
+				control = { province = 520 data = ENG }
+				#Greece (Area)
+				control = { province = 394 data = ENG }
+				control = { province = 401 data = ENG }
+				control = { province = 411 data = ENG }
+				control = { province = 390 data = ENG }
+				control = { province = 410 data = ENG }
+			}
+		}
+		# These statements must be false to load the Strategic AI
+		NOT = {
+			AND = {
+				war = { country = GER country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = GER province = 2400  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2399  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = GER province = 2402  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2471  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2398  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2397  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2396  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2395  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = GER province = 2413  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2414  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2411  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2409  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2410  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2406  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2405  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2404  type = naval size = 2 area = no }
+					garrison = { country = GER province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = ITA country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = ITA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = ITA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = ITA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = ITA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = SPA country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = SPA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = SPA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = SPA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = SPA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = USA country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = USA province = 2400  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2399  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = USA province = 2402  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2471  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2398  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2397  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2396  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2395  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = USA province = 2413  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2414  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2411  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2409  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2410  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2406  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2405  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2404  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2403  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = SOV country = ENG }
+				NOT = { lost_national = { country = ENG value = 2 } }
+				OR = {
+					# North Sea
+					garrison = { country = SOV province = 2400  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2399  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2472  type = naval size = 2 area = no }
+					# East Coast
+					garrison = { country = SOV province = 2402  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2471  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2398  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2397  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2396  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2395  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2412  type = naval size = 2 area = no }
+					#West Coast
+					garrison = { country = SOV province = 2413  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2414  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2411  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2409  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2410  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2406  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2405  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2404  type = naval size = 2 area = no }
+					garrison = { country = SOV province = 2403  type = naval size = 2 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ENGAirAINaval }
+		command = { type = local_setflag which = ENGAirAIStrategic }
+		command = { type = local_clrflag which = ENGAirAIGround }
+		command = { type = ai which = "switch/ENG_Air_Strategic.ai" }
+	}
+}
+################
+# Englands loads Standard builds AI
+#############################################
+event = {
+	id = 24016
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { local_flag = ENGBuildStandard }
+		NOT = {
+			AND = {
+				war = { country = GER country = ENG }
+				NOT = { land_percentage = { country = GER value = 0.5 } }
+			}
+			AND = {
+				war = { country = ITA country = ENG }
+				NOT = { land_percentage = { country = ITA value = 0.9 } }
+			}
+			AND = {
+				war = { country = SOV country = ENG }
+				NOT = { land_percentage = { country = SOV value = 0.2 } }
+			}
+			AND = {
+				war = { country = USA country = ENG }
+				NOT = { land_percentage = { country = USA value = 0.2 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = ENGBuildStandard }
+		command = { type = local_clrflag which = ENGBuildLand }
+		command = { type = ai which = "switch/ENG_Build_Standard.ai" }
+	}
+}
+################
+# Englands loads Land builds AI
+#############################################
+event = {
+	id = 24017
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { local_flag = ENGBuildLand }
+		OR = {
+			AND = {
+				war = { country = GER country = ENG }
+				NOT = { land_percentage = { country = GER value = 0.5 } }
+			}
+			AND = {
+				war = { country = ITA country = ENG }
+				NOT = { land_percentage = { country = ITA value = 0.9 } }
+			}
+			AND = {
+				war = { country = SOV country = ENG }
+				NOT = { land_percentage = { country = SOV value = 0.2 } }
+			}
+			AND = {
+				war = { country = USA country = ENG }
+				NOT = { land_percentage = { country = USA value = 0.2 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ENGBuildStandard }
+		command = { type = local_setflag which = ENGBuildLand }
+		command = { type = ai which = "switch/ENG_Build_Land.ai" }
+	}
+}
+################
+# England invades Norway due to lack of defenses
+#	ENGInvadeNorway
+#############################################
+event = {
+	id = 24018
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		random = 10
+		war = { country = GER country = ENG }
+		NOT = {	lost_national = { country = ENG value = 2 } }
+		NOT = { local_flag = ENGInvadeNorway }
+		OR = {
+			NOT = { exists = NOR }
+			puppet = { country = NOR country = GER }
+		}
+		OR = {
+			war = { country = GER country = SOV }
+			war = { country = GER country = USA }
+		}
+		OR = { # Norway
+			control = { province = 107 data = GER }
+			control = { province = 108 data = GER }
+			control = { province = 109 data = GER }
+			control = { province = 110 data = GER }
+			control = { province = 117 data = GER }
+			control = { province = 118 data = GER }
+			control = { province = 124 data = GER }
+			control = { province = 125 data = GER }
+		}
+		OR = {
+			AND = {
+				NOT = { garrison = { country = GER province = 107  type = land size = 1 area = no } } # Oslo
+				NOT = { garrison = { country = GER province = 108  type = land size = 1 area = no } } # Kristiansan
+				NOT = { garrison = { country = GER province = 109  type = land size = 1 area = no } } # Stavanger
+			}
+			AND = {
+				NOT = { garrison = { country = GER province = 109  type = land size = 1 area = no } } # Stavanger
+				NOT = { garrison = { country = GER province = 110  type = land size = 1 area = no } } # Bergen
+				NOT = { garrison = { country = GER province = 117  type = land size = 1 area = no } } # Alesund
+			}
+			AND = {
+				NOT = { garrison = { country = GER province = 118  type = land size = 1 area = no } } # Trondheim
+				NOT = { garrison = { country = GER province = 124  type = land size = 1 area = no } } # Mo I Ran
+				NOT = { garrison = { country = GER province = 125  type = land size = 1 area = no } } # Narvik
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Norway.ai" }
+		command = { type = local_setflag which = ENGInvadeNorway }
+	}
+}
+event = {
+	id = 24019
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = ENG }
+		local_flag = ENGInvadeNorway
+		OR = { # Norway
+			control = { province = 107 data = GER }
+			control = { province = 108 data = GER }
+			control = { province = 109 data = GER }
+			control = { province = 110 data = GER }
+			control = { province = 117 data = GER }
+			control = { province = 118 data = GER }
+			control = { province = 124 data = GER }
+			control = { province = 125 data = GER }
+		}
+		OR = {
+			lost_national = { country = ENG value = 2 }
+			NOT = {
+				AND = {
+					NOT = { garrison = { country = GER province = 107  type = land size = 1 area = no } } # Oslo
+					NOT = { garrison = { country = GER province = 108  type = land size = 1 area = no } } # Kristiansan
+					NOT = { garrison = { country = GER province = 109  type = land size = 1 area = no } } # Stavanger
+				}
+				AND = {
+					NOT = { garrison = { country = GER province = 109  type = land size = 1 area = no } } # Stavanger
+					NOT = { garrison = { country = GER province = 110  type = land size = 1 area = no } } # Bergen
+					NOT = { garrison = { country = GER province = 117  type = land size = 1 area = no } } # Alesund
+				}
+				AND = {
+					NOT = { garrison = { country = GER province = 118  type = land size = 1 area = no } } # Trondheim
+					NOT = { garrison = { country = GER province = 124  type = land size = 1 area = no } } # Mo I Ran
+					NOT = { garrison = { country = GER province = 125  type = land size = 1 area = no } } # Narvik
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Norway_Backoff.ai" }
+		command = { type = local_clrflag which = ENGInvadeNorway }
+	}
+}
+################
+# England Naval AI Section
+#	ENGNavalChannel		= Ignore the English Channel cause France fell
+#	ENGNavalChannelP	= Protect the English Channel
+#	ENGNavalNorway		= English Navy support Norway Invasion
+#	ENGNavalMedShut		= English avoid sending ships through the med
+#	ENGNavalChannelMed	= Same as Channel but shuts down Med
+#	ENGNavalChannelPMed	= Same as ChannelP but shuts down Med
+#	ENGNavalNorwayMed	= Same as Norway but shuts down Med
+
+#	ENGNavalPacificShut			= English avoid sending ships through the Pacific
+#	ENGNavalChannelPacific		= Same as Channel but shuts down Pacific
+#	ENGNavalChannelPPacific		= Same as ChannelP but shuts down Pacific
+#	ENGNavalNorwayPacific		= Same as Norway but shuts down Pacific
+#	ENGNavalChannelPacificMed	= Same as Channel but shuts down Pacific and Med
+#	ENGNavalChannelPPacificMed	= Same as ChannelP but shuts down Pacific and Med
+#	ENGNavalNorwayPacificMed	= Same as Norway but shuts down Pacific and Med
+
+#############################################
+event = {
+	id = 24020
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { local_flag = ENGNavalChannelP }
+		OR = {
+			local_flag = ENGDDay
+			AND = {
+				alliance = { country = ENG country = FRA }
+				control = { province = 56 data = FRA } # Paris
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = GER province = 2395  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2412  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2413  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = ITA }
+				OR = {
+					# Baltic
+					garrison = { country = ITA province = 2395  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2412  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2413  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SOV }
+				OR = {
+					# Baltic
+					garrison = { country = SOV province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPA }
+				OR = {
+					# Baltic
+					garrison = { country = SPA province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPR }
+				OR = {
+					# Baltic
+					garrison = { country = SPR province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SWE }
+				OR = {
+					# Baltic
+					garrison = { country = SWE province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2414  type = naval size = 1 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel_Protect.ai" }
+		command = { type = local_setflag which = ENGNavalChannelP }
+		command = { type = local_clrflag which = ENGNavalChannel }
+		command = { type = local_clrflag which = ENGNavalNorway }
+		command = { type = local_clrflag which = ENGNavalChannelMed }
+		command = { type = local_clrflag which = ENGNavalChannelPMed }
+		command = { type = local_clrflag which = ENGNavalNorwayMed }
+		command = { type = local_clrflag which = ENGNavalChannelPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPPacific }
+		command = { type = local_clrflag which = ENGNavalNorwayPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPacificMed }
+		command = { type = local_clrflag which = ENGNavalChannelPPacificMed }
+		command = { type = local_clrflag which = ENGNavalNorwayPacificMed }
+	}
+}
+################
+# England Naval AI Section
+#	ENGNavalChannel		= Ignore the English Channel cause France fell
+#############################################
+event = {
+	id = 24021
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { control = { province = 56 data = FRA } } # Paris
+		NOT = { local_flag = ENGNavalChannel }
+		OR = {
+			NOT = { local_flag = ENGNavalNorway }
+			AND = {
+				NOT = { local_flag = ENGInvadeNorway }
+				local_flag = ENGNavalNorway
+			}
+		}
+		NOT = {
+			local_flag = ENGDDay
+			AND = {
+				alliance = { country = ENG country = FRA }
+				control = { province = 56 data = FRA } # Paris
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = GER province = 2395  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2412  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2413  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = ITA }
+				OR = {
+					# Baltic
+					garrison = { country = ITA province = 2395  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2412  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2413  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SOV }
+				OR = {
+					# Baltic
+					garrison = { country = SOV province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPA }
+				OR = {
+					# Baltic
+					garrison = { country = SPA province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPR }
+				OR = {
+					# Baltic
+					garrison = { country = SPR province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPR }
+				OR = {
+					# Baltic
+					garrison = { country = SWE province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2414  type = naval size = 1 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel.ai" }
+		command = { type = local_clrflag which = ENGNavalChannelP }
+		command = { type = local_setflag which = ENGNavalChannel }
+		command = { type = local_clrflag which = ENGNavalNorway }
+		command = { type = local_clrflag which = ENGNavalChannelMed }
+		command = { type = local_clrflag which = ENGNavalChannelPMed }
+		command = { type = local_clrflag which = ENGNavalNorwayMed }
+		command = { type = local_clrflag which = ENGNavalChannelPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPPacific }
+		command = { type = local_clrflag which = ENGNavalNorwayPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPacificMed }
+		command = { type = local_clrflag which = ENGNavalChannelPPacificMed }
+		command = { type = local_clrflag which = ENGNavalNorwayPacificMed }
+	}
+}
+################
+# England Naval AI Section
+#	ENGNavalNorway		= English Navy support Norway Invasion
+#############################################
+event = {
+	id = 24022
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		local_flag = ENGInvadeNorway
+		NOT = { local_flag = ENGNavalNorway }
+		NOT = {
+			local_flag = ENGDDay
+			AND = {
+				alliance = { country = ENG country = FRA }
+				control = { province = 56 data = FRA } # Paris
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = GER province = 2395  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2412  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2413  type = naval size = 1 area = no }
+					garrison = { country = GER province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = ITA }
+				OR = {
+					# Baltic
+					garrison = { country = ITA province = 2395  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2412  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2413  type = naval size = 1 area = no }
+					garrison = { country = ITA province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SOV }
+				OR = {
+					# Baltic
+					garrison = { country = SOV province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SOV province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPA }
+				OR = {
+					# Baltic
+					garrison = { country = SPA province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SPA province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPR }
+				OR = {
+					# Baltic
+					garrison = { country = SPR province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SPR province = 2414  type = naval size = 1 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = SPR }
+				OR = {
+					# Baltic
+					garrison = { country = SWE province = 2395  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2412  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2413  type = naval size = 1 area = no }
+					garrison = { country = SWE province = 2414  type = naval size = 1 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Norway.ai" }
+		command = { type = local_clrflag which = ENGNavalChannelP }
+		command = { type = local_clrflag which = ENGNavalChannel }
+		command = { type = local_setflag which = ENGNavalNorway }
+		command = { type = local_clrflag which = ENGNavalChannelMed }
+		command = { type = local_clrflag which = ENGNavalChannelPMed }
+		command = { type = local_clrflag which = ENGNavalNorwayMed }
+		command = { type = local_clrflag which = ENGNavalChannelPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPPacific }
+		command = { type = local_clrflag which = ENGNavalNorwayPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPacificMed }
+		command = { type = local_clrflag which = ENGNavalChannelPPacificMed }
+		command = { type = local_clrflag which = ENGNavalNorwayPacificMed }
+	}
+}
+################
+# England Naval AI Section
+#	ENGNavalMedShut		= English avoid sending ships through the med
+#############################################
+event = {
+	id = 24023
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		war = { country = ENG country = GER }
+		NOT = { local_flag = ENGNavalMedShut }
+		OR = {
+			AND = {
+				war = { country = ENG country = ITA }
+				#NOT = { naval_percentage = { country = ITA value = 2.5 } }
+			}
+			AND = {
+				war = { country = ENG country = VIC }
+				#NOT = { naval_percentage = { country = VIC value = 2.5 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = ENGNavalMedShut }
+	}
+}
+event = {
+	id = 24024
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalMedShut
+		NOT = {
+			NOT = { war = { country = ENG country = GER } }
+			AND = {
+				war = { country = ENG country = ITA }
+				#NOT = { naval_percentage = { country = ITA value = 2.5 } }
+			}
+			AND = {
+				war = { country = ENG country = VIC }
+				#NOT = { naval_percentage = { country = VIC value = 2.5 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ENGNavalMedShut }
+	}
+}
+################
+# England Naval AI Section (Uses regular flags with Med Shut down to figure out what to do)
+#	ENGNavalChannel		= Ignore the English Channel cause France fell
+#	ENGNavalChannelP	= Protect the English Channel
+#	ENGNavalNorway		= English Navy support Norway Invasion
+#	ENGNavalMedShut		= English avoid sending ships through the med
+#	ENGNavalChannelMed	= Same as Channel but shuts down Med
+#	ENGNavalChannelPMed	= Same as ChannelP but shuts down Med
+#	ENGNavalNorwayMed	= Same as Norway but shuts down Med
+#############################################
+event = {
+	id = 24025
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalMedShut
+		local_flag = ENGNavalChannel
+		NOT = { local_flag = ENGInvadeItaly }
+		NOT = { local_flag = ENGNavalChannelMed }
+		NOT = { local_flag = ENGNavalPacificShut }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel_Med.ai" }
+		command = { type = local_setflag which = ENGNavalChannelMed }
+	}
+}
+event = {
+	id = 24026
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalMedShut
+		local_flag = ENGNavalChannelP
+		NOT = { local_flag = ENGInvadeItaly }
+		NOT = { local_flag = ENGNavalChannelPMed }
+		NOT = { local_flag = ENGNavalPacificShut }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel_Protect_Med.ai" }
+		command = { type = local_setflag which = ENGNavalChannelPMed }
+	}
+}
+event = {
+	id = 24027
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalMedShut
+		local_flag = ENGNavalNorway
+		NOT = { local_flag = ENGInvadeItaly }
+		NOT = { local_flag = ENGNavalNorwayMed }
+		NOT = { local_flag = ENGNavalPacificShut }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Norway_Med.ai" }
+		command = { type = local_setflag which = ENGNavalNorwayMed }
+	}
+}
+################
+# England builds transports
+#############################################
+event = {
+	id = 24028
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { lost_national = { country = ENG value = 1 } }
+		NOT = { transport = { country = ENG value = 20 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = transport }
+	}
+}
+################
+# England invades Italy
+#############################################
+event = {
+	id = 24029
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = ENGInvadeItaly }
+		war = { country = ENG country = ITA }
+		# Italian North Africa
+		NOT = { control = { province = 916 data = ITA } }
+		NOT = { control = { province = 919 data = ITA } }
+		NOT = { control = { province = 920 data = ITA } }
+		NOT = { control = { province = 923 data = ITA } }
+		NOT = { control = { province = 924 data = ITA } }
+		NOT = { control = { province = 917 data = ITA } }
+		NOT = { control = { province = 918 data = ITA } }
+		NOT = { control = { province = 921 data = ITA } }
+		NOT = { control = { province = 922 data = ITA } }
+		NOT = { control = { province = 925 data = ITA } }
+		NOT = { control = { province = 926 data = ITA } }
+		NOT = { control = { province = 927 data = ITA } }
+		NOT = { control = { province = 929 data = ITA } }
+		NOT = { control = { province = 928 data = ITA } }
+		NOT = { control = { province = 930 data = ITA } }
+		NOT = { control = { province = 931 data = ITA } }
+		NOT = { control = { province = 932 data = ITA } }
+		NOT = { control = { province = 933 data = ITA } }
+		OR = {
+			NOT = { exists = VIC }
+			NOT = { war = { country = ENG country = VIC } }
+			AND = {
+				war = { country = ENG country = VIC }
+				# Vichy North Africa
+				NOT = { control = { province = 939 data = VIC } }
+				NOT = { control = { province = 949 data = VIC } }
+				NOT = { control = { province = 953 data = VIC } }
+				NOT = { control = { province = 958 data = VIC } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Attack_Italy.ai" }
+		command = { type = setflag which = InvadeItaly }
+		command = { type = local_setflag which = ENGInvadeItaly }
+		command = { type = local_clrflag which = ENGNavalChannelP }
+		command = { type = local_clrflag which = ENGNavalChannel }
+		command = { type = local_clrflag which = ENGNavalNorway }
+		command = { type = local_clrflag which = ENGNavalChannelMed }
+		command = { type = local_clrflag which = ENGNavalChannelPMed }
+		command = { type = local_clrflag which = ENGNavalNorwayMed }
+		command = { type = local_clrflag which = ENGNavalChannelPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPPacific }
+		command = { type = local_clrflag which = ENGNavalNorwayPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPacificMed }
+		command = { type = local_clrflag which = ENGNavalChannelPPacificMed }
+		command = { type = local_clrflag which = ENGNavalNorwayPacificMed }
+	}
+}
+event = {
+	id = 24030
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGInvadeItaly
+		
+		# Italian North Africa
+		OR = {
+			NOT = { war = { country = ENG country = ITA } }
+			control = { province = 916 data = ITA }
+			control = { province = 919 data = ITA }
+			control = { province = 920 data = ITA }
+			control = { province = 923 data = ITA }
+			control = { province = 924 data = ITA }
+			control = { province = 917 data = ITA }
+			control = { province = 918 data = ITA }
+			control = { province = 921 data = ITA }
+			control = { province = 922 data = ITA }
+			control = { province = 925 data = ITA }
+			control = { province = 926 data = ITA }
+			control = { province = 927 data = ITA }
+			control = { province = 929 data = ITA }
+			control = { province = 928 data = ITA }
+			control = { province = 930 data = ITA }
+			control = { province = 931 data = ITA }
+			control = { province = 932 data = ITA }
+			control = { province = 933 data = ITA }
+			AND = {
+				war = { country = ENG country = VIC }
+				# Vichy North Africa
+				control = { province = 939 data = VIC }
+				control = { province = 949 data = VIC }
+				control = { province = 953 data = VIC }
+				control = { province = 958 data = VIC }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Attack.ai" }
+		command = { type = local_clrflag which = ENGInvadeItaly }
+		command = { type = local_clrflag which = ENGNavalChannelP }
+		command = { type = local_clrflag which = ENGNavalChannel }
+		command = { type = local_clrflag which = ENGNavalNorway }
+		command = { type = local_clrflag which = ENGNavalChannelMed }
+		command = { type = local_clrflag which = ENGNavalChannelPMed }
+		command = { type = local_clrflag which = ENGNavalNorwayMed }
+		command = { type = local_clrflag which = ENGNavalChannelPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPPacific }
+		command = { type = local_clrflag which = ENGNavalNorwayPacific }
+		command = { type = local_clrflag which = ENGNavalChannelPacificMed }
+		command = { type = local_clrflag which = ENGNavalChannelPPacificMed }
+		command = { type = local_clrflag which = ENGNavalNorwayPacificMed }
+	}
+}
+################
+# England Naval AI Section
+#	ENGNavalPacificShut			= English avoid sending ships through the Pacific
+#	ENGNavalChannelPacific		= Same as Channel but shuts down Pacific
+#	ENGNavalChannelPPacific		= Same as ChannelP but shuts down Pacific
+#	ENGNavalNorwayPacific		= Same as Norway but shuts down Pacific
+#	ENGNavalChannelPacificMed	= Same as Channel but shuts down Pacific and Med
+#	ENGNavalChannelPPacificMed	= Same as ChannelP but shuts down Pacific and Med
+#	ENGNavalNorwayPacificMed	= Same as Norway but shuts down Pacific and Med
+#############################################
+event = {
+	id = 24031
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = ENGNavalPacificShut }
+		war = { country = ENG country = JAP }
+		war = { country = USA country = JAP }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = ENGNavalPacificShut }
+	}
+}
+event = {
+	id = 24032
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalPacificShut
+		OR = {
+			NOT = { war = { country = ENG country = JAP } }
+			NOT = { war = { country = USA country = JAP } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ENGNavalPacificShut }
+	}
+}
+################
+# England Naval AI Section
+#	Regular Pacific Shut Down
+#	ENGNavalChannelPacific		= Same as Channel but shuts down Pacific
+#	ENGNavalChannelPPacific		= Same as ChannelP but shuts down Pacific
+#	ENGNavalNorwayPacific		= Same as Norway but shuts down Pacific
+#############################################
+event = {
+	id = 24033
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalChannel
+		local_flag = ENGNavalPacificShut
+		NOT = { local_flag = ENGNavalMedShut }
+		NOT = { local_flag = ENGNavalChannelPacific }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel_Pacific.ai" }
+		command = { type = local_setflag which = ENGNavalChannelPacific }
+	}
+}
+event = {
+	id = 24034
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalChannelP
+		local_flag = ENGNavalPacificShut
+		NOT = { local_flag = ENGNavalMedShut }
+		NOT = { local_flag = ENGNavalChannelPPacific }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel_Protect_Pacific.ai" }
+		command = { type = local_setflag which = ENGNavalChannelPPacific }
+	}
+}
+event = {
+	id = 24035
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalChannelP
+		local_flag = ENGNavalPacificShut
+		NOT = { local_flag = ENGNavalMedShut }
+		NOT = { local_flag = ENGNavalNorwayPacific }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Norway_Pacific.ai" }
+		command = { type = local_setflag which = ENGNavalNorwayPacific }
+	}
+}
+################
+# England Naval AI Section
+#	Pacific and Med Shut Down
+#	ENGNavalChannelPacificMed	= Same as Channel but shuts down Pacific and Med
+#	ENGNavalChannelPPacificMed	= Same as ChannelP but shuts down Pacific and Med
+#	ENGNavalNorwayPacificMed	= Same as Norway but shuts down Pacific and Med
+#############################################
+event = {
+	id = 24036
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalChannel
+		local_flag = ENGNavalPacificShut
+		local_flag = ENGNavalMedShut
+		NOT = { local_flag = ENGNavalChannelPacificMed }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel_Pacific_Med.ai" }
+		command = { type = local_setflag which = ENGNavalChannelPacificMed }
+	}
+}
+event = {
+	id = 24037
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalChannelP
+		local_flag = ENGNavalPacificShut
+		local_flag = ENGNavalMedShut
+		NOT = { local_flag = ENGNavalChannelPPacificMed }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Channel_Protect_Pacific_Med.ai" }
+		command = { type = local_setflag which = ENGNavalChannelPPacificMed }
+	}
+}
+event = {
+	id = 24038
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGNavalChannelP
+		local_flag = ENGNavalPacificShut
+		local_flag = ENGNavalMedShut
+		NOT = { local_flag = ENGNavalNorwayPacificMed }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Naval_Norway_Pacific_Med.ai" }
+		command = { type = local_setflag which = ENGNavalNorwayPacificMed }
+	}
+}
+################
+# UK builds paratroopers and transport plane 
+#############################################
+event = {
+	id = 24039
+	random = no
+	country = ENG
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 4250
+		alliance = { country = ENG country = USA }
+		NOT = { lost_national = { country = ENG value = 2 } }
+		NOT = { transport_plane = { country = ENG value = 2 } }
+	}
+
+	date = { day = 1 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = transport_plane }
+	}
+}
+event = {
+	id = 24040
+	random = no
+	country = ENG
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 1070 # Airborne
+		alliance = { country = ENG country = USA }
+		NOT = { lost_national = { country = ENG value = 2 } }
+		OR = {
+			AND = {
+				transport_plane = { country = ENG value = 1 }
+				NOT = { transport_plane = { country = ENG value = 1 } }
+				NOT = { paratrooper = { country = ENG value = 1 } }
+			}
+			AND = {
+				transport_plane = { country = ENG value = 2 }
+				NOT = { paratrooper = { country = ENG value = 2 } }
+			}
+		}
+	}
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = paratrooper }
+	}
+}
+################
+# England builds Submarines
+#############################################
+event = {
+	id = 24041
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		#NOT = { local_flag = JAPHomeland }
+		NOT = { submarine = { country = ENG value = 6 } }
+		OR = {
+			atwar = yes
+			year = 1939
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = submarine }
+	}
+}
+################
+# England AI Slider manipulation
+#
+#	Free Market
+#############################################
+event = { # Free Market
+	id = 24042
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = free_market value = 1 }
+		government = democratic
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = 1 }
+	}
+}
+event = { # Free Market
+	id = 24043
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = free_market value = -1 }
+		OR = {
+			government = fascist
+			government = communist
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = -1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 24044
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = professional_army value = 1 }
+		NOT = { domestic = { type = professional_army value = 10 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = 1 }
+	}
+}
+################
+#	Hawk Lobby
+#############################################
+event = { # Hawk Lobby
+	id = 24045
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = defense_lobby value = 1 }
+		OR = { 
+			atwar = yes
+			AND = {
+				NOT = { domestic = { type = defense_lobby value = 10 } }
+				OR = {
+					ideology = nazi
+					ideology = fascist
+					ideology = leninist
+					ideology = stalinist
+					}
+				}
+			}
+		}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = 1 }
+	}
+}
+
+#event = { # Hawk Lobby
+#	id = 24046
+#	random = no
+#	country = ENG
+#	persistent = yes
+#	trigger = {
+#		ai = yes
+#		can_change_policy = { type = defense_lobby value = -1 }
+#		AND = {
+#			domestic = { type = defense_lobby value = 0 }
+#			NOT = {
+#				ideology = nazi
+#				ideology = fascist
+#				ideology = leninist
+#				ideology = stalinist
+#			}
+#		}
+#	}
+#	name = "AI_EVENT"
+#	style = 0
+#	date = { day = 1 month = january year = 1936 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1963 }
+#	action_a = {
+#		command = { type = change_policy which = defense_lobby value = -1 }
+#	}
+#}
+
+################
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 24047
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = interventionism value = 1 }
+		OR = {
+			atwar = yes
+			AND = {
+				NOT = { domestic = { type = interventionism value = 9 } }
+				OR = {
+					ideology = nazi
+					ideology = fascist
+					ideology = leninist
+					ideology = stalinist
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+
+####################################
+# England 24500 - 24599 = Minister Change Events
+####################################
+################
+# Minister of Security Section 24500 - 24509
+#############################################
+event = { # Sir John Simon takes power
+	id = 24500
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1005 # Sir John Simon
+		NOT = { InCabinet = 1005 }
+		OR = {
+			manpower = 200
+			NOT = { minister = 1083 } # Viscount Templewood
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 1005 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Viscount Templewood takes power
+	id = 24501
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { manpower = 200 }
+		minister = 1083 # Viscount Templewood
+		NOT = { InCabinet = 1083 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 1083 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 24510 - 24519
+#############################################
+event = { # Sir Alan Brooke takes power
+	id = 24510
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 1120 # Sir Alan Brooke
+		NOT = { InCabinet = 1120 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 1120 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Archibald Nye takes power
+	id = 24511
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 1122 # Archibald Nye
+		NOT = { InCabinet = 1122 }
+		NOT = { minister = 1120 } # Sir Alan Brooke
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 1122 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Head of Intelligence Section 24520 - 24529
+#############################################
+event = { # S.P. James takes power
+	id = 24520
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1107 # S.P. James
+		NOT = { InCabinet = 1107 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 1107 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Lord Cecil of Chelwood takes power
+	id = 24521
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1102 # Lord Cecil of Chelwood
+		NOT = { InCabinet = 1102 }
+		NOT = { minister = 1107 } # S.P. James
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 1102 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 24530 - 24539
+#############################################
+event = { # Sir Cyril Deverell takes power
+	id = 24530
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1127 # Sir Cyril Deverell
+		NOT = { InCabinet = 1127 }
+		OR = {
+			atwar = no
+			NOT = { minister = 1130 } # Sir Alan Brooke
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 1127}
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sir Alan Brooke takes power
+	id = 24531
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1130 # Sir Alan Brooke
+		NOT = { InCabinet = 1130 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 1127 } # Sir Cyril Deverell
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 1130 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Armament Minister Section 24540 - 24549
+#############################################
+event = { # Lord Beaverbrook takes power
+	id = 24540
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1063 # Lord Beaverbrook
+		NOT = { InCabinet = 1063 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 1063 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sir John Simon takes power
+	id = 24541
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1060 # Sir John Simon
+		NOT = { InCabinet = 1060 }
+		NOT = { minister = 1063 } # Lord Beaverbrook
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 1060 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Hugh Dalton takes power
+	id = 24542
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 1065 # Hugh Dalton
+		NOT = { InCabinet = 1065 }
+		NOT = { minister = 1063 } # Lord Beaverbrook
+		NOT = { minister = 1060 } # Sir John Simon
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 1065 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 24550 - 24559
+# Air AI Flags
+#	ENGAirAINaval		= Air vs Naval priority
+#	ENGAirAIStrategic	= Strategic Bombing has priority
+#	ENGAirAIGround		= Ground Support has priority
+#############################################
+event = { # Railton Freeman takes power
+	id = 24550
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGAirAINaval
+		minister = 1154 # Railton Freeman
+		NOT = { InCabinet = 1154 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 1154 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sir Hugh Dowding takes power
+	id = 24551
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGAirAINaval
+		minister = 1168 # Sir Hugh Dowding
+		NOT = { InCabinet = 1168 }
+		NOT = { minister = 1154 }  # Railton Freeman
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 1168 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # John Strachey takes power
+	id = 24552
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGAirAIStrategic
+		minister = 1155 # John Strachey
+		NOT = { InCabinet = 1155 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 1155 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sir Owen Boyd takes power
+	id = 24553
+	random = no 
+	country = ENG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = ENGAirAIGround
+		minister = 1010 # Sir Owen Boyd
+		NOT = { InCabinet = 1010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 1010 }
+		command = { type = dissent value = -1 }
+	}
+}
+##################################################
+# IA après la chute de l'AOI par Fernando Torres
+##################################################
+event = { 
+	id = 24554
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		NOT = { control = { province = 1042 data = ITA } } # Ethiopie
+		NOT = { control = { province = 1043 data = ITA } }
+		NOT = { control = { province = 1044 data = ITA } }	
+		NOT = { control = { province = 1045 data = ITA } }
+		NOT = { control = { province = 1046 data = ITA } }
+		NOT = { control = { province = 1047 data = ITA } }
+		NOT = { control = { province = 1048 data = ITA } }
+		NOT = { control = { province = 1049 data = ITA } }
+		NOT = { control = { province = 1050 data = ITA } } 
+		NOT = { control = { province = 1051 data = ITA } } 
+		NOT = { control = { province = 1052 data = ITA } } 
+		NOT = { control = { province = 1053 data = ITA } } 
+		NOT = { control = { province = 1054 data = ITA } } 
+		NOT = { control = { province = 1033 data = ITA } } 
+		NOT = { control = { province = 1038 data = ITA } } 
+		NOT = { control = { province = 1039 data = ITA } } 
+                war = { country = ENG country = ITA }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_ApresETH.ai" }
+	}
+}

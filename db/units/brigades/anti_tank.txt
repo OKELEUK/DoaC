@@ -1,0 +1,73 @@
+# 0 - Early
+model = {
+	cost 				= 4
+	buildtime	 		= 60
+	manpower 			= 2
+	defensiveness 		= 1
+	hardattack			= 2
+	maxspeed 			= -1
+	supplyconsumption 	= 0.12
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 1 - Basic
+model = {
+	cost 				= 5
+	buildtime	 		= 60
+	manpower 			= 2
+	defensiveness 		= 2
+	hardattack			= 3
+	maxspeed 			= -1
+	supplyconsumption 	= 0.14
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+
+# 2 - Improved
+model = {
+	cost 				= 5
+	buildtime	 		= 60
+	manpower 			= 2
+	defensiveness 		= 3
+	hardattack			= 5
+	maxspeed 			= -1
+	supplyconsumption 	= 0.16
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 3 - Advanced
+model = {
+	cost 				= 5
+	buildtime	 		= 60
+	manpower 			= 2
+	defensiveness 		= 4
+	hardattack			= 6
+	maxspeed 			= -1
+	supplyconsumption 	= 0.18
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 4 - Semi-Modern
+model = {
+	cost 				= 5
+	buildtime	 		= 60
+	manpower 			= 2
+	defensiveness 		= 5
+	hardattack			= 7
+	maxspeed 			= -1
+	supplyconsumption 	= 0.2
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}
+# 5 - Modern
+model = {
+	cost 				= 5
+	buildtime	 		= 60
+	manpower 			= 2
+	defensiveness 		= 6
+	hardattack			= 8
+	maxspeed 			= -1
+	supplyconsumption 	= 0.2
+	upgrade_time_factor = 0.5
+	upgrade_cost_factor = 1.0
+}

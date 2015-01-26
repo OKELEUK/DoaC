@@ -1,0 +1,485 @@
+### ID's 500001 and on
+
+#####################################################
+### 500001 USA - The John F. Kennedy Assassination
+#####################################################
+
+event = {
+	id = 500001
+	random = no
+	country = USA
+	style = 0
+
+	trigger = {
+		random = 80
+		government = democratic
+		headofstate = 6242
+		}
+
+	date = { day = 22 month = november year = 1963 }
+	offset = 1
+	deathdate = { day = 23 month = november year = 1963 }
+
+	name = "EVT_500001_NAME"
+	desc = "EVT_500001_DESC"
+	picture = "minister_died"
+
+	action_a = {
+		name = "EVT_500001_ACTA"
+		command = { type = headofstate which = 6254 } # Lyndon B. Johnson
+		#command = { type = headofgovernment which = 6255 } # Hubert Humphrey
+		command = { type = sleepminister which = 6242 }
+		}
+	}
+
+##############################################################################
+### 500002 & 500003 CAN - Harold Viscount of Tunis resigns (ML&SC versions)
+##############################################################################
+
+event = {
+	id = 500002
+	random = no
+	country = CAN
+	style = 0
+	
+	trigger = {
+		headofstate = 45133
+		}
+
+	date = { day = 12 month = april year = 1952 }
+	offset = 1 
+	deathdate = { day = 13 month = april year = 1952 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 45146 } # Vincent Massey
+		command = { type = sleepminister which = 45133 }
+		#command = { type = sleepminister which = 45134 }
+		command = { type = sleepevent which = 500003 }
+		}
+	}
+
+
+event = {
+	id = 500003
+	random = no
+	country = CAN
+	style = 0
+	
+	trigger = {
+		headofstate = 45134
+		}
+
+	date = { day = 12 month = april year = 1952 }
+	offset = 1 
+	deathdate = { day = 13 month = april year = 1952 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 45147 } # Vincent Massey
+		command = { type = sleepminister which = 45133 }
+		#command = { type = sleepminister which = 45134 }
+		command = { type = sleepevent which = 500002 }
+		}
+	}
+
+
+####################################################################
+### 500004 & 500005 CAN - Vincent Massey resigns (ML&SC versions)
+####################################################################
+
+event = {
+	id = 500004
+	random = no
+	country = CAN
+	style = 0
+	
+	trigger = {
+		headofstate = 45146
+		}
+
+	date = { day = 14 month = september year = 1959 }
+	offset = 1 
+	deathdate = { day = 15 month = september year = 1959 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 45170 } # George P. Vanier
+		command = { type = sleepminister which = 45146 }
+		#command = { type = sleepminister which = 45147 }
+		command = { type = sleepevent which = 500005 }
+		}
+	}
+
+
+event = {
+	id = 500005
+	random = no
+	country = CAN
+	style = 0
+	
+	trigger = {
+		headofstate = 45147
+		}
+
+	date = { day = 14 month = september year = 1959 }
+	offset = 1 
+	deathdate = { day = 15 month = september year = 1959 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 45171 } # George P. Vanier
+		command = { type = sleepminister which = 45146 }
+		#command = { type = sleepminister which = 45147 }
+		command = { type = sleepevent which = 500004 }
+		}
+	}
+
+
+###########################################################################
+### 500006 SOV - Georgiy Malenkov resigns, Nikolay Bulganin replaces him
+###########################################################################
+
+event = {
+	id = 500006
+	random = no
+	country = SOV
+	style = 0
+
+	trigger = {
+		headofgovernment = 4085
+		}
+
+	date = { day = 8 month = february year = 1955 }
+	offset = 1
+	deathdate = { day = 9 month = february year = 1955 }
+
+	name = "EVT_500006_NAME" # needs text
+	desc = "EVT_500006_DESC"
+	picture = "minister_resign" # needs picture
+
+	action_a = {
+		name = "OK"
+		command = { type = headofgovernment which = 4086 }
+		command = { type = sleepminister which = 4085 }
+		}
+	}
+
+
+##########################################################################
+### 500007 SOV - Nikolay Bulganin resigns, Nikita Kruschev replaces him
+##########################################################################
+
+event = {
+	id = 500007
+	random = no
+	country = SOV
+	style = 0
+
+	trigger = {
+		headofgovernment = 4086
+		}
+
+	date = { day = 27 month = march year = 1958 }
+	offset = 1
+	deathdate = { day = 28 month = march year = 1958 }
+
+	name = "EVT_500007_NAME" # needs text
+	desc = "EVT_500007_DESC"
+	picture = "minister_resign" # needs picture
+
+	action_a = {
+		name = "OK"
+		command = { type = headofgovernment which = 4081 }
+		command = { type = sleepminister which = 4055 }
+		#command = { type = sleepminister which = 4071 }
+		#command = { type = sleepminister which = 4086 }
+		}
+	}
+
+
+############################################################################
+### 500008 SOV - Kliment Voroshilov retires, Leonid Brezhnev replaces him
+############################################################################
+
+event = {
+	id = 500008
+	random = no
+	country = SOV
+	style = 0
+
+	trigger = {
+		headofstate = 4083 
+		}
+
+	date = { day = 7 month = may year = 1960 }
+	offset = 1
+	deathdate = { day = 8 month = may year = 1960 }
+
+	name = "EVT_500008_NAME" # needs text
+	desc = "EVT_500008_DESC"
+	picture = "minister_resign" # needs picture
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 4084 }
+		#command = { type = sleepminister which = 4083 }
+		command = { type = sleepminister which = 4008 }
+		}
+	}
+
+
+#########################################################################
+### 500009 & 500010 AST - William John McKell resigns (SD&SC versions)
+#########################################################################
+
+event = {
+	id = 500009
+	random = no
+	country = AST
+	style = 0
+	
+	trigger = {
+		headofstate = 56134
+		}
+
+	date = { day = 8 month = may year = 1953 }
+	offset = 1 
+	deathdate = { day = 9 month = may year = 1953 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 56159 } # Sir William Slim
+		command = { type = sleepminister which = 56134 }
+		#command = { type = sleepminister which = 56135 }
+		command = { type = sleepevent which = 500010 }
+		}
+	}
+
+
+event = {
+	id = 500010
+	random = no
+	country = AST
+	style = 0
+	
+	trigger = {
+		headofstate = 56135
+		}
+
+	date = { day = 8 month = may year = 1953 }
+	offset = 1 
+	deathdate = { day = 9 month = may year = 1953 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 56160 } # Sir William Slim
+		command = { type = sleepminister which = 56134 }
+		#command = { type = sleepminister which = 56135 }
+		command = { type = sleepevent which = 500009 }
+		}
+	}
+
+
+######################################################################
+### 500011 & 500012 AST - Sir William Slim resigns (SD&SC versions)
+######################################################################
+
+event = {
+	id = 500011
+	random = no
+	country = AST
+	style = 0
+	
+	trigger = {
+		headofstate = 56159
+		}
+
+	date = { day = 2 month = february year = 1960 }
+	offset = 1 
+	deathdate = { day = 3 month = february year = 1960 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 56161 } # William Lord Dunrossil
+		command = { type = sleepminister which = 56159 }
+		#command = { type = sleepminister which = 56160 }
+		command = { type = sleepevent which = 500012 }
+		}
+	}
+
+
+event = {
+	id = 500012
+	random = no
+	country = AST
+	style = 0
+	
+	trigger = {
+		headofstate = 56160
+		}
+
+	date = { day = 2 month = february year = 1960 }
+	offset = 1 
+	deathdate = { day = 3 month = february year = 1960 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 56162 } # William Lord Dunrossil
+		command = { type = sleepminister which = 56159 }
+		#command = { type = sleepminister which = 56160 }
+		command = { type = sleepevent which = 500011 }
+		}
+	}
+
+
+######################################################################
+### 500013 & 500014 AST - William Lord Dunrossil (SD&SC versions)
+######################################################################
+
+event = {
+	id = 500013
+	random = no
+	country = AST
+	style = 0
+	
+	trigger = {
+		headofstate = 56161
+		}
+
+	date = { day = 3 month = february year = 1961 }
+	offset = 1 
+	deathdate = { day = 4 month = february year = 1961 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 56163 } # William Lord de l'Isle
+		command = { type = sleepminister which = 56161 }
+		#command = { type = sleepminister which = 56162 }
+		command = { type = sleepevent which = 500014 }
+		}
+	}
+
+
+event = {
+	id = 500014
+	random = no
+	country = AST
+	style = 0
+	
+	trigger = {
+		headofstate = 56162
+		}
+
+	date = { day = 3 month = february year = 1961 }
+	offset = 1 
+	deathdate = { day = 4 month = february year = 1961 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 56164 } # William Lord de l'Isle
+		command = { type = sleepminister which = 56161 }
+		#command = { type = sleepminister which = 56162 }
+		command = { type = sleepevent which = 500013 }
+		}
+	}
+
+
+#####################################################################
+### 500015 & 500016 DFR - Theodor Heuss resigns (SC & SD versions)
+#####################################################################
+
+event = {
+	id = 500015
+	random = no
+	country = DFR
+	style = 0
+	
+	trigger = {
+		headofstate = 506001
+		}
+
+	date = { day = 12 month = september year = 1959 }
+	offset = 1 
+	deathdate = { day = 13 month = september year = 1959 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 506041 } # Karl Heinrich Lübke
+		command = { type = sleepminister which = 506001 }
+		#command = { type = sleepminister which = 506051 }
+		command = { type = sleepevent which = 500016 }
+		}
+	}
+
+
+event = {
+	id = 500016
+	random = no
+	country = DFR
+	style = 0
+	
+	trigger = {
+		headofstate = 506051
+		}
+
+	date = { day = 12 month = september year = 1959 }
+	offset = 1 
+	deathdate = { day = 13 month = september year = 1959 }
+
+	name = "EVT_105_NAME"
+	desc = "EVT_105_DESC"
+	picture = "minister_resign"
+
+	action_a = {
+		name = "OK"
+		command = { type = headofstate which = 506052 } # Karl Heinrich Lübke
+		command = { type = sleepminister which = 506001 }
+		#command = { type = sleepminister which = 506051 }
+		command = { type = sleepevent which = 500015 }
+		}
+	}

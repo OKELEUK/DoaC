@@ -1,0 +1,85 @@
+#
+#
+#
+# The Hearts of Iron 2 - Events Database
+#
+#
+
+
+# New Hoi2 events, not yet moved to specific files
+
+event = "db\events\hoi2.txt"
+
+# Hoi2 death and coup events
+
+event = "db\events\death_events.txt"
+event = "db\events\coups_hoi2.txt"
+
+# The nation specific historical events
+
+event = "db\events\albania.txt"
+event = "db\events\austria.txt"
+event = "db\events\croatia.txt"
+event = "db\events\czechoslovakia.txt"
+event = "db\events\nationalist_china.txt"
+event = "db\events\denmark.txt"
+event = "db\events\finland.txt"
+event = "db\events\france.txt"
+event = "db\events\vichy_france.txt"
+event = "db\events\germany.txt"
+event = "db\events\hungary.txt"
+event = "db\events\italy.txt"
+event = "db\events\japan.txt"
+#event = "db\events\japanese_fascism.txt"
+event = "db\events\lithuania.txt"
+event = "db\events\poland.txt"
+event = "db\events\romania.txt"
+event = "db\events\slovakia.txt"
+event = "db\events\nationalist_spain.txt"
+event = "db\events\republican_spain.txt"
+event = "db\events\Siam.txt"
+event = "db\events\sweden.txt"
+event = "db\events\UK.txt"
+event = "db\events\USA.txt"
+event = "db\events\USSR.txt"
+
+# Political Events
+
+event = "db\events\sc events.txt"
+event = "db\events\ml events.txt"
+event = "db\events\sl events.txt"
+event = "db\events\sd events.txt"
+event = "db\events\election_events.txt"
+
+# Random events
+
+event = "db\events\RandomEvents.txt"
+
+# Invention type events
+event = "db\events\secret_weapon_events.txt"
+
+# AI Events
+event = "db\events\AI_capital_move.txt"
+event = "db\events\AI_ministers.txt"
+event = "db\events\AI_sliders.txt"
+event = "db\events\AI_Inherit_Chi.txt"
+event = "db\events\AI_minorshutinvasion.txt"
+event = "db\events\AI_reactive.txt"
+event = "db\events\AI_CHI_spheres.txt"
+event = "db\events\AI_revolters.txt"
+
+# New 1.3 Events
+event = "db\events\vichy_new.txt"
+event = "db\events\colonial_release.txt"
+event = "db\events\japanmanpower.txt"
+event = "db\events\bulgaria.txt"
+
+# Doomsday Events
+event = "db\events\doomsday_election_events.txt"
+event = "db\events\doomsday_death_events.txt"
+event = "db\events\doomsday_coup_events.txt"
+
+# Armageddon Events
+event = "db\events\armageddon_events.txt"
+event = "db\events\armageddon_elections.txt"
+event = "db\events\armageddon_deaths.txt"

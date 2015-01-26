@@ -1,0 +1,4378 @@
+####################################
+# Germany 20000 - 20999
+####################################
+################
+# Norway Invasion AI
+#############################################
+event = {
+	id = 20000
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		event = 29   #Norway Invasion
+		war = { country = NOR country = GER }
+		NOT = { war = { country = POL country = GER } }
+		OR = {
+			NOT = { exists = DEN }
+			NOT = { war = { country = DEN country = GER } }
+			NOT = { control = { province = 294 data = DEN } } # Copenhagen
+			puppet = { country = DEN country = GER }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = march year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Norway.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# End of Norway Invasion AI
+#############################################
+event = {
+	id = 20001
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		event = 20000
+		OR = {
+			NOT = { exists = NOR }
+			NOT = { war = { country = NOR country = GER } }
+			puppet = { country = NOR country = GER }
+			month = 7 # August
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = march year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = august year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Norway_END.ai" }
+	}
+}
+################
+# Poland Invasion AI
+#############################################
+event = {
+	id = 20002
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 2027 #Danzig or War
+			AND = {	
+				war = { country = POL country = GER }
+				event = 2027 #Danzig or War
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = september year = 1939 }
+	offset = 1
+	deathdate = { day = 2 month = september year = 1939 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Poland.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# After Poland Fall Invasion AI
+#############################################
+event = {
+	id = 20003
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 20002
+			flag = GC1939 
+		}
+		OR = {
+			NOT = { exists = POL }
+			NOT = { war = { country = POL country = GER } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = september year = 1939 }
+	offset = 1
+	deathdate = { day = 1 month = march year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Poland_After.ai" }
+		command = { type = ai which = "Air_Supremecy.ai" }
+	}
+}
+################
+# Part 1 (Part 2 20011) France Invasion AI Low Countries German Invasion if early war
+########################################
+event = {
+	id = 20004
+	random = no
+	country = GER
+
+	trigger = {
+		ai = yes
+		month = 4 # May
+		NOT = { month = 7 } # August
+		government = fascist
+		OR = {
+			AND = {
+				war = { country = FRA country = GER }
+				NOT = {	war = { country = SOV country = GER } }
+				NOT = {	war = { country = POL country = GER } }
+				NOT = { event = 20002 }
+			}
+			AND = {
+				event = 20002
+				war = { country = FRA country = GER }
+				NOT = {	war = { country = SOV country = GER } }
+			}
+		}
+		
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 4 # Check for trigger conditions every four days
+	deathdate = { day = 30 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai_prepare_war which = BEL }
+		command = { type = ai_prepare_war which = HOL }
+		command = { type = ai_prepare_war which = LUX }
+	}
+}
+################
+# Battle for Britain
+#############################################
+event = {
+	id = 20005
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		control = { province = 56 data = GER } # Paris
+		NOT = { war= { country = GER country = SOV } }
+		OR = {
+			random = 30
+			exists = VIC
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Britain.ai" }
+		command = { type = ai which = "Air_Strategic.ai" }
+	}
+}
+################
+# Baklan Campaign
+#############################################
+event = {
+	id = 20006
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		random = 40
+		alliance = { country = GER country = ITA }
+		NOT = {	lost_national = { country = GER value = 2 } }
+		control = { province = 56 data = GER } # Paris
+		NOT = { war= { country = GER country = SOV } }
+		NOT = { war= { country = GER country = SPA } }
+		NOT = { war= { country = GER country = SPR } }
+		OR = {
+			war= { country = ITA country = GRE }
+			war= { country = ITA country = ALB }
+		}
+		OR = {
+			alliance = { country = GER country = POL }
+			alliance = { country = SOV country = POL }
+			NOT = { exists = POL }
+		}
+		month = 1 # February
+		NOT = {	month = 7 } #August
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Baklans.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = ai_prepare_war which = YUG }
+		command = { type = ai_prepare_war which = GRE }
+		command = { type = sleepevent which = 20005 }
+	}
+}
+################
+# Russian invasion setup (events 20013-20014)
+#############################################
+event = {
+	id = 20007
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		flag = Russia
+		NOT = {	lost_national = { country = GER value = 2 } }
+		control = { province = 56 data = GER } # Paris
+		NOT = { war= { country = GER country = SOV } }
+		NOT = { war= { country = GER country = SPA } }
+		NOT = { war= { country = GER country = SPR } }
+		NOT = { war= { country = GER country = YUG } }
+		OR = {
+			NOT = { war= { country = GER country = GRE } }
+			AND = {
+				war= { country = GER country = GRE }			
+				NOT = { control = { province = 401 data = GRE } } # Athens
+				NOT = { control = { province = 393 data = GRE } }
+				NOT = { control = { province = 395 data = GRE } }
+				NOT = { control = { province = 394 data = GRE } }
+				NOT = { control = { province = 402 data = GRE } }
+				NOT = { control = { province = 403 data = GRE } }
+				NOT = { control = { province = 392 data = GRE } }
+				NOT = { control = { province = 412 data = GRE } }
+				NOT = { control = { province = 411 data = GRE } }
+				NOT = { control = { province = 410 data = GRE } }
+			}
+		}
+		OR = {
+			alliance = { country = GER country = POL }
+			alliance = { country = SOV country = POL }
+			NOT = { exists = POL }
+		}
+		OR = {
+			AND = {
+				event = 20006
+				month = 3 # April
+				NOT = {	month = 4 } # May
+				random = 3
+			}
+			AND = {
+				event = 20006
+				month = 4 # May
+				NOT = {	month = 5 } # June
+				random = 5
+			}
+			AND = {
+				event = 20006
+				month = 5 # June
+				NOT = {	month = 6 } # July
+				random = 10
+			}
+			AND = {
+				event = 20006
+				month = 6 # July
+				NOT = {	month = 7 } # August
+				random = 30
+			}
+			AND = {
+				event = 20006
+				month = 7 # August
+				NOT = {	month = 8 } # September
+				random = 20
+			}
+			AND = {
+				NOT = { event = 20006 }
+				month = 3 # April
+				NOT = {	month = 4 } # May
+				random = 5
+			}
+			AND = {
+				NOT = { event = 20006 }
+				month = 4 # May
+				NOT = {	month = 5 } # June
+				random = 10
+			}
+			AND = {
+				NOT = { event = 20006 }
+				month = 5 # June
+				NOT = {	month = 6 } # July
+				random = 20
+			}
+			AND = {
+				NOT = { event = 20006 }
+				month = 6 # July
+				NOT = {	month = 7 } # August
+				random = 40
+			}
+			AND = {
+				NOT = { event = 20006 }
+				month = 7 # August
+				NOT = {	month = 8 } # September
+				random = 20
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1941 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { #Russian Campaign
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = war which = SOV }
+		command = { type = sleepevent which = 20005 }
+		command = { type = trigger which = 29000 }
+	}
+}
+################
+# Spanish invasion setup and Sea Lion
+#############################################
+event = {
+	id = 20008
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		flag = Spain
+		NOT = { exists = SPR }
+		exists = SPA
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Sealion.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+event = {
+	id = 20009
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		exists = SPR
+		flag = Spain
+		OR = {
+			AND = {
+				month = 3 # March
+				NOT = {	month = 4 } # April
+				random = 10
+			}
+			AND = {
+				month = 3 # April
+				NOT = {	month = 4 } # May
+				random = 20
+			}
+			AND = {
+				month = 4 # May
+				NOT = {	month = 5 } # June
+				random = 40
+			}
+			AND = {
+				month = 5 # June
+				NOT = {	month = 6 } # July
+				random = 80
+			}
+			AND = {
+				month = 6 # July
+				NOT = {	month = 9 } # October
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_SPR.ai" }
+		command = { type = ai_prepare_war which = SPR }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# German vs. Russian war setup
+#############################################
+event = {
+	id = 20010
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		war= { country = GER country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { #Russian Campaign
+		command = { type = ai which = "switch/GER_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 20007 }
+	}
+}
+################
+# PART 2 France Invasion AI Low Countries German Invasion if early war
+########################################
+event = {
+	id = 20011
+	random = no
+	country = GER
+
+	trigger = {
+		ai = yes
+		event = 20004
+		OR = {
+			war = { country = BEL country = GER }
+			war = { country = HOL country = GER }
+			war = { country = LUX country = GER }
+		}
+		
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 30 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_France.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# German changes production values atwar
+#############################################
+event = {
+	id = 20012
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		NOT = { war = { country = SOV country = GER } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_atwar.ai" }
+	}
+}
+################
+# Germany masses on Russian border setup
+#############################################
+event = {
+	id = 20013
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		flag = Russia
+		OR = {
+			flag = GC1939 # 1939 Grand Campaign
+			event = 2013  # Molotov Pact Historical
+			event = 2015  # Molotov Pact Alliance
+			event = 2016  # Molotov Pact Limited
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Russia_Buildup.ai" }
+	}
+}
+################
+# German decides strategy after Paris falls
+#############################################
+event = {
+	id = 20014
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		NOT = {	lost_national = { country = GER value = 2 } }
+		control = { province = 56 data = GER } # Paris
+		NOT = { war= { country = GER country = SOV } }
+		NOT = { war= { country = GER country = SPA } }
+		NOT = { war= { country = GER country = SPR } }
+		NOT = { war= { country = GER country = YUG } }
+		NOT = { war= { country = GER country = POL } }
+		OR = {
+			lost_national = { country = FRA value = 90 }
+			exists = VIC
+		}
+		OR = {
+			alliance = { country = GER country = POL }
+			alliance = { country = SOV country = POL }
+			NOT = { exists = POL }
+			ispuppet = POL
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { #Russian Campaign
+		ai_chance = 80
+		command = { type = setflag which = Russia }
+	}
+	action_b = { #Spanish Campaign and Sea Lion
+		ai_chance = 20
+		command = { type = setflag which = Spain }
+	}
+}
+################
+# Early USA War entry before war with Russia (Cancels Russian Invasion Plan)
+#############################################
+event = {
+	id = 20015
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		NOT = { event = 20007 }
+		NOT = {	lost_national = { country = GER value = 2 } }
+		control = { province = 56 data = GER } # Paris
+		war= { country = GER country = USA }
+		war= { country = GER country = ENG }
+		NOT = { war= { country = GER country = SOV } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { # Load Sea Lion and Hold of Russia
+		command = { type = ai which = "switch/GER_Sealion.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+		command = { type = setflag which = Spain }
+		command = { type = sleepevent which = 20007 }
+		command = { type = sleepevent which = 20013 }
+	}
+}
+################
+# German Change Front to defensive when war with USA and SOV
+#############################################
+event = {
+	id = 20016
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		random = 30
+		war= { country = GER country = USA }
+		war= { country = GER country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_War_SOV_USA.ai" }
+	}
+}
+################
+# Germany will no longer garrison beaches in the Baltic when Denmark is taken out
+#############################################
+event = {
+	id = 20017
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		control = { province = 90 data = GER } # Kiel
+		OR = {
+			alliance = { country = DEN country = GER }
+			control = { province = 294 data = GER } # Copenhagen
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Baltic.ai" }
+	}
+}
+################
+# Germany re-garrisons the Baltic
+#############################################
+event = {
+	id = 20018
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		event = 20017
+		OR = {
+			NOT = { control = { province = 90 data = GER } } # Kiel
+			AND = {
+				alliance = { country = DEN country = GER }
+				NOT = { control = { province = 294 data = DEN } } # Copenhagen
+			}
+			AND = {
+				NOT = { exists = DEN }
+				NOT = { control = { province = 294 data = GER } } # Copenhagen
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Baltic2.ai" }
+	}
+}
+################
+# Germany will no longer garrison beaches in the Baltic when Denmark is taken out and atwar with Russia
+#############################################
+event = {
+	id = 20019
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		event = 20017
+		NOT = { event = 20018 }
+		war = { country = SOV country = GER }
+		control = { province = 90 data = GER } # Kiel
+		OR = {
+			alliance = { country = DEN country = GER }
+			control = { province = 294 data = GER } # Copenhagen
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Baltic_Russia.ai" }
+	}
+}
+################
+# Germany goes after England when Russian is gone
+#############################################
+event = {
+	id = 20020
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		event = 20010
+		NOT = { war = { country = GER country = SOV } }
+		control = { province = 56 data = GER } # Paris
+		war = { country = GER country = ENG }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = setflag which = Spain }
+	}
+}
+################
+# Germany goes on the defensive in first Winter against Russia
+#############################################
+event = {
+	id = 20021
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		event = 20007
+		NOT = {	lost_national = { country = GER value = 2 } }
+		war = { country = GER country = SOV }
+		control = { province = 56 data = GER } # Paris
+		month = 10 # November
+		month = 0 # January
+		NOT = { month = 2 } # March
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Winter.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Germany goes back on the offensive second year
+#############################################
+event = {
+	id = 20022
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		event = 20021
+		war = { country = GER country = SOV }
+		NOT = { war = { country = GER country = USA } }
+		month = 3 # April
+		NOT = { month = 7 } # August
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Russia_Second_Year.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Germany prepares for war with Poland
+#############################################
+event = {
+	id = 20023
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			event = 2040 # Annexation of CZE
+			event = 2005 # CZE Refuses claim
+			event = 2004 # CZE joins Axis
+			AND = {
+				event = 2030 # Treaty of Munich
+				NOT = { event = 2200  } # CZE response to Treaty of Munich
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Fall_CZE.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Germany declares war on Denmark cause allies are in the Baltic
+#############################################
+event = {
+	id = 20024
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		random = 25
+		OR = {
+			AND = {
+				war = { country = FRA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = FRA province = 2476  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2477  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2478  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2479  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2480  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2481  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2482  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2483  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2484  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2489  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2491  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2492  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2493  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2494  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = ENG province = 2476  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2477  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2478  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2479  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2480  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2481  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2482  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2483  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2484  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2489  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2491  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2492  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2493  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2494  type = naval size = 2 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = war which = DEN }
+	}
+}
+####################################
+# France 21000 - 21999
+####################################
+################
+# Poland Invasion AI
+#############################################
+event = {
+	id = 21000
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		event = 2027 # Danzig or War AI
+		war = { country = POL country = GER }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = september year = 1939 }
+	offset = 1
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Poland.ai" }
+		command = { type = ai which = "Air_Strategic.ai" }
+	}
+}
+################
+# France Invasion AI
+#############################################
+event = {
+	id = 21001
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		war = { country = FRA country = GER }
+		war = { country = BEL country = GER }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = may year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Germany.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 21004 }
+	}
+}
+################
+# Free France AI
+#############################################
+event = {
+	id = 21002
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		exists = VIC
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = may year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Free.ai" }
+		command = { type = ai which = "Air_Supremecy.ai" }
+	}
+}
+################
+# France loads possible war with Germany AI
+#############################################
+event = {
+	id = 21003
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_GER_Atwar.ai" }
+	}
+}
+################
+# France goes on the offensive AI but protects Belgium Border
+#############################################
+event = {
+	id = 21004
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		war = { country = FRA country = GER }
+		OR = {
+			AND = {
+				month = 5 # June
+				NOT = {	month = 6 } # July
+				random = 20
+			}
+			AND = {
+				month = 6 # July
+				NOT = {	month = 7 } # August
+				random = 50
+			}
+			AND = {
+				month = 7 # August
+				NOT = {	month = 8 } # September
+				random = 2
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Offensive.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# France loads EXP Force Ratio for war with SOV
+#############################################
+event = {
+	id = 21005
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		war = { country = FRA country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_ALIvsSOV.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+####################################
+# Japan 22000 - 22999
+####################################
+################
+# Chinese Invasion AI
+#############################################
+event = {
+	id = 22000
+	random = no 
+	country = JAP
+	
+	trigger = {
+		ai = yes
+		war = { country = JAP country = CHI }
+		not = { war = { country = JAP country = USA } }
+		not = { war = { country = JAP country = SOV } }
+		not = { war = { country = JAP country = ENG } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/JAP_China.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Backoff from China AI
+#############################################
+event = {
+	id = 22001
+	random = no 
+	country = JAP
+	
+	trigger = {
+		ai = yes
+		war = { country = JAP country = CHI }
+		not = { war = { country = JAP country = USA } }
+		not = { war = { country = JAP country = SOV } }
+		not = { war = { country = JAP country = ENG } }
+		lost_national = { country = CHI value = 35 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/JAP_Backoff.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# Pacific war
+#############################################
+event = {
+	id = 22002
+	random = no 
+	country = JAP
+	
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				year = 1940
+				NOT = { year = 1941 }
+				event = 3800 # Oil Embargo
+				random = 5
+				month = 1
+				month = 10
+				NOT = { month = 2 }
+			}
+			AND = {
+				year = 1941
+				NOT = { year = 1942 }
+				event = 3800 # Oil Embargo
+				OR = {
+					AND = {
+						month = 1
+						NOT = { month = 2 }
+						random = 5
+					}
+					AND = {
+						month = 10
+						random = 20
+					}
+				}
+			}
+			AND = {
+				year = 1942
+				event = 3800 # Oil Embargo
+				OR = {
+					AND = {
+						month = 1
+						NOT = { month = 2 }
+						random = 40
+					}
+					AND = {
+						month = 10
+						random = 50
+					}
+				}
+			}
+			AND = {
+				year = 1942
+				atwar = no
+				OR = {
+					AND = {
+						month = 1
+						NOT = { month = 2 }
+						random = 15
+					}
+					AND = {
+						month = 10
+						random = 20
+					}
+				}
+			}
+			war = { country = JAP country = USA }
+			war = { country = JAP country = ENG }
+			war = { country = JAP country = AST }
+			war = { country = JAP country = NZL }
+			war = { country = JAP country = FRA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/JAP_Pacific.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+		command = { type = sleepevent which = 22000 }
+		command = { type = sleepevent which = 22001 }
+		command = { type = sleepevent which = 22003 }
+		command = { type = war which = USA }
+		command = { type = war which = ENG }
+		command = { type = war which = HOL }
+	}
+}
+################
+# Japan does not attack China AI
+#############################################
+event = {
+	id = 22003
+	random = no 
+	country = JAP
+	
+	trigger = {
+		ai = yes
+		event = 20
+		NOT = { war = { country = JAP country = CHI } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+        date = { day = 0 month = june year = 1937 }
+        offset = 5
+	deathdate = { day = 15 month = september year = 1937 }
+
+	action_a = {
+		command = { type = ai which = "switch/JAP_Backoff.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# Japan release troops for Indo China
+#############################################
+event = {
+	id = 22004
+	random = no 
+	country = JAP
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 3804
+			event = 3894
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/JAP_Vichy_IndoChina.ai" }
+	}
+}
+####################################
+# Spain Republic and Nationalist 23000 - 23999
+####################################
+################
+# Spanish Civil War AI
+#############################################
+event = {
+	id = 23000
+	random = no 
+	country = SPR
+	
+	trigger = {
+		ai = yes
+		war = { country = SPR country = SPA }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		command = { type = ai which = "switch/SPR_CivilWar.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# End of Spanish Civil War AI (2 events)
+#############################################
+event = {
+	id = 23001
+	random = no 
+	country = SPR
+	
+	trigger = {
+		ai = yes
+		event = 23000
+		OR = {
+			NOT = { exists = SPA }
+			NOT = { war = { country = SPR country = SPA } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SP_EndCivilWar.ai" }
+		command = { type = sleepevent which = 23002 }
+	}
+}
+event = {
+	id = 23002
+	random = no 
+	country = SPA
+
+	trigger = {
+		ai = yes
+		event = 23000
+		OR = {
+			NOT = { exists = SPR }
+			NOT = { war = { country = SPR country = SPA } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SP_EndCivilWar.ai" }
+		command = { type = sleepevent which = 23001 }
+	}
+}
+####################################
+# United Kingdom and Minors 24000 - 24999
+####################################
+################
+# Battle of Britain
+#############################################
+event = {
+	id = 24000
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = ENG }
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+			control = { province = 56 data = GER } # Paris
+			AND = {
+				# Belgium
+				control = { province = 45 data = GER }
+				control = { province = 50 data = GER }
+				control = { province = 51 data = GER }
+				control = { province = 52 data = GER }
+				control = { province = 65 data = GER }
+				control = { province = 68 data = GER }
+				control = { province = 69 data = GER }
+				control = { province = 70 data = GER }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Britain.ai" }
+		command = { type = ai which = "Air_Supremecy.ai" }
+	}
+}
+################
+# England sends help to Greece
+#############################################
+event = {
+	id = 24001
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		random = 30
+		war = { country = ITA country = GRE }
+		alliance = { country = ENG country = GRE }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Baklans.ai" }
+	}
+}
+################
+# Begin bombing campaign in Europe
+#############################################
+event = {
+	id = 24002
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		random = 30
+		war = { country = GER country = ENG }
+		OR = {
+			war = { country = GER country = SOV }
+			war = { country = GER country = USA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "Air_Strategic.ai" }
+	}
+}
+################
+# Poland is being attacked
+#############################################
+event = {
+	id = 24003
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		event = 2027 #Danzig or War
+		war = { country = POL country = GER }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Poland.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# England release troops from England to attack with
+#############################################
+event = {
+	id = 24004
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		random = 30
+		war = { country = GER country = ENG }
+		OR = {
+			war = { country = GER country = USA }
+			war = { country = GER country = SOV }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Attack.ai" }
+	}
+}
+################
+# England sends more troops to France since they are allive still
+#############################################
+event = {
+	id = 24005
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		exists = FRA
+		control = { province = 56 data = FRA } # Paris
+		NOT = { exists = VIC }
+		war = { country = FRA country = GER }
+		alliance = { country = ENG country = FRA }
+		NOT = {	lost_national = { country = FRA value = 35 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1941 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_EXP_France.ai" }
+	}
+}
+################
+# England changes production prios
+#############################################
+event = {
+	id = 24006
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Atwar.ai" }
+	}
+}
+################
+# Australia changes production
+#############################################
+event = {
+	id = 24007
+	random = no 
+	country = AST
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			year = 1939
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/AST_Change_Production.ai" }
+	}
+}
+################
+# England updates Protection list
+#############################################
+event = {
+	id = 24008
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+		war = { country = GER country = ENG }
+		NOT = { war = { country = SOV country = ENG } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_SOV_Protect.ai" }
+	}
+}
+################
+# England loads EXP Force Ratio for war with SOV
+#############################################
+event = {
+	id = 24009
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		war = { country = USA country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_ALIvsSOV2.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# England invades Norway due to lack of defenses
+#############################################
+event = {
+	id = 24010
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		random = 10
+		war = { country = GER country = ENG }
+		NOT = {	lost_national = { country = ENG value = 2 } }
+		OR = {
+			NOT = { exists = NOR }
+			puppet = { country = NOR country = GER }
+		}
+		OR = {
+			war = { country = GER country = SOV }
+			war = { country = GER country = USA }
+		}
+		OR = {
+			AND = {
+				garrison = { country = GER province = 107  type = land area = yes } # Oslo
+				garrison = { country = GER province = 108  type = land area = yes } # Kristiansan
+				garrison = { country = GER province = 109  type = land area = yes } # Stavanger
+			}
+			AND = {
+				garrison = { country = GER province = 109  type = land area = yes } # Stavanger
+				garrison = { country = GER province = 110  type = land area = yes } # Bergen
+				garrison = { country = GER province = 117  type = land area = yes } # Alesund
+			}
+			AND = {
+				garrison = { country = GER province = 118  type = land area = yes } # Trondheim
+				garrison = { country = GER province = 124  type = land area = yes } # Mo I Ran
+				garrison = { country = GER province = 125  type = land area = yes } # Narvik
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Norway.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# England Load D-Day AI
+#############################################
+event = {
+	id = 24011
+	random = no 
+	country = ENG
+	
+	trigger = {
+		ai = yes
+		alliance = { country = ENG country = USA }
+		OR = {
+			event = 28005 # USA Loaded D-Day
+			control = { province = 292 data = USA } # Arburg
+			control = { province = 92  data = USA } # Arhus
+			control = { province = 91  data = USA } # Kolding			
+			control = { province = 78  data = USA } # Leeweden
+			control = { province = 47  data = USA } # Amsterdam
+			control = { province = 46  data = USA } # Rotterdam
+			control = { province = 45  data = USA } # Ghent
+			control = { province = 18  data = USA } # Calais
+			control = { province = 42  data = USA } # Dieppe
+			control = { province = 41  data = USA } # Le Havre
+			control = { province = 39  data = USA } # Caen
+			control = { province = 33  data = USA } # Rennes
+			control = { province = 32  data = USA } # Brest
+			control = { province = 34  data = USA } # Lorient
+			control = { province = 35  data = USA } # Nantes
+			control = { province = 59  data = USA } # Cholet
+			control = { province = 325 data = USA } # Bordeaux
+			control = { province = 326 data = USA } # Dax
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ENG_Dday.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Canada Load D-Day AI
+#############################################
+event = {
+	id = 24012
+	random = no 
+	country = CAN
+	
+	trigger = {
+		ai = yes
+		alliance = { country = CAN country = USA }
+		OR = {
+			event = 28005 # USA Loaded D-Day
+			control = { province = 292 data = USA } # Arburg
+			control = { province = 92  data = USA } # Arhus
+			control = { province = 91  data = USA } # Kolding			
+			control = { province = 78  data = USA } # Leeweden
+			control = { province = 47  data = USA } # Amsterdam
+			control = { province = 46  data = USA } # Rotterdam
+			control = { province = 45  data = USA } # Ghent
+			control = { province = 18  data = USA } # Calais
+			control = { province = 42  data = USA } # Dieppe
+			control = { province = 41  data = USA } # Le Havre
+			control = { province = 39  data = USA } # Caen
+			control = { province = 33  data = USA } # Rennes
+			control = { province = 32  data = USA } # Brest
+			control = { province = 34  data = USA } # Lorient
+			control = { province = 35  data = USA } # Nantes
+			control = { province = 59  data = USA } # Cholet
+			control = { province = 325 data = USA } # Bordeaux
+			control = { province = 326 data = USA } # Dax
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CAN_Dday.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+
+####################################
+# Soviet Union 25000 - 25999
+####################################
+################
+# Soviets prep against Baltic States
+#############################################
+event = {
+	id = 25000
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		random = 30
+		event = 2018 #Eastern Poland given to the Soviets
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 29 month = may year = 1940 }
+	offset = 4
+	deathdate = { day = 29 month = august year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Baltic.ai" }
+		command = { type = ai_prepare_war which = LIT }
+		command = { type = ai_prepare_war which = LAT }
+		command = { type = ai_prepare_war which = EST }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviets Winter War AI
+#############################################
+event = {
+	id = 25001
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+			event = 2018 #Eastern Poland given to the Soviets
+			NOT = { exists = POL }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 29 month = september year = 1939 }
+	offset = 4
+	deathdate = { day = 29 month = january year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Finland.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviet declare war on Germany AI
+#############################################
+event = {
+	id = 25002
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		OR = {
+			war = { country = GER country = SOV }
+			AND = {
+				random = 5
+				NOT = { war = { country = GER country = SOV } }
+				year = 1942
+				atwar = GER
+			}
+			AND = {
+				random = 5
+				NOT = { flag = MolotovPact }
+				NOT = { event = 2013 } # Molotov Pact Historical
+				NOT = { event = 2015 } # Molotov Pact Alliance
+				NOT = { event = 2016 } # Molotov Pact Limited
+				OR = {
+					control = { province = 485 data = GER } # Warsaw
+					war = { country = GER country = POL }
+					puppet = { country = POL country = GER }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 12
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Germany.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = ai_prepare_war which = GER }
+		command = { type = sleepevent which = 25000 }
+		command = { type = sleepevent which = 25001 }
+		command = { type = sleepevent which = 25003 }
+	}
+}
+################
+# Soviet Load German war AI
+#############################################
+event = {
+	id = 25003
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Germany.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = ai_prepare_war which = GER }
+		command = { type = sleepevent which = 25000 }
+		command = { type = sleepevent which = 25001 }
+		command = { type = sleepevent which = 25002 }
+	}
+}
+################
+# Soviet declare war on Japan AI
+#############################################
+event = {
+	id = 25004
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		random = 5
+		OR = {
+			NOT = { control = { province = 300 data = GER } } # Berlin
+			ispuppet = GER
+		}
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+			war = { country = JAP country = USA }
+			war = { country = JAP country = CHC }
+			war = { country = JAP country = CHI }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1942}
+	offset = 12
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Japan.ai" }
+		command = { type = ai which = "Air_GRound.ai" }
+		command = { type = ai_prepare_war which = JAP }
+	}
+}
+################
+# Soviet increase troop production AI
+#############################################
+event = {
+	id = 25005
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_GER_atwar.ai" }
+	}
+}
+################
+# Soviet Union stops hounding Finland for border lands
+#############################################
+event = {
+	id = 25006
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+			event = 2622
+			event = 2628
+			AND = {
+				owned = { province = 145 data = SOV }
+				owned = { province = 146 data = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Fin_Demands.ai" }
+		command = { type = ai which = "switch/SOV_Germany.ai" }
+	}
+}
+################
+# Soviet Winter War against Germany
+#############################################
+event = {
+	id = 25007
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		attack = GER
+		lost_national = { country = SOV value = 25 }
+		war = { country = GER country = SOV }
+		month = 11 # December
+		month = 0 # January
+		NOT = { month = 2 } # March
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Winter.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviets go back on defense
+#############################################
+event = {
+	id = 25008
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 25007
+		attack = GER
+		war = { country = GER country = SOV }
+		month = 3 # April
+		NOT = { month = 7 } # August
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Germany_Second_Year.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviets go on the atack permanately
+#############################################
+event = {
+	id = 25009
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 25008
+		attack = GER
+		war = { country = GER country = SOV }
+		month = 11 # December
+		month = 0 # January
+		NOT = { month = 2 } # March
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Winter.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviets Bitter Peace AI
+#############################################
+event = {
+	id = 25010
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 2024 # Bitter Peace
+		NOT = { war = { country = GER country = SOV } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Bitter_Peace.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 25002 }  # Soviet DOW of Germany AI event
+	}
+}
+####################################
+# Italy 26000 - 26999
+####################################
+################
+# Italy changes political stance in war
+#############################################
+event = {
+	id = 26000
+	random = no 
+	country = ITA
+
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				# Belgium
+				control = { province = 45 data = GER }
+				control = { province = 50 data = GER }
+				control = { province = 51 data = GER }
+				control = { province = 52 data = GER }
+				control = { province = 65 data = GER }
+				control = { province = 68 data = GER }
+				control = { province = 69 data = GER }
+				control = { province = 70 data = GER }
+				random = 30
+			}
+			control = { province = 56 data = GER } # Paris
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ITA_Neutrality.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# Italy prepares for Greece invasion
+#############################################
+event = {
+	id = 26001
+	random = no 
+	country = ITA
+
+	trigger = {
+		ai = yes
+		exists = GRE
+		NOT = { war = { country = ITA country = GRE } }
+		control = { province = 390 data = ITA }
+		control = { province = 391 data = ITA }
+		OR = {
+			exists = VIC
+			control = { province = 56 data = GER } # Paris
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ITA_Greece1.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# Italy invades Greece
+#############################################
+event = {
+	id = 26002
+	random = no 
+	country = ITA
+
+	trigger = {
+		ai = yes
+		exists = GRE
+		NOT = { war = { country = ITA country = GRE } }
+		event = 26001
+		random = 15
+		NOT = { war = { country = ITA country = SOV } }
+		NOT = { war = { country = ITA country = USA } }
+		control = { province = 390 data = ITA }
+		control = { province = 391 data = ITA }
+		month = 9 # October
+		month = 0 # January
+		NOT = { month = 1 } # Febuary
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = war which = GRE }
+		command = { type = ai which = "switch/ITA_Greece2.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# Italy atwar with Russia
+#############################################
+event = {
+	id = 26004
+	random = no 
+	country = ITA
+
+	trigger = {
+		ai = yes
+		OR = {
+			war = { country = ITA country = SOV }
+			war = { country = ITA country = USA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 30 month = february year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ITA_Russia.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# Italy atwar with Russia
+#############################################
+event = {
+	id = 26005
+	random = no 
+	country = ITA
+
+	trigger = {
+		ai = yes
+		war = { country = ITA country = FRA }
+		NOT = { war = { country = ITA country = SOV } }
+		NOT = { war = { country = ITA country = USA } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 30 month = february year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/ITA_Russia.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+####################################
+# China and the Warlords 27000 - 27999
+####################################
+################
+# China changes to defensive AI vs Japan
+#############################################
+event = {
+	id = 27000
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		OR = {
+			war = { country = JAP country = CHI }
+			AND = {
+				event = 27010
+				NOT = { exists = CHC }
+				NOT = { exists = CSX }
+				NOT = { exists = SIK }
+				NOT = { exists = CXB }
+				NOT = { exists = CYN }
+				NOT = { exists = CGX }
+				NOT = { exists = TIB }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_Japan.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Backoff from Japan AI
+#############################################
+event = {
+	id = 27001
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 22001
+			event = 22002
+			lost_national = { country = CHI value = 35 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_Backoff.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Yunnan  Backs off from Japan AI
+#############################################
+event = {
+	id = 27002
+	random = no 
+	country = CYN
+	
+	trigger = {
+		ai = yes
+		war = { country = CYN country = JAP }
+		OR = {
+			event = 22001
+			event = 22002
+			lost_national = { country = CHI value = 35 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/WAR_Backoff.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Guangxi Clique Backs off from Japan AI
+#############################################
+event = {
+	id = 27003
+	random = no 
+	country = CGX
+	
+	trigger = {
+		ai = yes
+		war = { country = CGX country = JAP }
+		OR = {
+			event = 22001
+			event = 22002
+			lost_national = { country = CHI value = 35 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/WAR_Backoff.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Xibei San Maa Backs off from Japan AI
+#############################################
+event = {
+	id = 27004
+	random = no 
+	country = CXB
+	
+	trigger = {
+		ai = yes
+		war = { country = CXB country = JAP }
+		OR = {
+			event = 22001
+			event = 22002
+			lost_national = { country = CHI value = 35 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/WAR_Backoff.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Guangxi Clique vs China war
+########################################
+event = {
+	id = 27005
+	random = no
+	country = CGX
+
+	trigger = {
+		ai = yes
+		#ai = CHI
+		random = 25
+		exists = CHI
+		NOT = {	war = { country = CHI country = CGX } }
+		NOT = {	war = { country = JAP country = CGX } }
+		NOT = {	war = { country = JAP country = CHI } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = june year = 1936 }
+	offset = 7
+	deathdate = { day = 30 month = july year = 1936 }
+
+	action_a = {
+		name = "OK"
+		command = { type = ai_prepare_war which = CHI }
+	}
+}
+################
+# Yunnan changes to defensive AI vs Japan
+#############################################
+event = {
+	id = 27006
+	random = no 
+	country = CYN
+	
+	trigger = {
+		ai = yes
+		war = { country = JAP country = CYN }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CYN_Japan.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Guangxi Clique allies with China AI vs Japan
+#############################################
+event = {
+	id = 27007
+	random = no 
+	country = CGX
+	
+	trigger = {
+		ai = yes
+		OR = { 
+			war = { country = JAP country = CGX }
+			alliance = { country = CGX country = CHI }
+			AND = {
+				event = 27009
+				NOT = { war = { country = CHI country = CGX } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CGX_CHI_Ally.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = relation which = CHI value = 100 }
+		command = { type = relation which = JAP value = -50 }
+	}
+}
+
+################
+# China alternate AI if Japan is atwar with someone else not China (part 1)
+#############################################
+event = {
+	id = 27010
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		NOT = { atwar = CHI }
+		OR = {
+			atwar = JAP
+			NOT = { exists = JAP }
+			ispuppet = JAP
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_WAR_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# China alternate AI loaded to go after Japan (part 2)
+#############################################
+event = {
+	id = 27011
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		event = 27010
+		NOT = { atwar = CHI }
+		NOT = { exists = CHC }
+		NOT = { exists = CSX }
+		NOT = { exists = SIK }
+		NOT = { exists = CXB }
+		NOT = { exists = CYN }
+		NOT = { exists = CGX }
+		NOT = { exists = TIB }
+		OR = {
+			exists = MAN
+			control = { province = 1390 data = JAP } # Harbin
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_WAR_Japan.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# China turns isolationlist
+#############################################
+event = {
+	id = 27012
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		event = 27010
+		NOT = { atwar = CHI }
+		NOT = { exists = CHC }
+		NOT = { exists = CSX }
+		NOT = { exists = SIK }
+		NOT = { exists = CXB }
+		NOT = { exists = CYN }
+		NOT = { exists = CGX }
+		NOT = { exists = TIB }
+		AND = {
+			NOT = { exists = MAN }
+			NOT = { control = { province = 1390 data = JAP } } # Harbin
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_Isolationist.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# China changes front ratio at Xi'An event
+#############################################
+event = {
+	id = 27013
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		event = 90
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1937 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_ChangeFrontRatio.ai" }
+	}
+}
+################
+# Guangxi Clique puts all his forces under Chinese control
+#############################################
+event = {
+	id = 27014
+	random = no 
+	country = CGX
+	
+	trigger = {
+		ai = yes
+		control = { province = 1326 data = JAP }
+		alliance = { country = JAP country = CGX }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CGX_EXP_Change.ai" }
+	}
+}
+################
+# Xibei San Maa puts some of his forces under Chinese control
+#############################################
+event = {
+	id = 27015
+	random = no 
+	country = CXB
+	
+	trigger = {
+		ai = yes
+		OR = {
+			war = { country = JAP country = CXB }
+			war = { country = SOV country = CXB }
+			NOT = { ispuppet = CXB }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CXB_EXP_Change.ai" }
+	}
+}
+################
+# Shanxi changes to defensive AI vs Japan
+#############################################
+event = {
+	id = 27016
+	random = no 
+	country = CSX
+	
+	trigger = {
+		ai = yes
+		war = { country = JAP country = CSX }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/CSX_EXP_Change.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# China loads new front garrison parms from CGX war
+########################################
+event = {
+	id = 27017
+	random = no
+	country = CHI
+
+	trigger = {
+		ai = yes
+		war= { country = CHI country = CGX }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 1 month = june year = 1936 }
+	offset = 7
+	deathdate = { day = 30 month = august year = 1936 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_After_CGX.ai" }
+	}
+}
+####################################
+# USA 28000 - 28999
+####################################
+################
+# USA does Oil Embargo against Japan
+#############################################
+event = {
+	id = 28000 
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		event = 3800 # Oil Embargo
+		NOT = { alliance = { country = USA country = GER } }
+		NOT = { alliance = { country = USA country = JAP } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/Oil_Embargo.ai" }
+	}
+}
+################
+# USA Gear up Level 1
+#############################################
+event = {
+	id = 28001
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		NOT = { war = { country = USA country = GER } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_1.ai" }
+	}
+}
+################
+# USA Gear up Level 2
+#############################################
+event = {
+	id = 28002
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		NOT = { war = { country = USA country = GER } }
+		control = { province = 56 data = GER } # Paris
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_2.ai" }
+		command = { type = sleepevent which = 28001 }
+	}
+}
+################
+# USA Gear up Level 3
+#############################################
+event = {
+	id = 28003
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		NOT = { war = { country = USA country = GER } }
+		war = { country = SOV country = GER }
+		control = { province = 56 data = GER } # Paris
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_3.ai" }
+		command = { type = sleepevent which = 28001 }
+		command = { type = sleepevent which = 28002 }
+	}
+}
+################
+# USA Gear up Level 4
+#############################################
+event = {
+	id = 28004
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = USA
+			AND = {
+				random = 5
+				year = 1942
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_4.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 28001 }
+		command = { type = sleepevent which = 28002 }
+		command = { type = sleepevent which = 28003 }
+	}
+}
+################
+# Load D-Day AI
+#############################################
+event = {
+	id = 28005
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = USA }
+		NOT = { control = { province = 56 data = FRA } }# Paris
+		OR = {
+			AND = {
+				exists = ENG
+				war = { country = GER country = ENG }
+				alliance = { country = ENG country = USA }
+				control = { province = 19 data = ENG } # London
+				control = { province = 23 data = ENG } # Plymouth
+			}
+			AND = {
+				NOT = { exists = ENG }
+				NOT = { control = { province = 19 data = GER } } # London
+				NOT = { control = { province = 23 data = GER } } # Plymouth
+				NOT = { control = { province = 19 data = ITA } } # London
+				NOT = { control = { province = 23 data = ITA } } # Plymouth
+			}
+		}
+		OR = {
+			AND = {
+				war = { country = GER country = SOV }
+				NOT = { control = { province = 212 data = SOV } } # Minsk
+				NOT = { control = { province = 175 data = SOV } } # Moscow
+				NOT = { control = { province = 187 data = SOV } } # Leningrad
+				NOT = { control = { province = 163 data = SOV } } # Stalingrad
+				lost_national = { country = SOV value = 30 }
+				year = 1942
+				month = 3 # March
+				NOT = { month = 7 } # August
+				OR = {
+					event = 2027 #Danzig or War
+					flag = GC1939 
+				}
+			}
+			AND = {
+				war = { country = GER country = SOV }
+				control = { province = 212 data = SOV } # Minsk
+				control = { province = 175 data = SOV } # Moscow
+				NOT = { lost_national = { country = SOV value = 30 } }
+				year = 1943
+				month = 3 # March
+				NOT = { month = 7 } # August
+				OR = {
+					event = 2027 #Danzig or War
+					flag = GC1939 
+				}
+			}
+			AND = {
+				war = { country = GER country = SOV }
+				NOT = { control = { province = 212 data = SOV } } # Minsk
+				NOT = { control = { province = 175 data = SOV } } # Moscow
+				NOT = { control = { province = 187 data = SOV } } # Leningrad
+				NOT = { control = { province = 163 data = SOV } } # Stalingrad
+				lost_national = { country = SOV value = 30 }
+				year = 1941
+				month = 3 # March
+				NOT = { month = 7 } # August
+				under_attack = SOV
+				AND = {
+					NOT = { event = 2027 } #Danzig or War 
+					NOT = { flag = GC1939 }
+				}
+			}
+			AND = {
+				war = { country = GER country = SOV }
+				NOT = { control = { province = 212 data = SOV } } # Minsk
+				NOT = { control = { province = 175 data = SOV } } # Moscow
+				NOT = { control = { province = 187 data = SOV } } # Leningrad
+				NOT = { control = { province = 163 data = SOV } } # Stalingrad
+				lost_national = { country = SOV value = 30 }
+				year = 1942
+				month = 3 # March
+				NOT = { month = 7 } # August
+				NOT = { under_attack = SOV }
+			}
+			AND = {
+				war = { country = GER country = SOV }
+				control = { province = 212 data = SOV } # Minsk
+				control = { province = 175 data = SOV } # Moscow
+				NOT = { lost_national = { country = SOV value = 30 } }
+				year = 1941
+				month = 3 # March
+				NOT = { month = 7 } # August
+				AND = {
+					NOT = { event = 2027 } #Danzig or War 
+					NOT = { flag = GC1939 }
+				}
+			}
+			AND = {
+				year = 1944
+				month = 3 # March
+				NOT = { month = 7 } # August
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Dday.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# D-Day successful go back to normal AI
+#############################################
+event = {
+	id = 28006
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		event = 28005
+		NOT = { control = { province = 56 data = GER } } # Paris
+		NOT = { control = { province = 44 data = GER } } # Lille
+		NOT = { control = { province = 72 data = GER } } # Metz
+		NOT = { control = { province = 320 data = GER } } # Vichy
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_4.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# USA loads EXP Force Ratio for war with SOV
+#############################################
+event = {
+	id = 28007
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		war = { country = USA country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_ALIvsSOV.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+####################################
+# Other Minors 29000 - 29999
+####################################
+################
+# Slovakia sends exp forces to Germany
+#############################################
+event = {
+	id = 29000
+	random = no 
+	country = SLO
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = SLO }
+		OR = {
+			ai = GER
+			event = 20013
+			AND = {
+				war = { country = GER country = SOV }
+				war = { country = SLO country = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Hungary sends exp forces to Germany
+#############################################
+event = {
+	id = 29001
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = HUN }
+		OR = {
+			ai = GER
+			AND = {
+				war = { country = GER country = SOV }
+				war = { country = HUN country = SOV }
+			}
+			AND = {
+				war = { country = GER country = YUG }
+				war = { country = HUN country = YUG }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Romania exp forces to Germany
+#############################################
+event = {
+	id = 29002
+	random = no 
+	country = ROM
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = ROM }
+		OR = {
+			AND = {
+				war = { country = GER country = SOV }
+				war = { country = ROM country = SOV }
+			}
+			AND = {
+				war = { country = GER country = YUG }
+				war = { country = ROM country = YUG }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Yugoslavia exp forces to Germany
+#############################################
+event = {
+	id = 29003
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+		war = { country = YUG country = SOV }
+		alliance = { country = GER country = YUG }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Holland does Oil Embargo against Japan
+#############################################
+event = {
+	id = 29004
+	random = no 
+	country = HOL
+	
+	trigger = {
+		ai = yes
+		event = 3800 # Oil Embargo
+		NOT = { alliance = { country = HOL country = GER } }
+		NOT = { alliance = { country = HOL country = JAP } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/Oil_Embargo.ai" }
+	}
+}
+################
+# Bulgaria joins Germany because of Baklan Campaign
+#############################################
+event = {
+	id = 29005
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20006
+		NOT = { alliance = { country = BUL country = SOV } }
+		NOT = { alliance = { country = BUL country = ENG } }
+		NOT = { alliance = { country = BUL country = ITA } }
+		NOT = { alliance = { country = BUL country = GER } }
+		NOT = { alliance = { country = BUL country = TUR } }
+		atwar = no
+		OR = {
+			AND = {
+				war = { country = GER country = SOV }
+			}
+			AND = {
+				war = { country = GER country = YUG }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = alliance which = GER }
+	}
+}
+################
+# Romania joins Germany because of Baklan Campaign
+#############################################
+event = {
+	id = 29006
+	random = no 
+	country = ROM
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20006
+		NOT = { alliance = { country = ROM country = SOV } }
+		NOT = { alliance = { country = ROM country = ENG } }
+		NOT = { alliance = { country = ROM country = ITA } }
+		NOT = { alliance = { country = ROM country = GER } }
+		NOT = { alliance = { country = ROM country = TUR } }
+		atwar = no
+		OR = {
+			AND = {
+				war = { country = GER country = SOV }
+			}
+			AND = {
+				war = { country = GER country = YUG }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = alliance which = GER }
+		command = { type = trigger which = 29002 }
+	}
+}
+################
+# Finland joins Germany because of Winter War Campaign and GER DOW SOV
+#############################################
+event = {
+	id = 29007
+	random = no 
+	country = FIN
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 3200 # Winter War
+		war = { country = GER country = SOV }
+		NOT = { alliance = { country = FIN country = SOV } }
+		NOT = { alliance = { country = FIN country = ENG } }
+		NOT = { alliance = { country = FIN country = ITA } }
+		NOT = { alliance = { country = FIN country = GER } }
+		NOT = { alliance = { country = FIN country = TUR } }
+		atwar = no
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = alliance which = GER }
+	}
+}
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 29008
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20006
+		alliance = { country = GER country = HUN }
+		NOT = { exists = YUG }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 381 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 384 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 387 }
+		command = { type = secedeprovince which = GER value = 388 }
+		command = { type = secedeprovince which = GER value = 389 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		command = { type = secedeprovince which = GER value = 494 }
+		command = { type = secedeprovince which = GER value = 413 }
+		command = { type = secedeprovince which = GER value = 414 }
+	}
+}
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 29009
+	random = no 
+	country = ROM
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20006
+		alliance = { country = GER country = ROM }
+		NOT = { exists = YUG }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 381 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 384 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 387 }
+		command = { type = secedeprovince which = GER value = 388 }
+		command = { type = secedeprovince which = GER value = 389 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		command = { type = secedeprovince which = GER value = 493 }
+		command = { type = secedeprovince which = GER value = 494 }
+		command = { type = secedeprovince which = GER value = 413 }
+		command = { type = secedeprovince which = GER value = 414 }
+	}
+}
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 29010
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20006
+		alliance = { country = GER country = BUL }
+		NOT = { exists = YUG }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 381 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 384 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 387 }
+		command = { type = secedeprovince which = GER value = 388 }
+		command = { type = secedeprovince which = GER value = 389 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		command = { type = secedeprovince which = GER value = 493 }
+		command = { type = secedeprovince which = GER value = 494 }
+	}
+}
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 29011
+	random = no 
+	country = ITA
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20006
+		alliance = { country = GER country = ITA }
+		NOT = { exists = YUG }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		command = { type = secedeprovince which = GER value = 493 }
+		command = { type = secedeprovince which = GER value = 494 }
+		command = { type = secedeprovince which = GER value = 413 }
+		command = { type = secedeprovince which = GER value = 414 }
+	}
+}
+################
+# Partition of Yugoslavia AI only events Partisans come back
+#############################################
+event = {
+	id = 29012
+	random = no 
+	country = GER
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	action_a = {
+		command = { type = province_revoltrisk which = 380 value = 15 }
+		command = { type = province_revoltrisk which = 459 value = 15 }
+		command = { type = province_revoltrisk which = 455 value = 15 }
+		command = { type = province_revoltrisk which = 454 value = 15 }
+		command = { type = province_revoltrisk which = 453 value = 15 }
+		command = { type = province_revoltrisk which = 382 value = 15 }
+		command = { type = province_revoltrisk which = 381 value = 15 }
+		command = { type = province_revoltrisk which = 383 value = 15 }
+		command = { type = province_revoltrisk which = 384 value = 15 }
+		command = { type = province_revoltrisk which = 385 value = 15 }
+		command = { type = province_revoltrisk which = 386 value = 15 }
+		command = { type = province_revoltrisk which = 387 value = 15 }
+		command = { type = province_revoltrisk which = 388 value = 15 }
+		command = { type = province_revoltrisk which = 389 value = 15 }
+		command = { type = province_revoltrisk which = 451 value = 15 }
+		command = { type = province_revoltrisk which = 452 value = 15 }
+		command = { type = province_revoltrisk which = 418 value = 15 }
+		command = { type = province_revoltrisk which = 415 value = 15 }
+		command = { type = province_revoltrisk which = 493 value = 15 }
+		command = { type = province_revoltrisk which = 494 value = 15 }
+		command = { type = province_revoltrisk which = 413 value = 15 }
+		command = { type = province_revoltrisk which = 414 value = 15 }
+	}
+}
+################
+# Yugoslavia loads Baklans AI
+#############################################
+event = {
+	id = 29013
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		war = { country = YUG country = GER }
+		war = { country = YUG country = ITA }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/YUG_Balklans.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29014
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		event = 20006
+		alliance = { country = ITA country = BUL }
+		NOT = { exists = GRE }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = secedeprovince which = ITA value = 392 }
+		command = { type = secedeprovince which = ITA value = 393 }
+		command = { type = secedeprovince which = ITA value = 394 }
+		command = { type = secedeprovince which = ITA value = 395 }
+		command = { type = secedeprovince which = ITA value = 396 }
+		command = { type = secedeprovince which = ITA value = 400 }
+		command = { type = secedeprovince which = ITA value = 401 }
+		command = { type = secedeprovince which = ITA value = 402 }
+		command = { type = secedeprovince which = ITA value = 403 }
+		command = { type = secedeprovince which = ITA value = 405 }
+		command = { type = secedeprovince which = ITA value = 411 }
+		command = { type = sleepevent which = 29015 }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29015
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		event = 20006
+		exists = GRE
+		alliance = { country = ITA country = BUL }
+		NOT = { control = { province = 401 data = GRE } } # Athens
+		NOT = { control = { province = 393 data = GRE } }
+		NOT = { control = { province = 395 data = GRE } }
+		NOT = { control = { province = 394 data = GRE } }
+		NOT = { control = { province = 402 data = GRE } }
+		NOT = { control = { province = 403 data = GRE } }
+		NOT = { control = { province = 392 data = GRE } }
+		NOT = { control = { province = 412 data = GRE } }
+		NOT = { control = { province = 411 data = GRE } }
+		NOT = { control = { province = 410 data = GRE } }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = control which = ITA value = 392 }
+		command = { type = control which = ITA value = 393 }
+		command = { type = control which = ITA value = 394 }
+		command = { type = control which = ITA value = 395 }
+		command = { type = control which = ITA value = 396 }
+		command = { type = control which = ITA value = 400 }
+		command = { type = control which = ITA value = 401 }
+		command = { type = control which = ITA value = 402 }
+		command = { type = control which = ITA value = 403 }
+		command = { type = control which = ITA value = 405 }
+		command = { type = control which = ITA value = 411 }
+		command = { type = sleepevent which = 29014 }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29016
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		ai = BUL
+		event = 20006
+		alliance = { country = GER country = ITA }
+		NOT = { exists = GRE }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = secedeprovince which = ITA value = 392 }
+		command = { type = secedeprovince which = ITA value = 393 }
+		command = { type = secedeprovince which = ITA value = 394 }
+		command = { type = secedeprovince which = ITA value = 395 }
+		command = { type = secedeprovince which = ITA value = 396 }
+		command = { type = secedeprovince which = ITA value = 400 }
+		command = { type = secedeprovince which = ITA value = 401 }
+		command = { type = secedeprovince which = ITA value = 402 }
+		command = { type = secedeprovince which = ITA value = 403 }
+		command = { type = secedeprovince which = ITA value = 405 }
+		command = { type = secedeprovince which = BUL value = 410 }
+		command = { type = secedeprovince which = ITA value = 411 }
+		command = { type = secedeprovince which = BUL value = 412 }
+		command = { type = sleepevent which = 29017 }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29017
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		ai = BUL
+		event = 20006
+		alliance = { country = GER country = ITA }
+		exists = GRE
+		NOT = { control = { province = 401 data = GRE } } # Athens
+		NOT = { control = { province = 393 data = GRE } }
+		NOT = { control = { province = 395 data = GRE } }
+		NOT = { control = { province = 394 data = GRE } }
+		NOT = { control = { province = 402 data = GRE } }
+		NOT = { control = { province = 403 data = GRE } }
+		NOT = { control = { province = 392 data = GRE } }
+		NOT = { control = { province = 412 data = GRE } }
+		NOT = { control = { province = 411 data = GRE } }
+		NOT = { control = { province = 410 data = GRE } }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = control which = ITA value = 392 }
+		command = { type = control which = ITA value = 393 }
+		command = { type = control which = ITA value = 394 }
+		command = { type = control which = ITA value = 395 }
+		command = { type = control which = ITA value = 396 }
+		command = { type = control which = ITA value = 400 }
+		command = { type = control which = ITA value = 401 }
+		command = { type = control which = ITA value = 402 }
+		command = { type = control which = ITA value = 403 }
+		command = { type = control which = ITA value = 405 }
+		command = { type = control which = BUL value = 410 }
+		command = { type = control which = ITA value = 411 }
+		command = { type = control which = BUL value = 412 }
+		command = { type = sleepevent which = 29016 }
+	}
+}
+################
+# Partition of Greece AI only events Italy gets partisans
+#############################################
+event = {
+	id = 29018
+	random = no 
+	country = ITA
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 29014
+			event = 29015
+			event = 29016
+			event = 29017
+		}
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = province_revoltrisk  which = 392 value = 15 }
+		command = { type = province_revoltrisk  which = 393 value = 15 }
+		command = { type = province_revoltrisk  which = 394 value = 15 }
+		command = { type = province_revoltrisk  which = 395 value = 15 }
+		command = { type = province_revoltrisk  which = 396 value = 15 }
+		command = { type = province_revoltrisk  which = 400 value = 15 }
+		command = { type = province_revoltrisk  which = 401 value = 15 }
+		command = { type = province_revoltrisk  which = 402 value = 15 }
+		command = { type = province_revoltrisk  which = 403 value = 15 }
+		command = { type = province_revoltrisk  which = 405 value = 15 }
+		command = { type = province_revoltrisk  which = 410 value = 15 }
+		command = { type = province_revoltrisk  which = 411 value = 15 }
+		command = { type = province_revoltrisk  which = 412 value = 15 }
+	}
+}
+################
+# Yugoslavia turns Passive from fear with fall of Greece
+#############################################
+event = {
+	id = 29019
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = ITA }
+		NOT = { ispuppet = YUG }
+		NOT = { atwar = YUG }
+		control = { province = 56 data = GER } # Paris
+		OR = {
+			NOT = { exists = GRE }
+			AND = {
+				NOT = { control = { province = 401 data = GRE } } # Athens
+				NOT = { control = { province = 393 data = GRE } }
+				NOT = { control = { province = 395 data = GRE } }
+				NOT = { control = { province = 394 data = GRE } }
+				NOT = { control = { province = 402 data = GRE } }
+				NOT = { control = { province = 403 data = GRE } }
+				NOT = { control = { province = 392 data = GRE } }
+				NOT = { control = { province = 412 data = GRE } }
+				NOT = { control = { province = 411 data = GRE } }
+				NOT = { control = { province = 410 data = GRE } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/YUG_Neutrality.ai" }
+	}
+}
+################
+# Partition of Yugoslavia AI only events Partisans come back
+#############################################
+event = {
+	id = 29020
+	random = no 
+	country = GER
+
+	trigger = {
+		ai = yes
+		ai = GER
+		OR = {
+			event = 29008
+			event = 29009
+			event = 29010
+			event = 29011
+		}
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = trigger which = 29012 }
+		command = { type = province_revoltrisk which = 380 value = -50 }
+		command = { type = province_revoltrisk which = 459 value = -50 }
+		command = { type = province_revoltrisk which = 455 value = -50 }
+		command = { type = province_revoltrisk which = 454 value = -50 }
+		command = { type = province_revoltrisk which = 453 value = -50 }
+		command = { type = province_revoltrisk which = 382 value = -50 }
+		command = { type = province_revoltrisk which = 381 value = -50 }
+		command = { type = province_revoltrisk which = 383 value = -50 }
+		command = { type = province_revoltrisk which = 384 value = -50 }
+		command = { type = province_revoltrisk which = 385 value = -50 }
+		command = { type = province_revoltrisk which = 386 value = -50 }
+		command = { type = province_revoltrisk which = 387 value = -50 }
+		command = { type = province_revoltrisk which = 388 value = -50 }
+		command = { type = province_revoltrisk which = 389 value = -50 }
+		command = { type = province_revoltrisk which = 451 value = -50 }
+		command = { type = province_revoltrisk which = 452 value = -50 }
+		command = { type = province_revoltrisk which = 418 value = -50 }
+		command = { type = province_revoltrisk which = 415 value = -50 }
+		command = { type = province_revoltrisk which = 493 value = -50 }
+		command = { type = province_revoltrisk which = 494 value = -50 }
+		command = { type = province_revoltrisk which = 413 value = -50 }
+		command = { type = province_revoltrisk which = 414 value = -50 }
+	}
+}
+################
+# Finland loads German vs Russian war AI
+#############################################
+event = {
+	id = 29021
+	random = no 
+	country = FIN
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+		war = { country = FIN country = SOV }
+		alliance = { country = FIN country = GER }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = november year = 1939 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/FIN_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Hungary takes advantage of Yugoslavias passiveness
+#############################################
+event = {
+	id = 29022
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = HUN }
+		OR = {
+			event = 29019
+			AND = {
+				alliance = { country = GER country = ITA }
+				NOT = { ispuppet = YUG }
+				NOT = { atwar = YUG }
+				control = { province = 56 data = GER } # Paris
+				OR = {
+					NOT = { exists = GRE }
+					AND = {
+						NOT = { control = { province = 401 data = GRE } } # Athens
+						NOT = { control = { province = 393 data = GRE } }
+						NOT = { control = { province = 395 data = GRE } }
+						NOT = { control = { province = 394 data = GRE } }
+						NOT = { control = { province = 402 data = GRE } }
+						NOT = { control = { province = 403 data = GRE } }
+						NOT = { control = { province = 392 data = GRE } }
+						NOT = { control = { province = 412 data = GRE } }
+						NOT = { control = { province = 411 data = GRE } }
+						NOT = { control = { province = 410 data = GRE } }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/HUN_Claims.ai" }
+	}
+}
+################
+# Bulgaria takes advantage of Yugoslavias passiveness
+#############################################
+event = {
+	id = 29023
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = BUL }
+		OR = {
+			event = 29019
+			AND = {
+				alliance = { country = GER country = ITA }
+				NOT = { ispuppet = YUG }
+				NOT = { atwar = YUG }
+				control = { province = 56 data = GER } # Paris
+				OR = {
+					NOT = { exists = GRE }
+					AND = {
+						NOT = { control = { province = 401 data = GRE } } # Athens
+						NOT = { control = { province = 393 data = GRE } }
+						NOT = { control = { province = 395 data = GRE } }
+						NOT = { control = { province = 394 data = GRE } }
+						NOT = { control = { province = 402 data = GRE } }
+						NOT = { control = { province = 403 data = GRE } }
+						NOT = { control = { province = 392 data = GRE } }
+						NOT = { control = { province = 412 data = GRE } }
+						NOT = { control = { province = 411 data = GRE } }
+						NOT = { control = { province = 410 data = GRE } }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/BUL_Claims.ai" }
+	}
+}
+################
+# Bulgaria lowers neutrality to join Axis
+#############################################
+event = {
+	id = 29024
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			war = { country = GER country = YUG }
+			AND = {
+				war = { country = GER country = ROM }
+				NOT = { alliance = { country = SOV country = ROM } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}
+################
+# Hungary lowers neutrality to join Axis
+#############################################
+event = {
+	id = 29025
+	random = no 
+	country = HUN
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			war = { country = GER country = YUG }
+			war = { country = GER country = SOV }
+			AND = {
+				war = { country = GER country = ROM }
+				NOT = { alliance = { country = SOV country = ROM } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}
+################
+# Romania lowers neutrality to join Axis
+#############################################
+event = {
+	id = 29026
+	random = no 
+	country = ROM
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			war = { country = GER country = HUN }
+			war = { country = GER country = SOV }
+			event = 2700 # Claim Bessarabia
+			event = 2702 # Vienna Diktat Denied by Germany
+			AND = {
+				owned = { province = 434 data = SOV }
+				owned = { province = 435 data = SOV }
+				owned = { province = 230 data = SOV }
+				owned = { province = 433 data = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}
+################
+# Finland lowers neutrality to join Axis
+#############################################
+event = {
+	id = 29027
+	random = no 
+	country = FIN
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			war = { country = GER country = SOV }
+			event = 2620 # Winter War
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}
+################
+# Czechloslavakia joins the Axis
+#############################################
+event = {
+	id = 29028
+	random = no 
+	country = CZE
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = CZE }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/CZE_Axis.ai" }
+	}
+}
+################
+# Vichy goes to 95 neutrality
+#############################################
+event = {
+	id = 29029
+	random = no 
+	country = VIC
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { war = { country = GER country = VIC } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Sweden changes political stance
+#############################################
+event = {
+	id = 29030
+	random = no 
+	country = SWE
+	
+	trigger = {
+		ai = yes
+		flag = anti_bolshevik_sweden
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Sweden joins Germany because of Winter War Campaign and GER DOW SOV
+#############################################
+event = {
+	id = 29031
+	random = no 
+	country = SWE
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		flag = anti_bolshevik_sweden
+		war = { country = GER country = SOV }
+		NOT = { alliance = { country = SWE country = SOV } }
+		NOT = { alliance = { country = SWE country = ENG } }
+		NOT = { alliance = { country = SWE country = ITA } }
+		NOT = { alliance = { country = SWE country = GER } }
+		NOT = { alliance = { country = SWE country = TUR } }
+		atwar = no
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = alliance which = GER }
+	}
+}
+################
+# Mexico Load D-Day AI
+#############################################
+event = {
+	id = 29033
+	random = no 
+	country = MEX
+	
+	trigger = {
+		ai = yes
+		alliance = { country = MEX country = USA }
+		OR = {
+			event = 28005 # USA Loaded D-Day
+			control = { province = 292 data = USA } # Arburg
+			control = { province = 92  data = USA } # Arhus
+			control = { province = 91  data = USA } # Kolding			
+			control = { province = 78  data = USA } # Leeweden
+			control = { province = 47  data = USA } # Amsterdam
+			control = { province = 46  data = USA } # Rotterdam
+			control = { province = 45  data = USA } # Ghent
+			control = { province = 18  data = USA } # Calais
+			control = { province = 42  data = USA } # Dieppe
+			control = { province = 41  data = USA } # Le Havre
+			control = { province = 39  data = USA } # Caen
+			control = { province = 33  data = USA } # Rennes
+			control = { province = 32  data = USA } # Brest
+			control = { province = 34  data = USA } # Lorient
+			control = { province = 35  data = USA } # Nantes
+			control = { province = 59  data = USA } # Cholet
+			control = { province = 325 data = USA } # Bordeaux
+			control = { province = 326 data = USA } # Dax
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/MEX_Dday.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}

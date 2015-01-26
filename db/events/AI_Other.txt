@@ -1,0 +1,926 @@
+####################################
+# Spain Republic and Nationalist 23000 - 23999 by Lothos
+####################################
+####################################
+# Other Minors 29000 - 29999
+####################################
+################
+# Slovakia sends exp forces to Germany
+#############################################
+event = {
+	id = 29000
+	random = no 
+	country = SLO
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = SLO }
+		OR = {
+			ai = GER
+			event = 20013
+			AND = {
+				war = { country = GER country = SOV }
+				war = { country = SLO country = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Romania exp forces to Germany
+#############################################
+# Deleted 29002
+
+################
+# Yugoslavia exp forces to Germany
+#############################################
+event = {
+	id = 29003
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+		war = { country = YUG country = SOV }
+		alliance = { country = GER country = YUG }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Holland does Oil Embargo against Japan
+#############################################
+#event = { Deleted by Lothos and replaced by new Embargo AI
+#	id = 29004
+################
+# Bulgaria joins Germany because of Baklan Campaign
+#############################################
+event = {
+	id = 29005
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		atwar = no
+		war = { country = GER country = YUG }
+		NOT = { alliance = { country = BUL country = SOV } }
+		NOT = { alliance = { country = BUL country = ENG } }
+		NOT = { alliance = { country = BUL country = ITA } }
+		NOT = { alliance = { country = BUL country = GER } }
+		NOT = { alliance = { country = BUL country = TUR } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = alliance which = GER }
+	}
+}
+################
+# Romania joins Germany because of Baklan Campaign
+#############################################
+# Deleted 29006
+
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 29009
+	random = no 
+	country = ROM
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20011
+		alliance = { country = GER country = ROM }
+		NOT = { exists = YUG }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 381 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 384 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 387 }
+		command = { type = secedeprovince which = GER value = 388 }
+		command = { type = secedeprovince which = GER value = 389 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		command = { type = secedeprovince which = GER value = 493 }
+		command = { type = secedeprovince which = GER value = 494 }
+		command = { type = secedeprovince which = GER value = 413 }
+		command = { type = secedeprovince which = GER value = 414 }
+	}
+}
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 29010
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20011
+		alliance = { country = GER country = BUL }
+		NOT = { exists = YUG }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 381 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 384 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 387 }
+		command = { type = secedeprovince which = GER value = 388 }
+		command = { type = secedeprovince which = GER value = 389 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		command = { type = secedeprovince which = GER value = 493 }
+		command = { type = secedeprovince which = GER value = 494 }
+	}
+}
+################
+# Partition of Yugoslavia AI only events
+#############################################
+event = {
+	id = 29011
+	random = no 
+	country = ITA
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20011
+		alliance = { country = GER country = ITA }
+		NOT = { exists = YUG }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = secedeprovince which = GER value = 380 }
+		command = { type = secedeprovince which = GER value = 459 }
+		command = { type = secedeprovince which = GER value = 455 }
+		command = { type = secedeprovince which = GER value = 454 }
+		command = { type = secedeprovince which = GER value = 453 }
+		command = { type = secedeprovince which = GER value = 382 }
+		command = { type = secedeprovince which = GER value = 383 }
+		command = { type = secedeprovince which = GER value = 385 }
+		command = { type = secedeprovince which = GER value = 386 }
+		command = { type = secedeprovince which = GER value = 451 }
+		command = { type = secedeprovince which = GER value = 452 }
+		command = { type = secedeprovince which = GER value = 418 }
+		command = { type = secedeprovince which = GER value = 415 }
+		command = { type = secedeprovince which = GER value = 493 }
+		command = { type = secedeprovince which = GER value = 494 }
+		command = { type = secedeprovince which = GER value = 413 }
+		command = { type = secedeprovince which = GER value = 414 }
+	}
+}
+################
+# Partition of Yugoslavia AI only events Partisans come back
+#############################################
+event = {
+	id = 29012
+	random = no 
+	country = GER
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	action_a = {
+		command = { type = province_revoltrisk which = 380 value = 15 }
+		command = { type = province_revoltrisk which = 459 value = 15 }
+		command = { type = province_revoltrisk which = 455 value = 15 }
+		command = { type = province_revoltrisk which = 454 value = 15 }
+		command = { type = province_revoltrisk which = 453 value = 15 }
+		command = { type = province_revoltrisk which = 382 value = 15 }
+		command = { type = province_revoltrisk which = 381 value = 15 }
+		command = { type = province_revoltrisk which = 383 value = 15 }
+		command = { type = province_revoltrisk which = 384 value = 15 }
+		command = { type = province_revoltrisk which = 385 value = 15 }
+		command = { type = province_revoltrisk which = 386 value = 15 }
+		command = { type = province_revoltrisk which = 387 value = 15 }
+		command = { type = province_revoltrisk which = 388 value = 15 }
+		command = { type = province_revoltrisk which = 389 value = 15 }
+		command = { type = province_revoltrisk which = 451 value = 15 }
+		command = { type = province_revoltrisk which = 452 value = 15 }
+		command = { type = province_revoltrisk which = 418 value = 15 }
+		command = { type = province_revoltrisk which = 415 value = 15 }
+		command = { type = province_revoltrisk which = 493 value = 15 }
+		command = { type = province_revoltrisk which = 494 value = 15 }
+		command = { type = province_revoltrisk which = 413 value = 15 }
+		command = { type = province_revoltrisk which = 414 value = 15 }
+	}
+}
+################
+# Yugoslavia loads Baklans AI
+#############################################
+event = {
+	id = 29013
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		war = { country = YUG country = GER }
+		war = { country = YUG country = ITA }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/YUG_Balklans.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29014
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		event = 20011
+		alliance = { country = ITA country = BUL }
+		NOT = { exists = GRE }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = secedeprovince which = ITA value = 392 }
+		command = { type = secedeprovince which = ITA value = 393 }
+		command = { type = secedeprovince which = ITA value = 394 }
+		command = { type = secedeprovince which = ITA value = 395 }
+		command = { type = secedeprovince which = ITA value = 396 }
+		command = { type = secedeprovince which = ITA value = 400 }
+		command = { type = secedeprovince which = ITA value = 401 }
+		command = { type = secedeprovince which = ITA value = 402 }
+		command = { type = secedeprovince which = ITA value = 403 }
+		command = { type = secedeprovince which = ITA value = 405 }
+		command = { type = secedeprovince which = ITA value = 411 }
+		command = { type = sleepevent which = 29015 }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29015
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		event = 20011
+		exists = GRE
+		alliance = { country = ITA country = BUL }
+		NOT = { control = { province = 401 data = GRE } } # Athens
+		NOT = { control = { province = 393 data = GRE } }
+		NOT = { control = { province = 395 data = GRE } }
+		NOT = { control = { province = 394 data = GRE } }
+		NOT = { control = { province = 402 data = GRE } }
+		NOT = { control = { province = 403 data = GRE } }
+		NOT = { control = { province = 392 data = GRE } }
+		NOT = { control = { province = 412 data = GRE } }
+		NOT = { control = { province = 411 data = GRE } }
+		NOT = { control = { province = 410 data = GRE } }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = control which = ITA value = 392 }
+		command = { type = control which = ITA value = 393 }
+		command = { type = control which = ITA value = 394 }
+		command = { type = control which = ITA value = 395 }
+		command = { type = control which = ITA value = 396 }
+		command = { type = control which = ITA value = 400 }
+		command = { type = control which = ITA value = 401 }
+		command = { type = control which = ITA value = 402 }
+		command = { type = control which = ITA value = 403 }
+		command = { type = control which = ITA value = 405 }
+		command = { type = control which = ITA value = 411 }
+		command = { type = sleepevent which = 29014 }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29016
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		ai = BUL
+		event = 20011
+		alliance = { country = GER country = ITA }
+		NOT = { exists = GRE }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = secedeprovince which = ITA value = 392 }
+		command = { type = secedeprovince which = ITA value = 393 }
+		command = { type = secedeprovince which = ITA value = 394 }
+		command = { type = secedeprovince which = ITA value = 395 }
+		command = { type = secedeprovince which = ITA value = 396 }
+		command = { type = secedeprovince which = ITA value = 400 }
+		command = { type = secedeprovince which = ITA value = 401 }
+		command = { type = secedeprovince which = ITA value = 402 }
+		command = { type = secedeprovince which = ITA value = 403 }
+		command = { type = secedeprovince which = ITA value = 405 }
+		command = { type = secedeprovince which = BUL value = 410 }
+		command = { type = secedeprovince which = ITA value = 411 }
+		command = { type = secedeprovince which = BUL value = 412 }
+		command = { type = sleepevent which = 29017 }
+	}
+}
+################
+# Partition of Greece AI only events
+#############################################
+event = {
+	id = 29017
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		ai = ITA
+		ai = BUL
+		event = 20011
+		alliance = { country = GER country = ITA }
+		exists = GRE
+		NOT = { control = { province = 401 data = GRE } } # Athens
+		NOT = { control = { province = 393 data = GRE } }
+		NOT = { control = { province = 395 data = GRE } }
+		NOT = { control = { province = 394 data = GRE } }
+		NOT = { control = { province = 402 data = GRE } }
+		NOT = { control = { province = 403 data = GRE } }
+		NOT = { control = { province = 392 data = GRE } }
+		NOT = { control = { province = 412 data = GRE } }
+		NOT = { control = { province = 411 data = GRE } }
+		NOT = { control = { province = 410 data = GRE } }
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = control which = ITA value = 392 }
+		command = { type = control which = ITA value = 393 }
+		command = { type = control which = ITA value = 394 }
+		command = { type = control which = ITA value = 395 }
+		command = { type = control which = ITA value = 396 }
+		command = { type = control which = ITA value = 400 }
+		command = { type = control which = ITA value = 401 }
+		command = { type = control which = ITA value = 402 }
+		command = { type = control which = ITA value = 403 }
+		command = { type = control which = ITA value = 405 }
+		command = { type = control which = BUL value = 410 }
+		command = { type = control which = ITA value = 411 }
+		command = { type = control which = BUL value = 412 }
+		command = { type = sleepevent which = 29016 }
+	}
+}
+################
+# Partition of Greece AI only events Italy gets partisans
+#############################################
+event = {
+	id = 29018
+	random = no 
+	country = ITA
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 29014
+			event = 29015
+			event = 29016
+			event = 29017
+		}
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = province_revoltrisk  which = 392 value = 15 }
+		command = { type = province_revoltrisk  which = 393 value = 15 }
+		command = { type = province_revoltrisk  which = 394 value = 15 }
+		command = { type = province_revoltrisk  which = 395 value = 15 }
+		command = { type = province_revoltrisk  which = 396 value = 15 }
+		command = { type = province_revoltrisk  which = 400 value = 15 }
+		command = { type = province_revoltrisk  which = 401 value = 15 }
+		command = { type = province_revoltrisk  which = 402 value = 15 }
+		command = { type = province_revoltrisk  which = 403 value = 15 }
+		command = { type = province_revoltrisk  which = 405 value = 15 }
+		command = { type = province_revoltrisk  which = 410 value = 15 }
+		command = { type = province_revoltrisk  which = 411 value = 15 }
+		command = { type = province_revoltrisk  which = 412 value = 15 }
+	}
+}
+################
+# Yugoslavia turns Passive from fear with fall of Greece
+#############################################
+event = {
+	id = 29019
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = ITA }
+		NOT = { ispuppet = YUG }
+		NOT = { atwar = YUG }
+		control = { province = 56 data = GER } # Paris
+		OR = {
+			NOT = { exists = GRE }
+			AND = {
+				NOT = { control = { province = 401 data = GRE } } # Athens
+				NOT = { control = { province = 393 data = GRE } }
+				NOT = { control = { province = 395 data = GRE } }
+				NOT = { control = { province = 394 data = GRE } }
+				NOT = { control = { province = 402 data = GRE } }
+				NOT = { control = { province = 403 data = GRE } }
+				NOT = { control = { province = 392 data = GRE } }
+				NOT = { control = { province = 412 data = GRE } }
+				NOT = { control = { province = 411 data = GRE } }
+				NOT = { control = { province = 410 data = GRE } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/YUG_Neutrality.ai" }
+	}
+}
+################
+# Partition of Yugoslavia AI only events Partisans come back
+#############################################
+event = {
+	id = 29020
+	random = no 
+	country = GER
+
+	trigger = {
+		ai = yes
+		OR = {
+			ai = HUN
+			ai = ROM
+			ai = BUL
+			ai = ITA
+		}
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = trigger which = 29012 }
+		command = { type = province_revoltrisk which = 380 value = -50 }
+		command = { type = province_revoltrisk which = 459 value = -50 }
+		command = { type = province_revoltrisk which = 455 value = -50 }
+		command = { type = province_revoltrisk which = 454 value = -50 }
+		command = { type = province_revoltrisk which = 453 value = -50 }
+		command = { type = province_revoltrisk which = 382 value = -50 }
+		command = { type = province_revoltrisk which = 381 value = -50 }
+		command = { type = province_revoltrisk which = 383 value = -50 }
+		command = { type = province_revoltrisk which = 384 value = -50 }
+		command = { type = province_revoltrisk which = 385 value = -50 }
+		command = { type = province_revoltrisk which = 386 value = -50 }
+		command = { type = province_revoltrisk which = 387 value = -50 }
+		command = { type = province_revoltrisk which = 388 value = -50 }
+		command = { type = province_revoltrisk which = 389 value = -50 }
+		command = { type = province_revoltrisk which = 451 value = -50 }
+		command = { type = province_revoltrisk which = 452 value = -50 }
+		command = { type = province_revoltrisk which = 418 value = -50 }
+		command = { type = province_revoltrisk which = 415 value = -50 }
+		command = { type = province_revoltrisk which = 493 value = -50 }
+		command = { type = province_revoltrisk which = 494 value = -50 }
+		command = { type = province_revoltrisk which = 413 value = -50 }
+		command = { type = province_revoltrisk which = 414 value = -50 }
+	}
+}
+################
+# Bulgaria takes advantage of Yugoslavias passiveness
+#############################################
+event = {
+	id = 29023
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = BUL }
+		OR = {
+			event = 29019
+			AND = {
+				alliance = { country = GER country = ITA }
+				NOT = { ispuppet = YUG }
+				NOT = { atwar = YUG }
+				control = { province = 56 data = GER } # Paris
+				OR = {
+					NOT = { exists = GRE }
+					AND = {
+						NOT = { control = { province = 401 data = GRE } } # Athens
+						NOT = { control = { province = 393 data = GRE } }
+						NOT = { control = { province = 395 data = GRE } }
+						NOT = { control = { province = 394 data = GRE } }
+						NOT = { control = { province = 402 data = GRE } }
+						NOT = { control = { province = 403 data = GRE } }
+						NOT = { control = { province = 392 data = GRE } }
+						NOT = { control = { province = 412 data = GRE } }
+						NOT = { control = { province = 411 data = GRE } }
+						NOT = { control = { province = 410 data = GRE } }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/BUL_Claims.ai" }
+	}
+}
+################
+# Bulgaria lowers neutrality to join Axis
+#############################################
+event = {
+	id = 29024
+	random = no 
+	country = BUL
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			war = { country = GER country = YUG }
+			AND = {
+				war = { country = GER country = ROM }
+				NOT = { alliance = { country = SOV country = ROM } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}
+################
+# Romania lowers neutrality to join Axis
+#############################################
+event = {
+	id = 29026
+	random = no 
+	country = ROM
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			war = { country = GER country = HUN }
+			war = { country = GER country = SOV }
+			event = 2700 # Claim Bessarabia
+			event = 2702 # Vienna Diktat Denied by Germany
+			AND = {
+				owned = { province = 434 data = SOV }
+				owned = { province = 435 data = SOV }
+				owned = { province = 230 data = SOV }
+				owned = { province = 433 data = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}
+################
+# Czechloslavakia joins the Axis
+#############################################
+event = {
+	id = 29028
+	random = no 
+	country = CZE
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = CZE }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/CZE_Axis.ai" }
+	}
+}
+################
+# Vichy goes to 95 neutrality
+#############################################
+event = {
+	id = 29029
+	random = no 
+	country = VIC
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { war = { country = GER country = VIC } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Sweden changes political stance
+#############################################
+event = {
+	id = 29030
+	random = no 
+	country = SWE
+	
+	trigger = {
+		ai = yes
+		flag = anti_bolshevik_sweden
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Sweden joins Germany because of Winter War Campaign and GER DOW SOV
+#############################################
+event = {
+	id = 29031
+	random = no 
+	country = SWE
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		flag = anti_bolshevik_sweden
+		war = { country = GER country = SOV }
+		NOT = { alliance = { country = SWE country = SOV } }
+		NOT = { alliance = { country = SWE country = ENG } }
+		NOT = { alliance = { country = SWE country = ITA } }
+		NOT = { alliance = { country = SWE country = GER } }
+		NOT = { alliance = { country = SWE country = TUR } }
+		atwar = no
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = alliance which = GER }
+	}
+}
+################
+# Poland prepares for German invasion
+#############################################
+event = {
+	id = 29034
+	random = no 
+	country = POL
+
+	trigger = {
+		ai = yes
+		OR = {
+			war = { country = POL country = GER }
+			event = 2040 # Annexation of CZE
+			event = 2005 # CZE Refuses claim
+			event = 2004 # CZE joins Axis
+			AND = {
+				event = 2030 # Treaty of Munich
+				NOT = { event = 2200  } # CZE response to Treaty of Munich
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/POL_Defense_GER.ai" }
+	}
+}
+################
+# Baltic States succumb to Soviet pressure
+#############################################
+event = {
+	id = 29035
+	random = no 
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		OR = {
+			country = EST
+			country = LAT
+			country = LIT
+		}
+		NOT = { local_flag = Balticclaims } 
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 15 month = May year = 1940 }
+
+	action_a = {
+		trigger = {
+			NOT = { country = LIT }
+		}
+		command = { type = ai which = "switch/Baltic_Claims.ai" }
+		command = { type = local_setflag which = Balticclaims }
+	}
+	action_b = {
+		trigger = {
+			country = LIT
+		}
+		command = { type = ai which = "switch/Baltic_Claims2.ai" }
+		command = { type = local_setflag which = Balticclaims }
+	}
+}

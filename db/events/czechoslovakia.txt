@@ -1,0 +1,317 @@
+#
+# HoI - Czechoslovakian Events
+#
+#		written by Henrik Fåhraeus
+#
+# amended by Andrew S. Davidson 14 Apr 2005 to reduce size of starting Slovak army and increase German gains from Czech end
+#                 - modified by Kevin McCarthy
+
+#########################################################################
+#  The Treaty of Munich
+#########################################################################
+event = {
+	id = 2200
+	random = no
+	country = CZE
+
+	# triggered by GER 2030
+
+	name = "EVT_2200_NAME"
+	desc = "EVT_2200_DESC"
+	style = 0
+	picture = "Munich"
+
+	action_a = {
+		name = "ACTIONNAME2200A" # Accept the Claims
+		ai_chance = 96
+		command = { type = leave_alliance }
+ 		command = { type = construct which = land_fort where = 466 value = -5 } #Strakonice
+		command = { type = construct which = land_fort where = 467 value = -5 } #Tabor
+		command = { type = construct which = land_fort where = 471 value = -5 } #Usti
+		command = { type = construct which = land_fort where = 472 value = -5 } #Liberec
+		command = { type = secedeprovince which = GER value = 466 } #Strakonice
+		command = { type = secedeprovince which = GER value = 467 } #Tabor
+		command = { type = secedeprovince which = GER value = 471 } #Usti
+		command = { type = secedeprovince which = GER value = 472 } #Liberec
+		command = { type = secedeprovince which = GER value = 474 } #Ostrava
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = domestic which = democratic value = -2 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = dissent value = 25 }
+		command = { type = trigger which = 2003 } # GER
+	}
+	action_b = {
+		name = "ACTIONNAME2200B" # Join the Axis
+		ai_chance = 1
+		command = { type = leave_alliance }
+		command = { type = alliance which = GER }
+		command = { type = relation which = GER value = 40 }
+		command = { type = relation which = ENG value = -40 }
+		command = { type = relation which = FRA value = -40 }
+		command = { type = relation which = SOV value = -30 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = set_domestic which = democratic value = 3 }
+		command = { type = set_domestic which = political_left value = 4 }
+		command = { type = dissent value = 25 }
+		command = { type = trigger which = 2004 } # GER
+		command = { type = headofstate which = 24034 }
+		command = { type = headofgovernment which = 24046 }
+		command = { type = foreignminister which = 24058 }
+		command = { type = armamentminister which = 24070 }
+		command = { type = ministerofsecurity which = 24087 }
+		command = { type = ministerofintelligence which = 24104 }
+		command = { type = chiefofstaff which = 24119 }
+		command = { type = chiefofarmy which = 24131 }
+		command = { type = chiefofnavy which = 24138 }
+		command = { type = chiefofair which = 24144 }
+	}
+	action_c = {
+		name = "ACTIONNAME2200C" # No way!
+		ai_chance = 3
+		command = { type = leave_alliance }
+		command = { type = domestic which = political_left value = 2 }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = SOV value = 30 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = dissent value = 25 }
+		command = { type = trigger which = 2005 } # GER
+	}
+}
+
+#########################################################################
+#  The End of Czechoslovakia - Slovakia Independent
+#########################################################################
+event = {
+	id = 2201
+	random = no
+	country = CZE
+	name = "EVT_2201_NAME"
+	desc = "EVT_2201_DESC"
+	style = 0
+	picture = "End_Czech"
+
+	# Triggered by GER 2040
+
+	action_a = {
+		name = "ACTIONNAME2201A" # Accept the inevitable (Game Over)
+		ai_chance = 98
+
+		# Seventy two units are deleted:
+		command = { type = leave_alliance }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		###Slovakia Independent###
+		command = { type = secedeprovince which = HUN value = 499 } #Presov
+		command = { type = independence which = SLO value = 1 }
+		command = { type = end_mastery which = SLO }
+		# New for 1.3
+		# Chech territory
+		#command = { type = secedeprovince which = GER value = 476 } #Bratislava
+		#command = { type = secedeprovince which = GER value = 477 } #Banska
+		#command = { type = secedeprovince which = GER value = 478 } #Zilina
+		#command = { type = secedeprovince which = GER value = 490 } #Kosice
+		# Slovak territory
+		#command = { type = secedeprovince which = GER value = 470 }
+		#command = { type = secedeprovince which = GER value = 469 }
+		#command = { type = secedeprovince which = GER value = 468 }
+    		#command = { type = secedeprovince which = GER value = 475 }
+		command = { type = trigger which = 2006 } # GER
+	}
+	action_b = {
+		name = "ACTIONNAME2201B" # Fight!
+		ai_chance = 2
+		command = { type = leave_alliance }
+		command = { type = domestic which = political_left value = 2 }
+		command = { type = dissent value = 30 }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = SOV value = 25 }
+		command = { type = trigger which = 2007 } # GER
+	}
+}
+#########################################################################
+#  The End of Czechoslovakia - Partitioning
+#########################################################################
+event = {
+	id = 2202
+	random = no
+	country = CZE
+	name = "EVT_2202_NAME"
+	desc = "EVT_2202_DESC"
+	style = 0
+	picture = "CZE_Partition"
+
+	# Triggered by GER 2040
+
+	action_a = {
+		name = "ACTIONNAME2202A" # Accept the inevitable (Game Over)
+		command = { type = leave_alliance }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+
+		command = { type = secedeprovince which = HUN value = 476 } #Bratislava
+		command = { type = secedeprovince which = HUN value = 477 } #Banska
+		command = { type = secedeprovince which = HUN value = 478 } #Zilina
+		command = { type = secedeprovince which = HUN value = 490 } #Kosice
+		command = { type = secedeprovince which = HUN value = 499 } #Presov
+		# Slovak territory
+		command = { type = secedeprovince which = GER value = 470 }
+		command = { type = secedeprovince which = GER value = 469 }
+		command = { type = secedeprovince which = GER value = 468 }
+    		command = { type = secedeprovince which = GER value = 475 }
+
+		command = { type = trigger which = 2011 } # GER
+		command = { type = trigger which = 2501 } # HUN
+	}
+	action_b = {
+		name = "ACTIONNAME2202B" # Fight!
+		command = { type = leave_alliance }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = HUN value = -25 }
+		command = { type = relation which = SOV value = 20 }
+		command = { type = relation which = ENG value = 15 } # new for 1.3
+		command = { type = relation which = FRA value = 15 } # new for 1.3
+		command = { type = domestic which = political_left value = 2 }
+		command = { type = dissent value = 10 }
+		command = { type = trigger which = 2012 } # GER
+		command = { type = trigger which = 2502 } # HUN
+	}
+}

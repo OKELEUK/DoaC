@@ -1,0 +1,59 @@
+UCS;Ruling Cabinet - Start;Name;Pool;Ideology;Personality;Loyalty;Picturename;Country
+;Replacements;Name;Pool;Ideology;Personality;Loyalty;Picturename;x
+63601;Head of State;James Burr V. Allred;36;NS;Stern Imperialist;High;M6040;x
+63602;Head of Government;Luis G. Quintana;36;NS;Silent Workhorse;High;M36012;x
+63603;Foreign Minister;Pino G. Calles;36;NS;Biased Intellectual;Very Low;M36011;x
+63604;Foreign Minister;Luis Bossano;36;NS;Ideological Crusader;Medium;M40081;x
+63605;Foreign Minister;Lawrence Dennis;36;NS;Apologetic Clerk;High;M6071;x
+63606;Foreign Minister;Gustavo Cuervo Rubio;36;NS;Iron Fisted Brute;Medium;M33057;x
+63607;Foreign Minister;Samuel Luis Aranga;36;NS;Great Compromiser;High;M95048;x
+63608;Foreign Minister;Francisco R. Serrano;36;NS;General Staffer;Medium;M36057;x
+63609;Foreign Minister;Julio Ortega Frier;36;NS;The Cloak N Dagger Schemer;Medium;M49047;x
+63610;Minister of Armament;Alberto O'Farrill;36;NS;Administrative Genius;Medium;M33070;x
+63611;Minister of Armament;Francis Townsend;36;NS;Resource Industrialist;Very High;M6095;x
+63612;Minister of Armament;Manuel Arroyo;36;NS;Theoretical Scientist;Medium;M46031;x
+63613;Minister of Armament;Manuel M. Marquez;36;NS;laissez-faire capitalist;Medium;M36034;x
+63614;Minister of Armament;Luis G. Quintana;36;NS;Military Entrepreneur;Low;M36012;x
+63615;Minister of Armament;Arthur Tenney Emerson;36;NS;Battle Fleet Proponent;Medium;M571014;x
+63616;Minister of Armament;David Sholtz;36;NS;Submarine Proponent;Medium;M573027;x
+63617;Minister of Armament;José Clemón Sacasa;36;NS;Tank Proponent;Low;M48016;x
+63618;Minister of Armament;Harry Hill McAllister;36;NS;Infantry Proponent;Medium;M573017;x
+63619;Minister of Armament;Tobias Zúñiaga Montúfar;36;NS;Air to Ground Proponent;High;M47033;x
+63620;Minister of Armament;Juan Andrew Almazan;36;NS;Corrupt Kleptocrat;Medium;M36014;x
+63621;Minister of Armament;Frederick Preston Cone;36;NS;Air to Sea Proponent;Medium;M573023;x
+63622;Minister of Armament;John E. Anderson;36;NS;Strategic Air Proponent;Medium;M571016;x
+63623;Minister of Armament;Spessard Lindsay Holland;36;SC;Air Superiority Proponent;Medium;M573004;x
+63624;Minister of Security;Adolfo Ruiz Cortines;36;NS;Silent Lawyer;Medium;M36065;x
+63625;Minister of Security;Woodall Rodgers;36;NS;Compassionate Gentleman;Medium;M571018;x
+63626;Minister of Security;Michael Alldredge Harlan;26;NS;Crime Fighter;Medium;M571019;x
+63627;Minister of Security;George Seargeant;36;NS;Prince of Terror;Medium;M571020;x
+63628;Minister of Security;Frank Murray Dixon;36;NS;Back Stabber;Medium;M573028;x
+63629;Minister of Security;Millard Fillmore Caldwell Jr.;36;NS;Man of the People;Medium;M573031;x
+63630;Minister of Security;Cornelius Pickett;36;NS;Efficient Sociopath;Medium;M571017;x
+63631;Minister of Security;Fulgencio Batista;36;NS;Crooked Kleptocrat;High;M33034;x
+63632;Head of Military Intelligence;Federico Laredo Brú;36;NS;Technical Specialist;Medium;M33014;x
+63633;Head of Military Intelligence;Gordon Weaver Browning;36;NS;Logistics Specialist;Medium;M573037;x
+63634;Head of Military Intelligence;Sam J. Ervin Jr.;36;NS;Political Specialist;Medium;M571021;x
+63635;Head of Military Intelligence;Otis Massey;36;NS;Dismal Enigma;Medium;M571006;x
+63636;Head of Military Intelligence;Robert Earl Sherman;36;NS;Industrial Specialist;Medium;M571022;x
+63637;Head of Military Intelligence;Benjamin Travis Laney;36;NS;Naval Intelligence Specialist;Medium;M573038;x
+63638;Chief of Staff;Larry K. Arnold;36;NS;School of Manoeuvre;Medium;M571023;x
+63639;Chief of Staff;Roscoe Murray;36;NS;School of Fire Support;Medium;M573041;x
+63640;Chief of Staff;William S. Graves;36;NS;School of Mass Combat;Medium;M573007;x
+63641;Chief of Staff;Manuel Peña Battle;36;NS;School of Defence;Very High;M49049;x
+63642;Chief of Staff;Lee O. Willard;36;NS;School of Psychology;Medium;M571011;x
+63643;Chief of Army;Cesar Parada Henriques;36;NS;Elastic Defence Doctrine;Medium;M36110;x
+63644;Chief of Army;R.J. Stockman;36;NS;Static Defence Doctrine;Medium;M571025;x
+63645;Chief of Army;John Polin;36;NS;Decisive Battle Doctrine;Medium;M573043;x
+63646;Chief of Army;Myron G. Ashcroft;36;NS;Armoured Spearhead Doctrine;Medium;M571026;x
+63647;Chief of Army;Fielding Lewis Wright;36;NS;Guns and Butter Doctrine;Medium;M573044;x
+63648;Chief of Navy;Harold Eisert;36;NS;Open Seas Doctrine;Medium;M573046;x
+63649;Chief of Navy;Mario Espinoza Gacitua;36;NS;Decisive Naval Battle Doctrine;Medium;M37019;x
+63650;Chief of Navy;Richard Powers;36;NS;Power Projection Doctrine;Medium;M573048;x
+63651;Chief of Navy;Philip R. Bush;36;NS;Indirect Approach Doctrine;Medium;M571027;x
+63652;Chief of Navy;Simeon Slavens Willis;36;NS;Base Control Doctrine;Medium;M573047;x
+63653;Chief of Air Force;John Faulkenberry;36;NS;Air Superiority Doctrine;Medium;M573051;x
+63654;Chief of Air Force;Enrique C. Rolas;36;NS;Naval Aviation Doctrine;Medium;M33020;x
+63655;Chief of Air Force;Richard C. Collins;36;NS;Army Aviation Doctrine;Medium;M571028;x
+63656;Chief of Air Force;Philip Ardery;36;NS;Carpet Bombing Doctrine;Medium;M573049;x
+63657;Chief of Air Force;Thomas Lowry Bailey;36;NS;Vertical Envelopment Doctrine;Medium;M573050;x

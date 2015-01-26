@@ -1,0 +1,1758 @@
+
+event = {
+	id = 15100
+	trigger = { 
+	puppet = { country = BRU country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15101
+	trigger = { 
+	puppet = { country = EGY country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 15 }
+		}
+	}
+
+event = {
+	id = 15102
+	trigger = { 
+	puppet = { country = JOR country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15103
+	trigger = { 
+	puppet = { country = SAR country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15104
+	trigger = { 
+	puppet = { country = MLY country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15105
+	trigger = { 
+	puppet = { country = PAL country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15106
+	trigger = { 
+	puppet = { country = CYP country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15107
+	trigger = { 
+	puppet = { country = EAF country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15108
+	trigger = { 
+	puppet = { country = GLD country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+
+event = {
+	id = 15109
+	trigger = { 
+	puppet = { country = GUY country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15110
+	trigger = { 
+	puppet = { country = ISR country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15111
+	trigger = { 
+	puppet = { country = NIG country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15112
+	trigger = { 
+	puppet = { country = RHO country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+
+event = {
+	id = 15113
+	trigger = { 
+	puppet = { country = SIE country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15114
+	trigger = { 
+	puppet = { country = SUD country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15115
+	trigger = { 
+		puppet = { country = IND country = ENG }
+		NOT = { event = 3406 } #  The Independence of India
+		}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 15 }
+		}
+	}
+
+event = {
+	id = 15116
+	trigger = { 
+		puppet = { country = PAK country = ENG }
+		NOT = { event = 3406 } #  The Independence of India
+		}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15117
+	trigger = { 
+	puppet = { country = LEB country = FRA }
+	NOT = { event = 100018 }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15118
+	trigger = { 
+	puppet = { country = SYR country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15119
+	trigger = { 
+	puppet = { country = ALG country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 25 }
+		}
+	}
+
+event = {
+	id = 15120
+	trigger = { 
+	puppet = { country = IDC country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 20 }
+		}
+	}
+
+event = {
+	id = 15121
+	trigger = { 
+	puppet = { country = MOR country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15122
+	trigger = { 
+	puppet = { country = TUN country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15123
+	trigger = { 
+	puppet = { country = BEN country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+
+event = {
+	id = 15124
+	trigger = { 
+	puppet = { country = CAM country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+
+event = {
+	id = 15125
+	trigger = { 
+	puppet = { country = EQA country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+event = {
+	id = 15126
+	trigger = { 
+	puppet = { country = GAB country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+
+event = {
+	id = 15127
+	trigger = { 
+	puppet = { country = GUI country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15128
+	trigger = { 
+	puppet = { country = LAO country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+
+event = {
+	id = 15129
+	trigger = { 
+	puppet = { country = MAD country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15130
+	trigger = { 
+	puppet = { country = MAL country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15131
+	trigger = { 
+	puppet = { country = VIE country = FRA }
+	}
+	random = no
+
+	country = FRA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15132
+	trigger = { 
+	puppet = { country = ANG country = POR }
+	}
+	random = no
+
+	country = POR 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15133
+	trigger = { 
+	puppet = { country = MOZ country = POR }
+	}
+	random = no
+
+	country = POR 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15134
+	trigger = { 
+	puppet = { country = INO country = HOL }
+	}
+	random = no
+
+	country = HOL 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 20 }
+		}
+	}
+
+event = {
+	id = 15135
+	trigger = { 
+	puppet = { country = CON country = BEL }
+	}
+	random = no
+
+	country = BEL 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 15 }
+		}
+	}
+
+event = {
+	id = 15136
+	trigger = { 
+	puppet = { country = SCA country = GER }
+	}
+	random = no
+
+	country = GER 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 15 }
+		}
+	}
+
+event = {
+	id = 15137
+	trigger = { 
+	puppet = { country = SCA country = SOV }
+	}
+	random = no
+
+	country = SOV 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15138
+	trigger = { 
+	puppet = { country = SCA country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15139
+	trigger = { 
+	puppet = { country = SCA country = USA }
+	}
+	random = no
+
+	country = USA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+event = {
+	id = 15140
+	trigger = { 
+	puppet = { country = LIB country = ITA }
+	}
+	random = no
+
+	country = ITA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 15 }
+		}
+	}
+
+event = {
+	id = 15141
+	trigger = { 
+	puppet = { country = ETH country = ITA }
+	}
+	random = no
+
+	country = ITA 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+
+event = {
+	id = 15142
+	trigger = {
+		puppet = { country = RUS country = GER }
+		}
+	random = no
+
+	country = GER
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 25 }
+		}
+	}
+	
+
+event = {
+	id = 15143
+	trigger = { 
+	puppet = { country = U70 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+event = {
+	id = 15144
+	trigger = { 
+	puppet = { country = U72 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+event = {
+	id = 15145
+	trigger = { 
+	puppet = { country = U72 country = SOV }
+	}
+	random = no
+
+	country = SOV 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	} 
+
+event = {
+	id = 15146
+	trigger = { 
+	puppet = { country = U72 country = CHC }
+	}
+	random = no
+
+	country = CHC
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15147
+	trigger = { 
+	puppet = { country = U75 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15148
+	trigger = { 
+	puppet = { country = U77 country = USA }
+	}
+	random = no
+
+	country = USA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 15 }
+		}
+	}
+
+event = {
+	id = 15149
+	trigger = { 
+	puppet = { country = U77 country = GER }
+	}
+	random = no
+
+	country = GER
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 15 }
+		}
+	}
+
+event = {
+	id = 15150
+	trigger = { 
+	puppet = { country = U78 country = USA }
+	}
+	random = no
+
+	country = USA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15151
+	trigger = { 
+	puppet = { country = U78 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15152
+	trigger = { 
+	puppet = { country = U78 country = GER }
+	}
+	random = no
+
+	country = GER
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15153
+	trigger = { 
+	puppet = { country = U79 country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15154
+	trigger = { 
+	puppet = { country = U79 country = USA }
+	}
+	random = no
+
+	country = USA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15155
+	trigger = { 
+	puppet = { country = U80 country = ENG }
+	}
+	random = no
+
+	country = ENG 
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15156
+	trigger = { 
+	puppet = { country = U81 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15157
+	trigger = { 
+	puppet = { country = U82 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15158
+	trigger = { 
+	puppet = { country = U83 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15159
+	trigger = { 
+	puppet = { country = U84 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15160
+	trigger = { 
+	puppet = { country = U85 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15161
+	trigger = { 
+	puppet = { country = U86 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15162
+	trigger = { 
+	puppet = { country = U88 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15163
+	trigger = { 
+	puppet = { country = U89 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15164
+	trigger = { 
+	puppet = { country = U90 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15165
+	trigger = { 
+	puppet = { country = U91 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15166
+	trigger = { 
+	puppet = { country = U92 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15167
+	trigger = { 
+	puppet = { country = U93 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15168
+	trigger = { 
+	puppet = { country = U93 country = SPA }
+	}
+	random = no
+
+	country = SPA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15169
+	trigger = { 
+	puppet = { country = U93 country = SPR }
+	}
+	random = no
+
+	country = SPR
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15170
+	trigger = { 
+	puppet = { country = U94 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15171
+	trigger = { 
+	puppet = { country = U95 country = BEL }
+	}
+	random = no
+
+	country = BEL
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15172
+	trigger = { 
+	puppet = { country = U96 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 10 }
+		}
+	}
+
+event = {
+	id = 15173
+	trigger = { 
+	puppet = { country = U97 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15174
+	trigger = { 
+	puppet = { country = U98 country = ENG }
+	}
+	random = no
+
+	country = ENG
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}
+
+event = {
+	id = 15175
+	trigger = { 
+	puppet = { country = U99 country = FRA }
+	}
+	random = no
+
+	country = FRA
+
+	name = "EVT_15100_NAME"
+	desc = "EVT_15100_DESC"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_15100_ACTA"
+		command = { type = dissent value = 5 }
+		}
+	}

@@ -1,0 +1,198 @@
+####################################
+# Germany 20000 - 20999
+####################################
+################
+# German Lost Paris and prepares Rhine Defense
+#############################################
+event = {
+	id = 20000
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		NOT = { control = { province = 56 data = GER } } # Paris
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = june year = 1944}
+	offset = 4
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_ParisFalls.ai" }
+	}
+}
+####################################
+# France 21000 - 21999
+####################################
+
+####################################
+# Japan 22000 - 22999
+####################################
+
+####################################
+# Spain Republic and Nationalist 23000 - 23999
+####################################
+
+####################################
+# United Kingdom 24000 - 24999
+####################################
+
+####################################
+# Soviet Union 25000 - 25999
+####################################
+################
+# Russia slows down for the winter
+#############################################
+event = {
+	id = 25000
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = november year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = november year = 1944 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Backoff.ai" }
+	}
+}
+################
+# Russia starts back up after winter
+#############################################
+event = {
+	id = 25001
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 25000
+		OR = {
+			AND = {
+				random = 10
+				month = 2 # March
+				NOT = { month = 3 } # April
+			}
+			AND = {
+				random = 20
+				month = 3 # April
+				NOT = { month = 4 } # May
+			}
+			AND = {
+				random = 30
+				month = 4 # May
+				NOT = { month = 5 } # June
+			}
+			AND = {
+				month = 5 # June
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = march year = 1945 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "SOV_1944.ai" }
+	}
+}
+####################################
+# Italy 26000 - 26999
+####################################
+
+####################################
+# China and the Warlords 27000 - 27999
+####################################
+
+####################################
+# USA 28000 - 28999
+####################################
+################
+# USA Camps up till the Spring
+#############################################
+event = {
+	id = 28000
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		NOT = { control = { province = 56 data = GER } } # Paris
+		NOT = { control = { province = 44 data = GER } } # Lille
+		NOT = { control = { province = 72 data = GER } } # Metz
+		NOT = { control = { province = 320 data = GER } } # Vichy
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Backoff.ai" }
+	}
+}
+################
+# Usa starts back up after winter
+#############################################
+event = {
+	id = 28001
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 28000
+		OR = {
+			AND = {
+				random = 10
+				month = 2 # March
+				NOT = { month = 3 } # April
+			}
+			AND = {
+				random = 20
+				month = 3 # April
+				NOT = { month = 4 } # May
+			}
+			AND = {
+				random = 30
+				month = 4 # May
+				NOT = { month = 5 } # June
+			}
+			AND = {
+				month = 5 # June
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = march year = 1945 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "USA_1944.ai" }
+	}
+}
+####################################
+# Other Minors 29000 - 29999
+####################################

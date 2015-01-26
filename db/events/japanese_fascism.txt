@@ -1,0 +1,35 @@
+# First event is "the 2-2-6 Incident" in the HoI2 file
+
+#########################################################################
+#  Imperial Rule Assistance Society
+#########################################################################
+
+event = { 
+	id = 666
+	random = no
+	country = JAP
+	
+	name = EVT_666_NAME
+	desc = EVT_666_DESC
+	style = 0
+	picture = "tojo"
+
+	trigger = {
+		OR = {
+				AND = {
+						war = { country = JAP  country = CHI }
+						year = 1940
+						}
+				war = { country = JAP  country = ENG }
+				war = { country = JAP country = USA }
+		}
+	}
+	action_a = { # A new path for Japan
+		name = EVT_666_ACTA
+		command = { type = set_domestic	which = defense_lobby value = 10 }
+		command = { type = set_domestic	which = interventionism value = 10 }
+		command = { type = set_domestic which = freedom value = 3 }
+	}
+}
+
+#All textstrings added to event_text.csv

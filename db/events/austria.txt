@@ -1,0 +1,65 @@
+#
+# HoI - Austrian Events
+#
+#		written by Henrik Fåhraeus
+#
+
+#########################################################################
+#  Anschluss
+#########################################################################
+event = { 
+	id = 2100
+	random = no
+	country = AUS
+	
+	# Triggered by GER 2020
+	
+	name = "EVT_2100_NAME"
+	desc = "EVT_2100_DESC"
+	style = 0
+	picture = "anchsluss"
+	
+	action_a = {
+		name = "ACTIONNAME2100A" # Become part of the Greater Reich (Game Over)
+		ai_chance = 96
+		command = { type = trigger which = 2001 } # GER
+	}
+	action_b = {
+		name = "ACTIONNAME2100B" # Join the Axis
+		ai_chance = 3
+		command = { type = alliance which = GER }
+		command = { type = access which = GER }
+		command = { type = dissent value = 10 }
+		command = { type = relation which = ITA value = 15 }
+		command = { type = set_domestic which = democratic value = 2 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = domestic which = freedom value = -2 }
+		command = { type = trigger which = 2002 } # GER
+		command = { type = headofstate which = 23043 }
+		command = { type = headofgovernment which = 23050 }
+		command = { type = foreignminister which = 23060 }
+		command = { type = armamentminister which = 23071 }
+		command = { type = ministerofsecurity which = 23085 }
+		command = { type = ministerofintelligence which = 23096 }
+		command = { type = chiefofstaff which = 23106 }
+		command = { type = chiefofarmy which = 23117 }
+		command = { type = chiefofnavy which = 23125 }
+		command = { type = chiefofair which = 23010 }
+		command = { type = addcore which = 470 } # The rest of the Czech Republic
+		command = { type = addcore which = 468 }
+		command = { type = addcore which = 469 }
+		command = { type = addcore which = 475 }
+		command = { type = sleepevent which = 2040 }
+	}
+	action_c = {
+		name = "ACTIONNAME2100C" # Austria shall remain independent
+		ai_chance = 1
+		command = { type = dissent value = 40 }
+		command = { type = relation which = GER value = -125 }
+		command = { type = relation which = ITA value = 15 }
+		command = { type = relation which = ENG value = 5 }
+		command = { type = relation which = FRA value = 5 }
+		command = { type = set_domestic which = democratic value = 1 }
+		command = { type = set_domestic which = political_left value = 2 }
+	}
+}

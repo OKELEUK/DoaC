@@ -1,0 +1,215 @@
+#
+# HoI - Sweden Events
+#
+#		written by Henrik Fåhraeus
+#
+
+#########################################################################
+#  The Finnish Winter War - Swedish Direct Intervention
+#########################################################################
+event = {
+	id = 3300
+	random = no
+	country = SWE
+
+	trigger = {
+		war = { country = SOV country = FIN }
+		event = 2621 #Finnish Winter War-Demands rejected
+		OR = {
+			ideology = social_conservative
+			ideology = paternal_autocrat
+			ideology = fascist
+			ideology = nazi
+		}
+		NOT = {
+			alliance = { country = FIN country = GER }
+			alliance = { country = SWE country = GER }
+			alliance = { country = SWE country = ENG }
+			alliance = { country = SWE country = SOV }
+		}
+	}
+
+	name = "EVT_3300_NAME"
+	desc = "EVT_3300_DESC"
+        picture = "sweden_helps_finland"
+	style = 0
+
+	date = { day = 17 month = july year = 1936 }
+	offset = 7
+	deathdate = { day = 31 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTIONNAME3300A" # Intervene for our brother people!
+		ai_chance = 90
+		command = { type = belligerence which = SWE value = 1 }
+		command = { type = alliance which = FIN }
+#		command = { type = war which = SOV }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = relation which = FIN value = 25 }
+		command = { type = relation which = NOR value = 10 }
+		command = { type = trigger which = 3202 } # FIN
+		command = { type = setflag which = anti_bolshevik_sweden }
+	}
+	action_b = {
+		name = "ACTIONNAME3300B" # Send volunteers and materiel
+		ai_chance = 10
+		command = { type = manpowerpool value = -10 }
+		command = { type = supplies value = -1000 }
+		command = { type = relation which = SOV value = -20 }
+		command = { type = relation which = FIN value = 10 }
+		command = { type = relation which = NOR value = 5 }
+		command = { type = trigger which = 3201 } # FIN
+	}
+}
+
+#########################################################################
+#  The Finnish Winter War - Swedish Non-Intervention
+#########################################################################
+event = {
+	id = 3301
+	random = no
+	country = SWE
+
+	trigger = {
+		war = { country = SOV country = FIN }
+		event = 2621 #Finnish Winter War-Demands rejected
+		atwar = no
+		NOT = {
+			OR = {
+				ideology = social_conservative
+				ideology = paternal_autocrat
+				ideology = fascist
+				ideology = nazi
+			}
+		}
+		NOT = {
+			alliance = { country = FIN country = GER }
+		}
+	}
+
+	name = "EVT_3301_NAME"
+	desc = "EVT_3301_DESC"
+        picture = "per_albin"
+	style = 0
+
+	date = { day = 17 month = july year = 1936 }
+	offset = 7
+	deathdate = { day = 31 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTIONNAME3301A" # Send volunteers and materiel
+		ai_chance = 98
+		command = { type = relation which = SOV value = -20 }
+		command = { type = relation which = FIN value = 10 }
+		command = { type = relation which = NOR value = 5 }
+		command = { type = manpowerpool value = -10 }
+		command = { type = supplies value = -1000 }
+		command = { type = trigger which = 3201 } # FIN
+	}
+	action_b = {
+		name = "ACTIONNAME3301B" # Intervene for our brother people!
+		ai_chance = 2
+		command = { type = belligerence which = SWE value = 1 }
+		command = { type = alliance which = FIN }
+#		command = { type = war which = SOV }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = relation which = FIN value = 25 }
+		command = { type = relation which = NOR value = 10 }
+		command = { type = access which = FIN }
+		command = { type = trigger which = 3202 } # FIN
+		command = { type = setflag which = anti_bolshevik_sweden }
+	}
+}
+
+#########################################################################
+#  End of the Swedish Winter War
+#########################################################################
+event = {
+	id = 3302
+	random = no
+	country = SWE
+
+	# Triggered by SOV 2630
+
+	name = "EVT_3302_NAME"
+	desc = "EVT_3302_DESC"
+        picture = "finland_sweden"
+	style = 0
+
+
+	action_a = {
+		name = "ACTIONNAME3302A" # Accept Peace Proposal
+		command = { type = peace which = SOV value = 1 }
+		command = { type = relation which = SOV value = 10 }
+		command = { type = dissent value = -10 }
+		command = { type = trigger which = 2631 } # SOV
+	}
+}
+#########################################################################
+#  The Summer Government
+#########################################################################
+event = {
+	id = 3303
+	random = no
+	country = SWE
+
+	trigger = {
+	}
+	
+
+	name = "EVT_3303_NAME"
+	desc = "EVT_3303_DESC"
+        picture = "per_albin"
+	style = 0
+
+	date = { day = 19 month = june year = 1936 }
+	offset = 1
+
+	action_a = {
+		name = "ACTIONNAME3303A" # Install our allies
+		command = { type = set_domestic	which = political_left value = 6 }
+		command = { type = set_domestic	which = free_market value = 7 }
+		command = { type = headofgovernment which = 7002 } #Axel Pehrsson-Bramstorp
+		command = { type = foreignminister which = 7003 } #Karl G. Westman
+		command = { type = armamentminister which = 7004 } #Vilmar Ljungdahl
+		command = { type = ministerofsecurity which = 7005 } #Thorwald Bergquist
+	}
+}
+#########################################################################
+#  The End of the Summer Government
+#########################################################################
+event = {
+	id = 3304
+	random = no
+	country = SWE
+
+	trigger = {
+			OR = {
+				ideology = social_conservative
+				ideology = market_liberal
+				ideology = social_liberal
+				ideology = social_democrat
+				}
+	}
+	
+
+	name = "EVT_3304_NAME"
+	desc = "EVT_3303_DESC"
+        picture = "per_albin"
+	style = 0
+
+	date = { day = 28 month = september year = 1936 }
+	offset = 1
+
+	action_a = {
+		name = "ACTIONNAME3304A" # Return to power
+		command = { type = set_domestic	which = political_left value = 10 }
+		command = { type = set_domestic	which = free_market value = 6 }
+		command = { type = headofgovernment which = 7033 } #Per Albin Hansson
+		command = { type = foreignminister which = 7038 } #Richard Sandler
+		command = { type = armamentminister which = 7047 } #Ernst Wigforss
+		command = { type = ministerofsecurity which = 7058 } #Karl Schlyter 
+	}
+}

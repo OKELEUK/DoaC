@@ -1,0 +1,198 @@
+#
+# HoI - Siam Events
+#
+#		written by Henrik Fåhraeus
+#
+
+
+#########################################################################
+# Japan puts Pressure on Siam (Axis Japan)
+#########################################################################
+event = { 
+	id = 4500
+	random = no
+	country = SIA
+	
+	# Triggered by JAP 3806
+	
+	name = "EVT_4500_NAME"
+	desc = "EVT_4500_DESC"
+        picture = "siam"
+	style = 0
+	
+	action_a = {
+		name = "ACTIONNAME4500A" # Accept
+		ai_chance = 97
+		command = { type = trigger which = 3808 } # Japan
+		command = { type = alliance which = GER }
+		command = { type = addcore which = 1304 }
+		command = { type = addcore which = 1349 }
+		command = { type = addcore which = 1350 }
+                #command = { type = secedeprovince which = JAP value = 1344 }
+                #command = { type = secedeprovince which = JAP value = 1345 }
+                #command = { type = secedeprovince which = JAP value = 1347 }
+                #command = { type = secedeprovince which = JAP value = 1348 }
+            	#command = { type = secedeprovince which = JAP value = 1303 }
+                #command = { type = secedeprovince which = JAP value = 1330 }
+		command = { type = relation which = JAP value = 20 }
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = ENG value = -25 }
+		command = { type = relation which = FRA value = -20 }
+		command = { type = set_domestic which = democratic value = 2 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 62001 }
+		command = { type = headofgovernment which = 62035 }
+		command = { type = foreignminister which = 62043 }
+		command = { type = armamentminister which = 62059 }
+		command = { type = ministerofsecurity which = 62073 }
+		command = { type = ministerofintelligence which = 62085 }
+		command = { type = chiefofstaff which = 62091 }
+		command = { type = chiefofarmy which = 62097 }
+		command = { type = chiefofnavy which = 62102 }
+		command = { type = chiefofair which = 62107 }
+	}
+	action_b = {
+		name = "ACTIONNAME4500B" # Decline
+		ai_chance = 3
+		command = { type = relation which = JAP value = -15 }
+		command = { type = relation which = GER value = -10 }
+		command = { type = relation which = ENG value = 15 }
+		command = { type = relation which = FRA value = 15 }
+		command = { type = relation which = USA value = 10 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3809 } # Japan
+	}
+}
+
+#########################################################################
+# Japan puts Pressure on Siam ("Neutral" Japan)
+#########################################################################
+event = { 
+	id = 4501
+	random = no
+	country = SIA
+	
+	# Triggered by JAP 3807
+	
+	name = "EVT_4501_NAME"
+	desc = "EVT_4501_DESC"
+       picture = "siam"
+	style = 0
+	
+	action_a = {
+		name = "ACTIONNAME4501A" # Accept
+		ai_chance = 98
+		command = { type = trigger which = 3808 } # Japan
+		command = { type = alliance which = JAP }
+		command = { type = war which = ENG }
+		command = { type = addcore which = 1304 }
+		command = { type = addcore which = 1349 }
+		command = { type = addcore which = 1350 }
+                #command = { type = secedeprovince which = JAP value = 1303 }
+                #command = { type = secedeprovince which = JAP value = 1330 }
+                #command = { type = secedeprovince which = JAP value = 1344 }
+                #command = { type = secedeprovince which = JAP value = 1345 }
+                #command = { type = secedeprovince which = JAP value = 1347 }
+                #command = { type = secedeprovince which = JAP value = 1348 }
+		command = { type = relation which = JAP value = 20 }
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = ENG value = -25 }
+		command = { type = relation which = FRA value = -20 }
+		command = { type = set_domestic which = democratic value = 2 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 62001 }
+		command = { type = headofgovernment which = 62035 }
+		command = { type = foreignminister which = 62043 }
+		command = { type = armamentminister which = 62059 }
+		command = { type = ministerofsecurity which = 62073 }
+		command = { type = ministerofintelligence which = 62085 }
+		command = { type = chiefofstaff which = 62091 }
+		command = { type = chiefofarmy which = 62097 }
+		command = { type = chiefofnavy which = 62102 }
+		command = { type = chiefofair which = 62107 }
+	}
+	action_b = {
+		name = "ACTIONNAME4501B" # Decline
+		ai_chance = 2
+		command = { type = relation which = JAP value = -15 }
+		command = { type = relation which = GER value = -10 }
+		command = { type = relation which = ENG value = 15 }
+		command = { type = relation which = FRA value = 15 }
+		command = { type = relation which = USA value = 10 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3809 } # Japan
+	}
+}
+#########################################################################
+# Siam Gives Up
+#########################################################################
+event = {
+	id = 3813
+	random = no
+	country = SIA
+
+	trigger = {
+		war = { country = SIA country = ENG }
+		OR = {
+			event = 43 # Japan already surrendered
+			NOT = { exists = JAP }
+			AND = {
+				OR = {
+					control = { province = 1343 data = ENG }
+					control = { province = 1343 data = FRA }
+					control = { province = 1343 data = AST }
+					control = { province = 1343 data = NZL }
+					control = { province = 1343 data = USA }
+					}
+				OR = {
+					control = { province = 1345 data = ENG }
+					control = { province = 1345 data = FRA }
+					control = { province = 1345 data = AST }
+					control = { province = 1345 data = NZL }
+					control = { province = 1345 data = USA }
+					}
+				}
+			}
+		}
+
+	name = "EVT_3813_NAME"
+	desc = "EVT_3813_DESC"
+	style = 0
+        picture = "JAP_surrender"
+
+        date = { day = 0 month = january year = 1939 }
+        offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "EVT_3813_ACTA" #
+		command = { type = end_puppet }
+		command = { type = leave_alliance }
+		command = { type = peace which = USA value = 1 }
+		command = { type = peace which = SAF value = 1 }
+		command = { type = peace which = CAN value = 1 }
+		command = { type = peace which = AST value = 1 }
+		command = { type = peace which = FRA value = 1 }
+		command = { type = peace which = NZL value = 1 }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = peace which = CHI value = 1 }
+		command = { type = peace which = CHC value = 1 }
+		command = { type = peace which = SIK value = 1 }
+		command = { type = peace which = PHI value = 1 }
+		command = { type = peace which = LIB value = 1 }
+		command = { type = peace which = PAN value = 1 }
+		command = { type = access which = USA }
+		command = { type = access which = ENG }
+		command = { type = access which = FRA }
+		command = { type = access which = CAN }
+		command = { type = access which = AST }
+		command = { type = access which = NZL }
+		command = { type = access which = SAF }
+		command = { type = access which = PAN } #was ITA
+		command = { type = access which = SOV }
+		command = { type = secedeprovince which = FRA value = 1339 } #Indochina
+		command = { type = secedeprovince which = FRA value = 1340 } #Indochina
+		command = { type = secedeprovince which = FRA value = 1341 } #Indochina
+	}
+}
