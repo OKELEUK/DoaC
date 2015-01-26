@@ -1,7 +1,0 @@
-# Balkans Campaign AI File by Lothos 
-  
- exp_force_ratio = 0.05 
- exp_force_ratios = { 
-   GRE = 1.0 
- }  
- 

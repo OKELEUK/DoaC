@@ -1,8 +1,0 @@
-# Shuts invasion down will be used for minors that join a major power
-
-###################################
-# Invasions and Naval
-###################################
-invasion = { 
-	invasion	= no
-} 

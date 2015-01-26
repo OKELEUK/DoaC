@@ -1,7 +1,0 @@
-#
-# HoI - Denmark Events
-#
-#		written by Henrik Fåhraeus
-#
-
-# DEN 3900 moved to UK
